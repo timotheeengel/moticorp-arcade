@@ -9,23 +9,33 @@ public class SpawnerScript : MonoBehaviour {
     public float depth;
     public float height;
 
+    public bool billboarded;
+
     public List<GameObject> foodRefs;
+    public GameObject billboard;
     public GameObject cube;
 
-	// Use this for initialization
-	void Start () {
+    GameObject toSpawn;
+
+    // Use this for initialization
+    void Start () {
         Instantiate(cube).transform.localScale = new Vector3(width*2,height*2,depth*2);
         InvokeRepeating("SpawnFood", 0, rate);
 	}
 
     public void SpawnFood()
     {
+        if (billboarded)
+            toSpawn = billboard;
+        else
+            toSpawn = foodRefs[Random.Range(0, foodRefs.Count)];
+
         Vector3 spawnPosition = new Vector3(
             Random.Range(-width, width),
             height,
             Random.Range(-depth, depth));
         
-            Instantiate(foodRefs[Random.Range(0, foodRefs.Count)], spawnPosition, Quaternion.identity);
+            Instantiate(toSpawn, spawnPosition, Quaternion.identity);
     }
 	
 	// Update is called once per frame
