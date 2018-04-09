@@ -69,8 +69,11 @@ public class JoyconDemo : MonoBehaviour {
 
             stick = j.GetStick();
 
+            
+
             // Gyro values: x, y, z axis values (in radians per second)
-            gyro = j.GetGyro();
+            gyro += j.GetGyro();
+            
 
             // Accel values:  x, y, z axis values (in Gs)
             accel = j.GetAccel();
@@ -86,17 +89,16 @@ public class JoyconDemo : MonoBehaviour {
             //
             //accel -= sumAccel;
 
-            //-x->+z
-            //
-            //
+            
 
             orientation = j.GetVector();
             //gameObject.transform.Translate(accel);
+            //gameObject.transform.localPosition = new Vector3(-accel.z, -accel.y, -accel.x);
             //gameObject.transform.localPosition = accel;
-            orientation = new Quaternion(orientation.x, orientation.z, orientation.y, orientation.w);
-            gameObject.transform.localRotation = Quaternion.Inverse(orientation);
-            
-            Debug.DrawRay(Vector3.zero, new Vector3(orientation.x,orientation.y,orientation.z)*20, Color.red, 1);
+            //orientation = new Quaternion(orientation.x, orientation.z, orientation.y, orientation.w);
+            gameObject.transform.localRotation = Quaternion.Euler(orientation.eulerAngles.x, orientation.eulerAngles.y, orientation.eulerAngles.z);
+            gyro = orientation.eulerAngles;
+            Debug.DrawRay(Vector3.zero, gyro * 20, Color.red, 1);
         }
     }
 }
