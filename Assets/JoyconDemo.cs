@@ -6,7 +6,7 @@ public class JoyconDemo : MonoBehaviour {
 	
 	private List<Joycon> joycons;
 
-    List<Vector3> totAccel = new List<Vector3>();
+    List<Vector3> toAccel = new List<Vector3>();
     private Vector3 sumAccel;
 
     // Values made available via Unity
@@ -72,6 +72,15 @@ public class JoyconDemo : MonoBehaviour {
             // Gyro values: x, y, z axis values (in radians per second)
             gyro = j.GetGyro();
 
+            if (Mathf.Abs(gyro.x) > 1)
+            {
+                print("X gyro: " + (int)gyro.z);
+            }
+            if (Mathf.Abs(gyro.y) > 1)
+            {
+                print("Y gyro: " + (int)gyro.y);
+            }
+
             // Accel values:  x, y, z axis values (in Gs)
             accel = j.GetAccel();
 
@@ -98,5 +107,15 @@ public class JoyconDemo : MonoBehaviour {
             
             Debug.DrawRay(Vector3.zero, new Vector3(orientation.x,orientation.y,orientation.z)*20, Color.red, 1);
         }
+    }
+
+    public Vector3 GetDemoGyro()
+    {
+        return gyro;
+    }
+
+    public Vector3 GetDemoAccel()
+    {
+        return accel;
     }
 }
