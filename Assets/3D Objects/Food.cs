@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
-    public float killPlane;
-    public List<GameObject> foods;
+    float killPlane;
+    MeshCollider meshCollider;
+    MeshFilter meshFilter;
+    MeshRenderer meshRenderer;
 
-	// Use this for initialization
-	//void Start () {
-	//	if(Random.value < 0.5f)
-    //
-	//}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+        killPlane = -SpawnerScript.instance.height;
+
+        meshCollider = GetComponent<MeshCollider>();
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
+
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (transform.position.y < killPlane)
             Destroy(gameObject);
 	}

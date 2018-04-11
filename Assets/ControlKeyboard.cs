@@ -6,9 +6,12 @@ public class ControlKeyboard : MonoBehaviour {
 
     Rigidbody rigidbody;
     [SerializeField] float movementSpeed = 10.0f;
-	// Use this for initialization
-	void Start () {
+    float limit;
+
+    // Use this for initialization
+    void Start () {
         rigidbody = GetComponent<Rigidbody>();
+        limit = -SpawnerScript.instance.height;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +26,8 @@ public class ControlKeyboard : MonoBehaviour {
             Time.deltaTime * movementSpeed * Input.GetAxis("Horizontal"),
             Time.deltaTime * movementSpeed * Input.GetAxis("Vertical"),
             0);
+
+        movement.y = Mathf.Clamp(movement.y, limit - currentPos.y, -limit - currentPos.y);
 
         rigidbody.MovePosition(currentPos + movement);
     }
