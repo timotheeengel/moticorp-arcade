@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: c0791cc8c30bc154ebaa16aea5dcb0b5
+guid: 059cc31bcf60eb84e95f38a9bdaecf13
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: Material
+    2100002: Material_001
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
@@ -67,7 +68,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -86,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

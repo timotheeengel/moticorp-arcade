@@ -1,16 +1,18 @@
 fileFormatVersion: 2
-guid: 059cc31bcf60eb84e95f38a9bdaecf13
+guid: db06eb1a46920bb45991cdfe74f5cef8
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material
+    2100000: None
+    2100002: Material_001__Tomato
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Sphere_Sphere_002
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

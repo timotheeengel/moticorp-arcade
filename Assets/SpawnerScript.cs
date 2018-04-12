@@ -14,7 +14,7 @@ public class SpawnerScript : MonoBehaviour {
     public float height;
 
     public List<GameObject> foodRefs;
-    public GameObject cube;
+//    public GameObject cube;
 
     GameObject toSpawn;
 
@@ -28,7 +28,7 @@ public class SpawnerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Instantiate(cube).transform.localScale = new Vector3(width*2,height*2,depth*2);
+//        Instantiate(cube).transform.localScale = new Vector3(width*2,height*2,depth*2);
         InvokeRepeating("SpawnFood", 0, rate);
 	}
 
