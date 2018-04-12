@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour {
 
+
+    [SerializeField] Vector3 customGravity = new Vector3 (0, -3, 0);
     public static SpawnerScript instance;
 
     public float rate;
@@ -17,8 +19,8 @@ public class SpawnerScript : MonoBehaviour {
     GameObject toSpawn;
 
     private void Awake()
-    {   
-        Physics.gravity = new Vector3(0, -3, 0);
+    {
+        Physics.gravity = customGravity;
         if (instance)
             Destroy(gameObject);
         instance = this;
