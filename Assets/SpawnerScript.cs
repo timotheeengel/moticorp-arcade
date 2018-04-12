@@ -17,7 +17,7 @@ public class SpawnerScript : MonoBehaviour {
     GameObject toSpawn;
 
     private void Awake()
-    {
+    {   
         Physics.gravity = new Vector3(0, -3, 0);
         if (instance)
             Destroy(gameObject);
