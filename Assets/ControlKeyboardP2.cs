@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlKeyboard : MonoBehaviour {
+public class ControlKeyboardP2 : MonoBehaviour {
 
     Rigidbody rigidbody;
     [SerializeField] float movementSpeed = 10.0f;
@@ -14,7 +14,7 @@ public class ControlKeyboard : MonoBehaviour {
         rigidbody = GetComponent<Rigidbody>();
         limitY = -SpawnerScript.instance.height;
         limitX = SpawnerScript.instance.width;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,8 +25,8 @@ public class ControlKeyboard : MonoBehaviour {
     {
         Vector3 currentPos = gameObject.transform.position;
         Vector3 movement = new Vector3 (
-            Time.deltaTime * movementSpeed * Input.GetAxis("Horizontal"),
-            Time.deltaTime * movementSpeed * Input.GetAxis("Vertical"),
+            Time.deltaTime * movementSpeed * Input.GetAxis("HorizontalP2"),
+            Time.deltaTime * movementSpeed * Input.GetAxis("VerticalP2"),
             0);
 
         movement.y = Mathf.Clamp(movement.y, limitY - currentPos.y, -limitY - currentPos.y);
