@@ -5,21 +5,12 @@ using UnityEngine;
 public class Food : MonoBehaviour {
 
     float killPlane;
-    MeshCollider meshCollider;
-    MeshFilter meshFilter;
-    MeshRenderer meshRenderer;
+    public string displayName = "testname";
 
     // Use this for initialization
     void Start()
     {
         killPlane = -SpawnerScript.instance.height;
-
-        meshCollider = GetComponent<MeshCollider>();
-        meshFilter = GetComponent<MeshFilter>();
-        meshRenderer = GetComponent<MeshRenderer>();
-
-
-
     }
 
     // Update is called once per frame
