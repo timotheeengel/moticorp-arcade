@@ -49,7 +49,7 @@ public class SpawnerScript : MonoBehaviour {
             height,
             Random.Range(-depth/2, depth/2));
         
-        Instantiate(toSpawn, spawnPosition, RandomAngle());
+        Instantiate(toSpawn, spawnPosition, RandomAngle(), transform);
     }
 	
 	// Update is called once per frame

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4878991584471666}
   - component: {fileID: 33427386168852264}
   - component: {fileID: 23378204618149682}
-  - component: {fileID: 95122198472647422}
   - component: {fileID: 114917381119369218}
   - component: {fileID: 64701775525957030}
   - component: {fileID: 54088912438072624}
@@ -116,24 +115,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 54c0238b0a98b60499dfed0b3f7d8061, type: 3}
---- !u!95 &95122198472647422
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636641403216450}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 54c0238b0a98b60499dfed0b3f7d8061, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114917381119369218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,3 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f71e7509660eb4a8ad9dc4e2b9cf9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Potato
+  value: 8
+  id: 5

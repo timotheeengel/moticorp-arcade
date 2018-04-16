@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4854376109947266}
   - component: {fileID: 33978077346385948}
   - component: {fileID: 23385543702169528}
-  - component: {fileID: 95469385405386592}
   - component: {fileID: 64537997712528342}
   - component: {fileID: 54458832771565232}
   - component: {fileID: 114021757213010496}
@@ -116,24 +115,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db06eb1a46920bb45991cdfe74f5cef8, type: 3}
---- !u!95 &95469385405386592
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1447552492000952}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: db06eb1a46920bb45991cdfe74f5cef8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114021757213010496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,3 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f71e7509660eb4a8ad9dc4e2b9cf9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Tomato
+  value: 20
+  id: 7
