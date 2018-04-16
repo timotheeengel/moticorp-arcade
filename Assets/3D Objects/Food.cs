@@ -6,6 +6,7 @@ public class Food : MonoBehaviour {
 
     float killPlane;
     public string displayName = "testname";
+    public int id;
 
     // Use this for initialization
     void Start()

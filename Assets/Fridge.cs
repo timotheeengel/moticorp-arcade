@@ -6,36 +6,37 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Recipe
 {
-    [System.Serializable]
-    public struct Content
+    public struct FoodType
     {
-        public Content(GameObject _ingredient, int _count){
+        public FoodType(GameObject _ingredient, int _count){
             ingredient = _ingredient.GetComponent<Food>();
-            count = _count;
+            number = _count;
         }
 
         public Food ingredient;
-        public int count;
+        public int number;
     }
-
-    public Recipe() { contents = new List<Content>(); }
+    
     public void Add(GameObject _ingredient, int _count){
-        contents.Add(new Content(_ingredient, _count));
+        content.Add(new FoodType(_ingredient, _count));
     }
     public override string ToString()
     {
         string ret = "";
-        foreach (var item in contents)
-            ret += item.ingredient.displayName + ": " + item.count.ToString() + '\n';
+        foreach (var item in content)
+            ret += item.ingredient.displayName + ": " + item.number.ToString() + '\n';
         return ret;
     }
 
-    public List<Content> contents;
+    public List<FoodType> content;
 }
 
 public class Fridge : MonoBehaviour {
 
     public static Fridge instance = null;
+
+    public static Pan leftPan;
+    public static Pan rightPan;
 
     [SerializeField] List<GameObject> ingredients;
     private List<Recipe> recipes = new List<Recipe>();
@@ -45,8 +46,11 @@ public class Fridge : MonoBehaviour {
         public Text text;
         private Recipe recipe;
         
-        void FinishRecipe()
+        public void FinishRecipe(Recipe pan)
         {
+            //Evaluate Contents
+
+
             //Add score
             LoadRecipe();
         }
@@ -82,6 +86,12 @@ public class Fridge : MonoBehaviour {
             Destroy(gameObject);
         }
         instance = this;
+        leftPan = GameObject.FindGameObjectWithTag("LeftPan").GetComponent<Pan>();
+        rightPan = GameObject.FindGameObjectWithTag("RightPan").GetComponent<Pan>();
+        leftPan.onPanPutDown += leftRecipe.FinishRecipe;
+        leftPan.onPanPutDown += rightRecipe.FinishRecipe;
+        rightPan.onPanPutDown += leftRecipe.FinishRecipe;
+        rightPan.onPanPutDown += rightRecipe.FinishRecipe;
     }
 
     void Start () {
