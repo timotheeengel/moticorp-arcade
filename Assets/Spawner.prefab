@@ -298,11 +298,11 @@ MonoBehaviour:
   depth: 0.1
   height: 1
   foodRefs:
-  - {fileID: 1081141528454414, guid: 1e858bfde582b2f489f639f17b39f15e, type: 2}
-  - {fileID: 1880078890962538, guid: ef5f7e7819a4e4f45a882997e2717e5c, type: 2}
-  - {fileID: 1904942110866540, guid: 438ec28e91044a24bbf7fb6ce0ae33a3, type: 2}
-  - {fileID: 1455577180742622, guid: 69c879d426fa2e248973afe6e2c1f78b, type: 2}
-  - {fileID: 1243790650403266, guid: 90e4f40379da31945b73468dcbef829b, type: 2}
-  - {fileID: 1267923144212844, guid: 263d4ceebc26781429696b490e6b1cd5, type: 2}
-  - {fileID: 1040379790053108, guid: 26a917909d6efc048bb9d1690cebe254, type: 2}
-  - {fileID: 1242380798771964, guid: 04140f8f3deed9d44830c648ba4a80da, type: 2}
+  - {fileID: 1781510810014320, guid: 6198dc460897ea54897055a176561a7a, type: 2}
+  - {fileID: 1122515185101728, guid: 11460632510a6114591fcd59b14c04ea, type: 2}
+  - {fileID: 1753862841056586, guid: c95eb66d15e0a6e4ab842b26421d295d, type: 2}
+  - {fileID: 1470924313330752, guid: ad899168cec9bcd46abbebbee6fb9dc3, type: 2}
+  - {fileID: 1509798790968514, guid: 4779d5553e9ad834396bcba3860ad691, type: 2}
+  - {fileID: 1812060605248116, guid: d8512f16c9892bb418a3bb3e2316ffb3, type: 2}
+  - {fileID: 1636641403216450, guid: e1ca576a98dba784382085f052e8805d, type: 2}
+  - {fileID: 1447552492000952, guid: 25d450c68b72120469f8f338640ecd1c, type: 2}
