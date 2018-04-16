@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Pan : MonoBehaviour {
 
-    public delegate void OnPanPutDown(Recipe content);
+    public delegate void OnPanPutDown(List<Recipe.FoodType> content);
     public event OnPanPutDown onPanPutDown;
 
-    public List<Recipe.FoodType> content;
+    public List<Recipe.FoodType> content = new List<Recipe.FoodType>();
 
     [SerializeField] MeshCollider panContentsVolume;
 
     IEnumerator EvaluateContents()
     {
+        content.Clear();
         panContentsVolume.enabled = true;
         yield return null;
         onPanPutDown(content);
@@ -26,7 +27,7 @@ public class Pan : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && tag == "RightPan")
             StartCoroutine(EvaluateContents());
         if (Input.GetKeyUp(KeyCode.Space))
             panContentsVolume.enabled = false;

@@ -28,7 +28,7 @@ public class Recipe
         return ret;
     }
 
-    public List<FoodType> content;
+    public List<FoodType> content = new List<FoodType>();
 }
 
 public class Fridge : MonoBehaviour {
@@ -45,13 +45,39 @@ public class Fridge : MonoBehaviour {
     {
         public Text text;
         private Recipe recipe;
-        
-        public void FinishRecipe(Recipe pan)
+
+        public void Init()
+        {
+            LoadRecipe();
+        }
+
+        public void FinishRecipe(List<Recipe.FoodType> pan)
         {
             //Evaluate Contents
-
+            Debug.Log("Evaluating contents: ");
+            foreach (var item in pan)
+            {
+                Debug.Log(item.ingredient.displayName);
+                Debug.Log(item.number);
+            }
+            Debug.Log("Against: ");
+            foreach (var item in recipe.content)
+            {
+                Debug.Log(item.ingredient.displayName);
+                Debug.Log(item.number);
+            }
+            foreach (var item in recipe.content)
+            {
+                if(!pan.Exists(e => 
+                    e.ingredient.id == item.ingredient.id && 
+                    e.number == item.number
+                    ))
+                    return;
+            }
 
             //Add score
+            //Remove contents
+            
             LoadRecipe();
         }
 
@@ -60,6 +86,7 @@ public class Fridge : MonoBehaviour {
             if (instance.recipes.Count > 0)
             {
                 recipe = instance.recipes[0];
+                instance.recipes.RemoveAt(0);
                 text.text = recipe.ToString();
             }
             else
@@ -92,11 +119,18 @@ public class Fridge : MonoBehaviour {
         leftPan.onPanPutDown += rightRecipe.FinishRecipe;
         rightPan.onPanPutDown += leftRecipe.FinishRecipe;
         rightPan.onPanPutDown += rightRecipe.FinishRecipe;
+
+        for (int i = 0; i < ingredients.Count; i++)
+            ingredients[i].GetComponent<Food>().id = i;
     }
 
-    void Start () {
+    void Start ()
+    {
         recipes.Add(CreateRecipe());
-	}
+        recipes.Add(CreateRecipe());
+        leftRecipe.Init();
+        rightRecipe.Init();
+    }
 	
 	// Update is called once per frame
 	void Update ()
