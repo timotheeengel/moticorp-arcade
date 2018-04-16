@@ -35,6 +35,8 @@ public class Recipe
 
 public class Fridge : MonoBehaviour {
 
+    public static Fridge instance = null;
+
     [SerializeField] List<GameObject> ingredients;
     private List<Recipe> recipes = new List<Recipe>();
 
@@ -42,19 +44,18 @@ public class Fridge : MonoBehaviour {
     {
         public Text text;
         private Recipe recipe;
-
-        Fridge fridge;
-
+        
         void FinishRecipe()
         {
+            //Add score
             LoadRecipe();
         }
 
         void LoadRecipe()
         {
-            if (fridge.recipes.Count > 0)
+            if (instance.recipes.Count > 0)
             {
-                recipe = fridge.recipes[0];
+                recipe = instance.recipes[0];
                 text.text = recipe.ToString();
             }
             else
@@ -73,7 +74,17 @@ public class Fridge : MonoBehaviour {
         return ret;
     }
 
-	void Start () {
+    private void Awake()
+    {
+        if (instance)
+        {
+            Debug.Log("Surplus Fridge!");
+            Destroy(gameObject);
+        }
+        instance = this;
+    }
+
+    void Start () {
         recipes.Add(CreateRecipe());
 	}
 	
