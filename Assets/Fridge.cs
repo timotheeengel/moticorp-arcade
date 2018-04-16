@@ -19,16 +19,28 @@ public class Recipe
     
     public void Add(GameObject _ingredient, int _count){
         content.Add(new FoodType(_ingredient, _count));
+        CalculateScore();
     }
+    public void CalculateScore()//TODO: Presently only ingredient score*2
+    {
+        score = 0;
+        foreach (var item in content)
+        {
+            score += item.ingredient.value * item.number;
+        }
+        score *= 2;
+    }
+    public int score = 0;
+    public List<FoodType> content = new List<FoodType>();
+
     public override string ToString()
     {
         string ret = "";
         foreach (var item in content)
             ret += item.ingredient.displayName + ": " + item.number.ToString() + '\n';
+        ret += "Value: " + score;
         return ret;
     }
-
-    public List<FoodType> content = new List<FoodType>();
 }
 
 public class Fridge : MonoBehaviour {

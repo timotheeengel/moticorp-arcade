@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4759191209402656}
   - component: {fileID: 33592592365525398}
   - component: {fileID: 23675299080863860}
-  - component: {fileID: 95804496616800990}
   - component: {fileID: 64580169701424530}
   - component: {fileID: 54704677918660414}
   - component: {fileID: 114557728894779580}
@@ -116,24 +115,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 059cc31bcf60eb84e95f38a9bdaecf13, type: 3}
---- !u!95 &95804496616800990
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1509798790968514}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 059cc31bcf60eb84e95f38a9bdaecf13, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114557728894779580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,4 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Drumstick
+  value: 15
   id: 3

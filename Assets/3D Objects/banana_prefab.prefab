@@ -146,4 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Banana
+  value: 6
   id: 1

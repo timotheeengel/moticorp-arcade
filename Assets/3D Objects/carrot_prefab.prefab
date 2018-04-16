@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Carrot
   id: 2
+  value: 10
