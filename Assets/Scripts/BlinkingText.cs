@@ -8,9 +8,7 @@ public class BlinkingText : MonoBehaviour {
     [Tooltip ("in seconds")][SerializeField] int fadeSpeed = 2;
 
     Text text;
-    Concierge concierge;
-    bool FadeIn = true;
-    
+    Concierge concierge;    
     
 	// Use this for initialization
 	void Start () {
