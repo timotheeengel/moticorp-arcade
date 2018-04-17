@@ -8,12 +8,16 @@ public class Jukebox : MonoBehaviour {
 
     AudioSource audioSource;
 
-    // Use this for initialization
-    void Start () {
+    private void Awake()
+    {
         if (FindObjectsOfType<Jukebox>().Length > 1)
         {
             Destroy(gameObject);
         }
+    }
+
+    // Use this for initialization
+    void Start () {
         DontDestroyOnLoad(gameObject);
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
