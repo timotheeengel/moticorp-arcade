@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: c375ddfde951256438b2f1a64147eb68
+guid: 34001838121577a4c88f816c2681985d
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material_001__potato
+    2100000: Material__cheese_texture
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__cheese_texture
+    second: {fileID: 2100000, guid: c009b64a46961d945b3f1ceaa307519c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
