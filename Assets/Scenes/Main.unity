@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522c12fa5f7528c47af6a4fc953db711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 2
 --- !u!4 &674863523
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +541,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1262495045701692, guid: d79f7fa3433c74941be14631fb536357,
         type: 2}
+    - target: {fileID: 114880206180248406, guid: 90dac304c0e416d489d0658a2f1c3aa7,
+        type: 2}
+      propertyPath: customGravity.y
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90dac304c0e416d489d0658a2f1c3aa7, type: 2}
   m_IsPrefabParent: 0
