@@ -119,6 +119,7 @@ public class Fridge : MonoBehaviour {
 
     private void Awake()
     {
+        GetComponent<Renderer>().enabled = false;
         if (instance)
         {
             Debug.Log("Surplus Fridge!");
