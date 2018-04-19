@@ -119,7 +119,9 @@ public class OVRSceneSampleController : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 #else
             Cursor.visible = false;
-            Screen.lockCursor = true;
+            //TODO: this Screen.lockCursor = true; has been depreciated and is now replaced by the 2 following lines
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
 #endif
         }
 

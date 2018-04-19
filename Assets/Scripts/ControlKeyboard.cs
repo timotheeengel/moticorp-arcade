@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ControlKeyboard : MonoBehaviour {
 
-    Rigidbody rigidbody;
+    Rigidbody rb;
     [SerializeField] float movementSpeed = 10.0f;
     float limitY;
     float limitX;
 
     // Use this for initialization
     void Start () {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         limitY = -SpawnerScript.instance.height;
         limitX = SpawnerScript.instance.width;
 	}
@@ -31,6 +31,6 @@ public class ControlKeyboard : MonoBehaviour {
 
         movement.y = Mathf.Clamp(movement.y, limitY - currentPos.y, -limitY - currentPos.y);
         movement.x = Mathf.Clamp(movement.x, -limitX - currentPos.x, limitX - currentPos.x);
-        rigidbody.MovePosition(currentPos + movement);
+        rb.MovePosition(currentPos + movement);
     }
 }
