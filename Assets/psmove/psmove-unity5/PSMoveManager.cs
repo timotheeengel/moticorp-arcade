@@ -322,15 +322,15 @@ class PSMoveWorker
             #if UNITY_EDITOR_WIN
             if (IntPtr.Size == 8)
             {
-                psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/x86_64/psmoveapi.dll");
+                psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/x86_64/psmoveapi.dll");
             }
             else
             {
-                psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/x86/psmoveapi.dll");
+                psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/x86/psmoveapi.dll");
             }
-            #elif UNITY_STANDALONE_WIN
-            psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/psmoveapi.dll");
-            #endif
+#elif UNITY_STANDALONE_WIN
+            psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/psmoveapi.dll");
+#endif
         }
 
         if (psmoveapiTrackerSharedLibHandle == IntPtr.Zero)
@@ -338,17 +338,17 @@ class PSMoveWorker
             #if UNITY_EDITOR_WIN
             if (IntPtr.Size == 8)
             {
-                psmoveapiTrackerSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/x86_64/psmoveapi_tracker.dll");
+                psmoveapiTrackerSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/x86_64/psmoveapi_tracker.dll");
             }
             else
             {
-                psmoveapiTrackerSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/x86/psmoveapi_tracker.dll");
+                psmoveapiTrackerSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/x86/psmoveapi_tracker.dll");
             }
-            #elif UNITY_STANDALONE_WIN
-            psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/Plugins/psmoveapi_tracker.dll");
-            #endif
+#elif UNITY_STANDALONE_WIN
+            psmoveapiSharedLibHandle = LoadLib(Application.dataPath + "/psmove/Plugins/psmoveapi_tracker.dll");
+#endif
         }
-        #endif // LOAD_DLL_MANUALLY
+#endif // LOAD_DLL_MANUALLY
 
         if (!WorkerThread.IsAlive)
         {
