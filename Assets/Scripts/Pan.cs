@@ -39,7 +39,7 @@ public class Pan : MonoBehaviour {
         Food collision = other.GetComponent<Food>();
         for (int i = 0; i < content.Count; i++)
         {
-            if (content[i].ingredient.id == collision.id)
+            if (content[i].ingredient.GetID() == collision.GetID())
             {
                 content[i] = new Recipe.FoodType(other.gameObject, content[i].number + 1);
                 return;

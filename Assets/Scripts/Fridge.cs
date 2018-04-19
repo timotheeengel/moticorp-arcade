@@ -26,7 +26,7 @@ public class Recipe
         score = 0;
         foreach (var item in content)
         {
-            score += item.ingredient.value * item.number;
+            score += item.ingredient.GetPointValue() * item.number;
         }
         score *= 2;
     }
@@ -37,7 +37,7 @@ public class Recipe
     {
         string ret = "";
         foreach (var item in content)
-            ret += item.ingredient.displayName + ": " + item.number.ToString() + '\n';
+            ret += item.ingredient.GetName() + ": " + item.number.ToString() + '\n';
         ret += "Value: " + score;
         return ret;
     }
@@ -69,19 +69,19 @@ public class Fridge : MonoBehaviour {
             Debug.Log("Evaluating contents: ");
             foreach (var item in pan)
             {
-                Debug.Log(item.ingredient.displayName);
+                Debug.Log(item.ingredient.GetName());
                 Debug.Log(item.number);
             }
             Debug.Log("Against: ");
             foreach (var item in recipe.content)
             {
-                Debug.Log(item.ingredient.displayName);
+                Debug.Log(item.ingredient.GetName());
                 Debug.Log(item.number);
             }
             foreach (var item in recipe.content)
             {
                 if(!pan.Exists(e => 
-                    e.ingredient.id == item.ingredient.id && 
+                    e.ingredient.GetID() == item.ingredient.GetID() && 
                     e.number == item.number
                     ))
                     return;
@@ -134,7 +134,7 @@ public class Fridge : MonoBehaviour {
         rightPan.onPanPutDown += rightRecipe.FinishRecipe;
 
         for (int i = 0; i < ingredients.Count; i++)
-            ingredients[i].GetComponent<Food>().id = i;
+            ingredients[i].GetComponent<Food>().SetID(i);
     }
 
     void Start ()

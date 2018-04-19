@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
     [Tooltip("Length of Round in seconds")] [SerializeField] float countdown = 30f;
+    [SerializeField] float nextRoundDelay = 5f;
     Text text;
     Concierge concierge;
     bool roundHasEnded = false;
@@ -33,7 +34,7 @@ public class Timer : MonoBehaviour {
         }
         else
         {
-            concierge.BringNextCourse("SplashScreen");
+            EndRound();
         }
 
     }
@@ -56,5 +57,21 @@ public class Timer : MonoBehaviour {
         }
         roundHasEnded = true;
         text.text = "00:00";
+    }
+
+    void EndRound()
+    {
+        Pan[] pans = FindObjectsOfType<Pan>();
+        foreach (Pan pan in pans)
+        {
+            pan.GetComponentInChildren<CountingScore>().CountPanContents();
+        }
+
+        Invoke("LoadNextRound", nextRoundDelay);
+    }
+
+    void LoadNextRound()
+    {
+        concierge.BringNextCourse("SplashScreen");
     }
 }

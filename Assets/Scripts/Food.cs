@@ -5,9 +5,9 @@ using UnityEngine;
 public class Food : MonoBehaviour {
 
     float killPlane;
-    public string displayName = "testname";
-    public int value;
-    public int id;
+    [SerializeField] string displayName = "testname";
+    [SerializeField] int points;
+    [SerializeField] int id;
 
     // Use this for initialization
     void Start()
@@ -20,4 +20,24 @@ public class Food : MonoBehaviour {
         if (transform.position.y < killPlane)
             Destroy(gameObject);
 	}
+
+    public int GetPointValue()
+    {
+        return points;
+    }
+
+    public string GetName()
+    {
+        return displayName;
+    }
+
+    public int GetID()
+    {
+        return id;
+    }
+
+    public void SetID(int newID)
+    {
+        id = newID;
+    }
 }
