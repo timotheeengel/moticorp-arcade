@@ -24,7 +24,12 @@ public class ActivatePan : MonoBehaviour {
         } else
         {
             readyText.enabled = false;
+            isPanActive = !isPanActive;
         }
-        
-	}
+    }
+
+    public bool IsPanActive()
+    {
+        return isPanActive;
+    }
 }
