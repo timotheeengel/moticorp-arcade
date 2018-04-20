@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scoreboard : MonoBehaviour
 {
@@ -27,17 +28,29 @@ public class Scoreboard : MonoBehaviour
     {
         //        GetComponent<Renderer>().enabled = false;
         if (instance)
+        {
             Destroy(gameObject);
-        else instance = this;
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     // Use this for initialization
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        // TODO: Refactor ScoreBoard because DontDestroyOnLoad only works for parent objects!
+        // DontDestroyOnLoad(gameObject);
+        print("new scoreboard");
         displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
         displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
-        UpdateDisplay();
+
+        // TODO: Clean this up and find better way!
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            UpdateDisplay();
+        }
     }
 
     void UpdateDisplay()

@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Drumstick
-  value: 15
+  points: 30
   id: 3

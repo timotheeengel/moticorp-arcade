@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jukebox : MonoBehaviour {
 
-    [SerializeField] AudioClip backgroundMusic;
+    [Tooltip ("Please arrange songs according to the scenes' build order!")]
+    [SerializeField] AudioClip[] backgroundMusic;
 
     AudioSource audioSource;
 
@@ -25,7 +27,7 @@ public class Jukebox : MonoBehaviour {
             Debug.LogWarning("Jukebox Out of Order - No AudioSource found");
         }
 
-        audioSource.clip = backgroundMusic;
+        audioSource.clip = backgroundMusic[SceneManager.GetActiveScene().buildIndex];
         audioSource.Play();
         audioSource.loop = true;
 	}
@@ -34,4 +36,20 @@ public class Jukebox : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += LoadNewSong;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= LoadNewSong;
+    }
+
+    void LoadNewSong(Scene scene, LoadSceneMode mode)
+    {
+        audioSource.clip = backgroundMusic[SceneManager.GetActiveScene().buildIndex];
+        audioSource.Play();
+    }
 }

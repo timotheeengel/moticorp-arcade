@@ -67,11 +67,11 @@ public class Timer : MonoBehaviour {
             pan.GetComponentInChildren<CountingScore>().CountPanContents();
         }
 
-        Invoke("LoadNextRound", nextRoundDelay);
+        LoadNextRound();
     }
 
     void LoadNextRound()
     {
-        concierge.BringNextCourse("SplashScreen");
+        concierge.BringNextCourse("ResultScreen");
     }
 }
