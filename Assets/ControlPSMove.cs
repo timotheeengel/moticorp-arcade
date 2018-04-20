@@ -14,7 +14,13 @@ public class ControlPSMove : MonoBehaviour {
     Vector3 ghostTarget;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        if (tag == "RightPan")
+            Controller = GameObject.FindGameObjectWithTag("RightController");
+
+        if (tag == "LeftPan")
+            Controller = GameObject.FindGameObjectWithTag("LeftController");
         rg = GetComponent<Rigidbody>();
         posSamples = new List<Vector3>();
         rollSample = new List<Vector2>();
@@ -23,7 +29,7 @@ public class ControlPSMove : MonoBehaviour {
             posSamples.Add(Vector3.zero);
             rollSample.Add(Vector2.zero);
         }
-        MoveSetup.instance.onStart += StartMovement;
+        //MoveSetup.instance.onStart += StartMovement;
 	}
 
     public float CalculateScale()
@@ -34,6 +40,7 @@ public class ControlPSMove : MonoBehaviour {
     IEnumerator Movement()
     {
         Vector3 pos;
+        yield return null;
         while(true)
         {
             ghostTarget = JitterFilterPos() * MoveSetup.scale;
@@ -77,8 +84,15 @@ public class ControlPSMove : MonoBehaviour {
         return ret;
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level==1)
+            StartCoroutine(Movement());
+    }
+
     void StartMovement()
     {
-        StartCoroutine(Movement());
+        Debug.Log("start");
+        
     }
 }

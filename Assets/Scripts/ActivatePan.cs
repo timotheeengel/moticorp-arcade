@@ -19,12 +19,12 @@ public class ActivatePan : MonoBehaviour {
 	void Update () {
         if (psMoveController.IsMoveButtonDown)
         {
-            isPanActive = !isPanActive;
+            isPanActive = true;
             readyText.enabled = true;
         } else
         {
             readyText.enabled = false;
-            isPanActive = !isPanActive;
+            isPanActive = false;
         }
     }
 

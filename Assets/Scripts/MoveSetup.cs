@@ -21,16 +21,21 @@ public class MoveSetup : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        scale = 5;
 	}
 
-    // Update is called once per frame
-    void Update()
+    private void OnLevelWasLoaded(int level)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (level == 1)
         {
             scale = masterController.GetComponent<ControlPSMove>().CalculateScale();
             onStart();
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }

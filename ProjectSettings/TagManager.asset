@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeftPan
   - RightPan
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
