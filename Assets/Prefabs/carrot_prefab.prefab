@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Carrot
-  value: 10
+  points: 20
   id: 2

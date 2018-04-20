@@ -34,7 +34,8 @@ public class Scoreboard : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        // TODO: Refactor ScoreBoard because DontDestroyOnLoad only works for parent objects!
+        // DontDestroyOnLoad(gameObject);
         displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
         displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
         UpdateDisplay();

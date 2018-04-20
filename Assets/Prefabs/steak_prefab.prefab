@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Steak
-  value: 15
+  points: 20
   id: 6

@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Potato
-  value: 8
+  points: 10
   id: 5
