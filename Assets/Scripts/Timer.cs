@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour {
     [SerializeField] float nextRoundDelay = 5f;
     Text text;
     Concierge concierge;
+    public bool roundHasStarted = false;
     bool roundHasEnded = false;
 
 	// Use this for initialization
@@ -26,8 +27,19 @@ public class Timer : MonoBehaviour {
         text.text = countdown.ToString();
 	}
 	
+    public void StartRound (bool state)
+    {
+        roundHasStarted = state;
+    }
+
 	// Update is called once per frame
 	void Update () {
+        if (!roundHasStarted)
+        {
+            // TODO: Rewrite in a more elegant manner
+            text.text = "00:" + countdown.ToString();
+            return;
+        }
         if (!roundHasEnded)
         {
             CurrentRoundTime();
@@ -61,13 +73,12 @@ public class Timer : MonoBehaviour {
 
     void EndRound()
     {
-        Pan[] pans = FindObjectsOfType<Pan>();
-        foreach (Pan pan in pans)
-        {
-            pan.GetComponentInChildren<CountingScore>().CountPanContents();
-        }
-
-        LoadNextRound();
+        //Pan[] pans = FindObjectsOfType<Pan>();
+        //foreach (Pan pan in pans)
+        //{
+        //    pan.GetComponentInChildren<CountingScore>().CountPanContents();
+        //}
+        Invoke("LoadNextRound", nextRoundDelay);
     }
 
     void LoadNextRound()

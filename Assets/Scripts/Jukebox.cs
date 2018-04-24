@@ -26,16 +26,13 @@ public class Jukebox : MonoBehaviour {
         {
             Debug.LogWarning("Jukebox Out of Order - No AudioSource found");
         }
-
-        audioSource.clip = backgroundMusic[SceneManager.GetActiveScene().buildIndex];
-        audioSource.Play();
-        audioSource.loop = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        if (SceneManager.GetActiveScene().buildIndex < backgroundMusic.Length)
+        {
+            audioSource.clip = backgroundMusic[SceneManager.GetActiveScene().buildIndex];
+            audioSource.Play();
+            audioSource.loop = true;
+        }
+    }
 
     private void OnEnable()
     {
@@ -49,7 +46,10 @@ public class Jukebox : MonoBehaviour {
 
     void LoadNewSong(Scene scene, LoadSceneMode mode)
     {
-        audioSource.clip = backgroundMusic[SceneManager.GetActiveScene().buildIndex];
-        audioSource.Play();
+        if (scene.buildIndex < backgroundMusic.Length)
+        {
+            audioSource.clip = backgroundMusic[scene.buildIndex];
+            audioSource.Play();
+        }
     }
 }

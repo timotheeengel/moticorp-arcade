@@ -5,15 +5,14 @@ using UnityEngine;
 public class CountingScore : MonoBehaviour {
 
     Scoreboard scoreboard;
-    CapsuleCollider capsuleCollider;
     List<GameObject> panContents = new List<GameObject>();
-    Scoreboard.SCORE playerSide;
+    Scoreboard.SCORESIDE playerSide;
 
 	// Use this for initialization
 	void Start () {
         scoreboard = FindObjectOfType<Scoreboard>();
+        // TODO: Factor out ResetRoundScores and adapt to our new Flowchart
         scoreboard.ResetRoundScores();
-        capsuleCollider = GetComponent<CapsuleCollider>();
         ScriptInitialization();
 	}
 
@@ -21,13 +20,12 @@ public class CountingScore : MonoBehaviour {
     {
         if (transform.parent.position.x > 0)
         {
-            playerSide = Scoreboard.SCORE.RIGHT;
+            playerSide = Scoreboard.SCORESIDE.RIGHT;
         }
         else
         {
-            playerSide = Scoreboard.SCORE.LEFT;
+            playerSide = Scoreboard.SCORESIDE.LEFT;
         }
-        print(playerSide);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,14 +33,8 @@ public class CountingScore : MonoBehaviour {
         if (other.GetComponent<Food>())
         {
             panContents.Add(other.gameObject);
-            Debug.Log(other.gameObject.name + " added to the pan");
         }
-        if (gameObject.transform.parent.CompareTag("LeftPan") == true )
-        {
-            scoreboard.AddScoreLeft(other.GetComponent<Food>().GetPointValue());
-        } else {
-            scoreboard.AddScoreRight(other.GetComponent<Food>().GetPointValue());
-        }
+        scoreboard.AddScore(playerSide, other.GetComponent<Food>().GetPointValue());
     }
 
     private void OnTriggerExit(Collider other)
@@ -50,18 +42,11 @@ public class CountingScore : MonoBehaviour {
         if (other.GetComponent<Food>())
         {
             panContents.Remove(other.gameObject);
-            Debug.Log(other.gameObject.name + " removed from the pan");
         }
-        if (gameObject.transform.parent.CompareTag("LeftPan") == true)
-        {
-            scoreboard.AddScoreLeft(-other.GetComponent<Food>().GetPointValue());
-        }
-        else
-        {
-            scoreboard.AddScoreRight(-other.GetComponent<Food>().GetPointValue());
-        }
+        scoreboard.AddScore(playerSide, -other.GetComponent<Food>().GetPointValue());
     }
 
+    // TODO: Check for bugs - possibly the reason we get double the points because we do not differenciate between existing score and new score.
     public void CountPanContents()
     {
         int score = 0;
@@ -69,12 +54,7 @@ public class CountingScore : MonoBehaviour {
         {
             score += ingredient.GetComponent<Food>().GetPointValue();
         }
-        if (gameObject.transform.parent.CompareTag("LeftPan") == true) {
-            scoreboard.AddScoreLeft(score);
-        } else {
-            scoreboard.AddScoreRight(score);
-        }
+        scoreboard.AddScore(playerSide, score);
     }
-    
-
 }
+

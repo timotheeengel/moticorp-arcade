@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Scoreboard : MonoBehaviour
 {
+    private bool isActive = false;
 
     public int leftScore = 0;
     public int rightScore = 0;
@@ -13,12 +13,16 @@ public class Scoreboard : MonoBehaviour
     private Text displayLeftScore;
     private Text displayRightScore;
 
-    public static int leftTotalScore = 0;
-    public static int rightTotalScore = 0;
+    // TODO: Save round + overall score as a scriptable object  
+    public static int roundLeftScore = 0;
+    public static int roundRightScore = 0;
+
+    public static int overallLeftScore = 0;
+    public static int overallRightScore = 0;
 
     public static Scoreboard instance;
 
-    public enum SCORE
+    public enum SCORESIDE
     {
         LEFT,
         RIGHT
@@ -26,7 +30,6 @@ public class Scoreboard : MonoBehaviour
 
     private void Awake()
     {
-        //        GetComponent<Renderer>().enabled = false;
         if (instance)
         {
             Destroy(gameObject);
@@ -34,22 +37,7 @@ public class Scoreboard : MonoBehaviour
         else
         {
             instance = this;
-        }
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        // TODO: Refactor ScoreBoard because DontDestroyOnLoad only works for parent objects!
-        // DontDestroyOnLoad(gameObject);
-        print("new scoreboard");
-        displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
-        displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
-
-        // TODO: Clean this up and find better way!
-        if (SceneManager.GetActiveScene().name == "Main")
-        {
-            UpdateDisplay();
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -59,31 +47,72 @@ public class Scoreboard : MonoBehaviour
         displayRightScore.text = rightScore.ToString();
     }
 
-    public void AddScoreLeft(int points)
+    public void AddScore(SCORESIDE side, int points)
     {
-        leftScore += points;
-        leftTotalScore += points;
+        switch (side)
+        {
+            case SCORESIDE.RIGHT:
+                leftScore += points;
+                roundLeftScore += points;
+                overallLeftScore += points;
+                break;
+            case SCORESIDE.LEFT:
+                rightScore += points;
+                roundRightScore += points;
+                overallRightScore += points;
+                break;
+            default:
+                Debug.LogWarning("There are 2 sides to the scoreboard, left and right!");
+                break;
+        }
         UpdateDisplay();
     }
 
-    public void AddScoreRight(int points)
-    {
-        rightScore += points;
-        rightTotalScore += points;
-        UpdateDisplay();
-    }
-
-    public void ResetRoundScores()
+    public void ResetScores()
     {
         leftScore = 0;
         rightScore = 0;
     }
 
-    public void ResetAlLScores()
+    public void ResetRoundScores()
     {
-        ResetRoundScores();
-        leftTotalScore = 0;
-        rightTotalScore = 0;
+        roundLeftScore = 0;
+        roundRightScore = 0;
     }
+
+    public void ResetAllScores()
+    {
+        ResetScores();
+        ResetRoundScores();
+        overallLeftScore = 0;
+        overallRightScore = 0;
+    }
+    
+    public void SetActive(bool state)
+    {
+        isActive = state;
+        if (isActive == true)
+        {
+            displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
+            displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
+        } else
+        {
+            Debug.Log("No Scoring in this scene. Remember to  reset the Scores when needed /° ! °\\");
+        }
+    }
+
+    //public void AddScoreLeft(int points)
+    //{
+    //    leftScore += points;
+    //    roundLeftScore += points;
+    //    UpdateDisplay();
+    //}
+
+    //public void AddScoreRight(int points)
+    //{
+    //    rightScore += points;
+    //    roundRightScore += points;
+    //    UpdateDisplay();
+    //}
 }
 
