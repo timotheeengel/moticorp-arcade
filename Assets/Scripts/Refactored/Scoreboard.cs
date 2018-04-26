@@ -51,27 +51,29 @@ public class Scoreboard : MonoBehaviour
     {
         switch (side)
         {
-            case SCORESIDE.RIGHT:
+            case SCORESIDE.LEFT:
                 leftScore += points;
                 roundLeftScore += points;
                 overallLeftScore += points;
+                displayLeftScore.text = leftScore.ToString();
                 break;
-            case SCORESIDE.LEFT:
+            case SCORESIDE.RIGHT:
                 rightScore += points;
                 roundRightScore += points;
                 overallRightScore += points;
+                displayRightScore.text = rightScore.ToString();
                 break;
             default:
                 Debug.LogWarning("There are 2 sides to the scoreboard, left and right!");
                 break;
         }
-        UpdateDisplay();
     }
 
     public void ResetScores()
     {
         leftScore = 0;
         rightScore = 0;
+        UpdateDisplay();
     }
 
     public void ResetRoundScores()

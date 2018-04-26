@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CountingScore : MonoBehaviour {
+public class CountingPanContents : MonoBehaviour {
 
     Scoreboard scoreboard;
     List<GameObject> panContents = new List<GameObject>();
@@ -10,7 +10,7 @@ public class CountingScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        scoreboard = FindObjectOfType<Scoreboard>();
+        scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
         // TODO: Factor out ResetRoundScores and adapt to our new Flowchart
         scoreboard.ResetRoundScores();
         ScriptInitialization();
@@ -33,8 +33,9 @@ public class CountingScore : MonoBehaviour {
         if (other.GetComponent<Food>())
         {
             panContents.Add(other.gameObject);
+            scoreboard.AddScore(playerSide, other.GetComponent<Food>().GetPointValue());
         }
-        scoreboard.AddScore(playerSide, other.GetComponent<Food>().GetPointValue());
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -42,8 +43,14 @@ public class CountingScore : MonoBehaviour {
         if (other.GetComponent<Food>())
         {
             panContents.Remove(other.gameObject);
+            scoreboard.AddScore(playerSide, -other.GetComponent<Food>().GetPointValue());
         }
-        scoreboard.AddScore(playerSide, -other.GetComponent<Food>().GetPointValue());
+        
+    }
+
+    public void AddRecipeBonusScore(int recipePoints)
+    {
+        scoreboard.AddScore(playerSide, recipePoints);
     }
 
     // TODO: Check for bugs - possibly the reason we get double the points because we do not differenciate between existing score and new score.

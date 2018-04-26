@@ -29,7 +29,6 @@ public class ChefReacting : MonoBehaviour {
 
         // Todo: Make proper reaction script
         int react = Random.Range(0, 4);
-        print(react);
         switch (react)
         {
             case 0:
