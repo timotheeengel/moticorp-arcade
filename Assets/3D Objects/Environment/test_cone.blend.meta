@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 00eb38c27bd473e4d92452a56b4232a6
+guid: fc3e4358f8527394fab2170e6d0d262c
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material
-    2100002: Material__food_cannon_texture
+    2100000: Material__test_cone_texture
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
