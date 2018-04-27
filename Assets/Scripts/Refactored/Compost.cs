@@ -13,11 +13,10 @@ public class Compost : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Food>())
+        if (other.GetComponent<Food>())
         {
-            wasteFood.Add(other.gameObject);
             // Debug.Log(other.name + " went into the compost. What a waste :-(");
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

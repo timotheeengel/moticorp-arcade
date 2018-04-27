@@ -44,5 +44,6 @@ public class SpawnerNew : MonoBehaviour
             0);
 
         Instantiate(toSpawnNext, spawnPosition, RandomAngle(), transform);
+        toSpawnNext.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 }

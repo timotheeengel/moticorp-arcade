@@ -8,11 +8,11 @@ public class FridgeNew : MonoBehaviour {
     [SerializeField] List<GameObject> ingredients;
     [SerializeField] int maxAmountOfSameIngredient = 1;
     [SerializeField] int recipeBonusPoints = 100;
-    private List<GameObject> recipe = new List<GameObject>();
+    private List<RecipeItem> recipe;
 
     // Use this for initialization
     void Start () {
-        recipe = new List<GameObject>();
+        recipe = new List<RecipeItem>();
         RecipeComparisonTest();
     }
 	
@@ -21,7 +21,7 @@ public class FridgeNew : MonoBehaviour {
         return ingredients;
     }
 
-    private List<GameObject> GenerateRecipe()
+    private List<RecipeItem> GenerateRecipe()
     {
         if (recipe.Count > 0)
         {
@@ -36,22 +36,93 @@ public class FridgeNew : MonoBehaviour {
         {
             GameObject currentIngredient = unusedIngredients[Random.Range(0, unusedIngredients.Count)];
             int amountOfCurrentIngredient = Random.Range(1, maxAmountOfSameIngredient);
-            for (int j = 0; j < amountOfCurrentIngredient; j++)
-            {
-                recipe.Add(currentIngredient);
-            }
+
+            recipe.Add(new RecipeItem(currentIngredient, amountOfCurrentIngredient));
+
             unusedIngredients.Remove(currentIngredient);
         }
 
         return recipe;
     }
 
-    private bool IsRecipeCompleted(List<GameObject> panContents)
+    public int EvaluatePanContent(List<GameObject> panContent)
     {
-        // TODO: Only checks whether all the recipe ingredients are in the pan ONCE! 
-        // If several are needed, but only 1 is available in the pan, the value returned is still true
-        // Adjust to check whether the right amount of ingredients is in the pan!
-        return recipe.All(panContents.Contains);
+        int basicScore = 0;
+        foreach (GameObject ingredient in panContent)
+        {
+            basicScore += ingredient.GetComponent<Food>().GetPointValue();
+        }
+
+        int recipeBonus = 0;
+        if (IsRecipeCompletedV2(panContent))
+        {
+            recipeBonus += recipeBonusPoints;
+        }
+
+        return basicScore + recipeBonus;
+    }
+
+    // Out-dated! Use V2
+    private bool OLDIsRecipeCompletedV1(List<GameObject> panContents)
+    {
+        List < RecipeItem > adjustedPanContents = new List<RecipeItem>();
+        while (panContents.Count > 0)
+        {
+            GameObject foodType = panContents[0];
+            List<GameObject> foodQuantity = panContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
+
+            panContents.RemoveAll(f => foodType);
+        }
+
+        // TODO: Fix THIS!
+
+        foreach (RecipeItem item in recipe) {
+            if (!adjustedPanContents.Exists
+                    (e =>
+                    e.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID()
+                    && e.quantity >= item.quantity)
+                )
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool IsRecipeCompletedV2(List<GameObject> panContents)
+    {
+        List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
+        while (panContents.Count > 0)
+        {
+            GameObject foodType = panContents[0];
+            List<GameObject> foodQuantity = panContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
+            panContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+        }
+
+        // TODO: Fix THIS!
+
+        foreach (RecipeItem item in recipe)
+        {
+            bool foundItemInPan = false;
+            int foodQ = 0;
+            foreach (RecipeItem food in adjustedPanContents)
+            {
+                if (food.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID())
+                {
+                    foundItemInPan = true;
+                    foodQ = food.quantity;
+                    break;
+                }
+            }
+            if (foundItemInPan && item.EnoughQ(foodQ))
+            {
+                continue;
+            }
+            return false;
+        }
+        return true;
     }
 
     private void RecipeComparisonTest()
@@ -60,12 +131,15 @@ public class FridgeNew : MonoBehaviour {
         List<GameObject> panContents = new List<GameObject>();
         for (int i = 0; i < recipe.Count; i++)
         {
-            panContents.Add(recipe[i]);
+            for (int j = 0; j < recipe[i].quantity; j++)
+            {
+                panContents.Add(recipe[i].ingredient);
+            }
         }
 
-        foreach(GameObject ingredient in recipe)
+        foreach (RecipeItem item in recipe)
         {
-            Debug.Log("The recipe contains " + ingredient.GetComponent<Food>().GetName());
+            Debug.Log("The recipe contains " + item.ingredient.GetComponent<Food>().GetName() + " Q: " + item.quantity);
         }
 
         foreach (GameObject ingredient in panContents)
@@ -74,25 +148,10 @@ public class FridgeNew : MonoBehaviour {
         }
 
         bool checkingListAgainstOneAnother = false;
-        checkingListAgainstOneAnother = recipe.All(panContents.Contains);
+        checkingListAgainstOneAnother = IsRecipeCompletedV2(panContents);
+        print(checkingListAgainstOneAnother);
     }
 
-    public int EvaluatePanContent(List<GameObject> panContent)
-    {
-        int basicScore = 0;
-        foreach(GameObject ingredient in panContent)
-        {
-            basicScore += ingredient.GetComponent<Food>().GetPointValue();
-        }
-
-        int recipeBonus = 0;
-        if (IsRecipeCompleted(panContent))
-        {
-            recipeBonus += recipeBonusPoints;
-        }
-
-        return basicScore + recipeBonus;
-    }
 
 }
 
@@ -105,5 +164,20 @@ public struct RecipeItem
     {
         ingredient = _ingredient;
         quantity = _quantity;
+    }
+
+    public void IncreaseQ (int add)
+    {
+        quantity += add;
+    }
+
+    public bool EnoughQ (int caughtQ)
+    {
+        if (caughtQ >= quantity)
+        {
+            Debug.Log(caughtQ + " && " + quantity);
+            return true;
+        }
+        return false;
     }
 }
