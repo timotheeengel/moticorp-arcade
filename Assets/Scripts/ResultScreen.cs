@@ -34,10 +34,10 @@ public class ResultScreen : MonoBehaviour {
         PlayerScoreLeft = GameObject.Find("ScoreLeft").GetComponent<Text>();
         PlayerScoreRight = GameObject.Find("ScoreRight").GetComponent<Text>();
 
-        PlayerScoreLeft.text = Scoreboard.leftTotalScore.ToString();
-        PlayerScoreRight.text = Scoreboard.rightTotalScore.ToString();
+        PlayerScoreLeft.text = Scoreboard.roundLeftScore.ToString();
+        PlayerScoreRight.text = Scoreboard.roundRightScore.ToString();
 
-        scoreboard.ResetAlLScores();
+        scoreboard.ResetAllScores();
     }
 }
 

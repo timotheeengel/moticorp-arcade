@@ -21,6 +21,7 @@ public class Recipe
         content.Add(new FoodType(_ingredient, _count));
         CalculateScore();
     }
+
     public void CalculateScore()//TODO: Presently only ingredient score*2
     {
         score = 0;
@@ -30,6 +31,7 @@ public class Recipe
         }
         score *= 2;
     }
+
     public int score = 0;
     public List<FoodType> content = new List<FoodType>();
 

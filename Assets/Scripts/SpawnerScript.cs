@@ -51,9 +51,4 @@ public class SpawnerScript : MonoBehaviour {
         
         Instantiate(toSpawn, spawnPosition, RandomAngle(), transform);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
