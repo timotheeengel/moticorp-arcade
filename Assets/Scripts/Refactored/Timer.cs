@@ -73,12 +73,8 @@ public class Timer : MonoBehaviour {
 
     void EndRound()
     {
-        //Pan[] pans = FindObjectsOfType<Pan>();
-        //foreach (Pan pan in pans)
-        //{
-        //    pan.GetComponentInChildren<CountingScore>().CountPanContents();
-        //}
         Invoke("LoadNextRound", nextRoundDelay);
+        FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>().SaveOverallScores();
     }
 
     void LoadNextRound()
