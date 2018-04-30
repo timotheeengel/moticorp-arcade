@@ -7,12 +7,14 @@ public class FridgeNew : MonoBehaviour {
 
     [SerializeField] List<GameObject> ingredients;
     [SerializeField] int maxAmountOfSameIngredient = 1;
+    [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
 
     // Use this for initialization
     void Start () {
         recipe = new List<RecipeItem>();
+        GenerateRecipe();
     }
 	
     public List<GameObject> GetAvailableIngredients()
@@ -29,7 +31,7 @@ public class FridgeNew : MonoBehaviour {
 
         List<GameObject> unusedIngredients = ingredients.ToList();
         
-        int amountOfIngredients = Random.Range(1, ingredients.Count);
+        int amountOfIngredients = Random.Range(1, maxAmountOfDifferentIngredients);
         
         for (int i = 0; i < amountOfIngredients; i++)
         {
@@ -50,7 +52,6 @@ public class FridgeNew : MonoBehaviour {
         {
             return recipeBonusPoints;
         }
-
         return 0;
     }
 

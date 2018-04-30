@@ -15,7 +15,7 @@ public class CountingPanContents : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
-        fridge = FindObjectOfType<Fridge>().GetComponent<FridgeNew>();
+        fridge = FindObjectOfType<FridgeNew>().GetComponent<FridgeNew>();
         ScriptInitialization();
 	}
 
