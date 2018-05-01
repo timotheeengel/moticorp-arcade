@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +12,12 @@ public class RecipeDisplay : MonoBehaviour {
     private void Start()
     {
         iconDisplays = GetComponentsInChildren<RawImage>();
-        // TODO: Add sorting to the icon display to ensure it shown in the right order!
+        // iconDisplays.OrderBy(iconName => iconName.name);
         foreach (RawImage icon in iconDisplays)
         {
             icon.enabled = false;
         }
+
     }
 
     void UpdateDisplay(List <RecipeItem> recipeItems)
