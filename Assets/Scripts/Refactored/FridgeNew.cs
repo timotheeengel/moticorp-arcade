@@ -10,9 +10,11 @@ public class FridgeNew : MonoBehaviour {
     [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
+    private RecipeDisplay recipeDisplay;
 
     // Use this for initialization
     void Start () {
+        recipeDisplay = FindObjectOfType<RecipeDisplay>();
         recipe = new List<RecipeItem>();
         GenerateRecipe();
     }
@@ -42,7 +44,7 @@ public class FridgeNew : MonoBehaviour {
 
             unusedIngredients.Remove(currentIngredient);
         }
-
+        recipeDisplay.DisplayRecipe(recipe);
         return recipe;
     }
 
@@ -50,6 +52,7 @@ public class FridgeNew : MonoBehaviour {
     {
         if (IsRecipeCompleted(panContent))
         {
+            GenerateRecipe();
             return recipeBonusPoints;
         }
         return 0;

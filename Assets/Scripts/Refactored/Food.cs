@@ -7,6 +7,7 @@ public class Food : MonoBehaviour {
     [SerializeField] string displayName = "testname";
     [SerializeField] int points;
     [SerializeField] int id;
+    [SerializeField] Texture icon;
 
     public int GetPointValue()
     {
@@ -26,5 +27,10 @@ public class Food : MonoBehaviour {
     public void SetID(int newID)
     {
         id = newID;
+    }
+
+    public Texture GetIcon()
+    {
+        return icon;
     }
 }
