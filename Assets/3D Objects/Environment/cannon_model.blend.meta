@@ -11,6 +11,8 @@ ModelImporter:
     400004: Cube_001
     2100000: unnamed
     2100002: Material
+    2100004: Material_001__cannon_base_texture
+    2100006: Material__cannon_cannon_texture
     2300000: Cube
     2300002: Cube_001
     3300000: Cube
@@ -19,7 +21,17 @@ ModelImporter:
     4300002: Cube
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001__cannon_base_texture
+    second: {fileID: 2100000, guid: 3bc89faf7aa1cf34d90a3d17801a6ca1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__cannon_cannon_texture
+    second: {fileID: 2100000, guid: 1ed0dd7d8e0e74b489def05e21f71c90, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +87,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
