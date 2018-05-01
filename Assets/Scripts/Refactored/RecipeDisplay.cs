@@ -9,7 +9,7 @@ public class RecipeDisplay : MonoBehaviour {
     RawImage[] iconDisplays;
     List<RecipeItem> foodIcons;
 
-    private void Start()
+    private void Awake()
     {
         iconDisplays = GetComponentsInChildren<RawImage>();
         // iconDisplays.OrderBy(iconName => iconName.name);
@@ -17,7 +17,6 @@ public class RecipeDisplay : MonoBehaviour {
         {
             icon.enabled = false;
         }
-
     }
 
     void UpdateDisplay(List <RecipeItem> recipeItems)
@@ -39,11 +38,12 @@ public class RecipeDisplay : MonoBehaviour {
     public void DisplayRecipe(List<RecipeItem> currentRecipe)
     {
         foodIcons = currentRecipe;
+        UpdateDisplay(foodIcons);
         if (foodIcons.Count > iconDisplays.Length)
         {
             Debug.LogError("Recipe is too long for the UI!");
             return;
         }
-        UpdateDisplay(foodIcons);
+
     } 
 }

@@ -2572,11 +2572,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1343554010}
     m_Modifications:
-    - target: {fileID: 114247237098167892, guid: 9d086a52e064d6e40b6ba349871bb829,
-        type: 2}
-      propertyPath: ingredients.Array.size
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 4626590511376180, guid: 9d086a52e064d6e40b6ba349871bb829, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2611,20 +2606,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114247237098167892, guid: 9d086a52e064d6e40b6ba349871bb829,
         type: 2}
-      propertyPath: maxAmountOfSameIngredient
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114247237098167892, guid: 9d086a52e064d6e40b6ba349871bb829,
-        type: 2}
       propertyPath: maxAmountOfDifferentIngredients
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114247237098167892, guid: 9d086a52e064d6e40b6ba349871bb829,
-        type: 2}
-      propertyPath: ingredients.Array.data[11]
-      value: 
-      objectReference: {fileID: 1229749213697772, guid: 463f03648a3f2a542b6f8b9096023992,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d086a52e064d6e40b6ba349871bb829, type: 2}
   m_IsPrefabParent: 0
