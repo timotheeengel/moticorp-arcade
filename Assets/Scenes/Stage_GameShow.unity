@@ -228,10 +228,37 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1283196545623754, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
+      propertyPath: m_TagString
+      value: RightPan
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506504373367374, guid: 52f334ba8d012784c8f64eceecb76229,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114114875739098344, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &61794240 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1283196545623754, guid: 52f334ba8d012784c8f64eceecb76229,
+    type: 2}
+  m_PrefabInternal: {fileID: 61794239}
+--- !u!114 &61794241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 61794240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab01362fab34a2498a5e5dcc69a9809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
+  JitterFilterSampleCount: 4
 --- !u!1 &68955328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,13 +1772,27 @@ GameObject:
   - component: {fileID: 1220496298}
   - component: {fileID: 1220496297}
   - component: {fileID: 1220496296}
+  - component: {fileID: 1220496295}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: LeftPan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1220496295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220496294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab01362fab34a2498a5e5dcc69a9809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
+  JitterFilterSampleCount: 4
 --- !u!114 &1220496296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,7 +1800,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220496294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e4b29ffc18ce4b42ac23169edf88e80, type: 3}
   m_Name: 

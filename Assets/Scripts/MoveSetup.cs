@@ -28,8 +28,8 @@ public class MoveSetup : MonoBehaviour {
     {
         if (level == 1)
         {
-            scale = masterController.GetComponent<ControlPSMove>().CalculateScale();
-            onStart();
+            scale = 3;
+            //onStart();
         }
     }
 

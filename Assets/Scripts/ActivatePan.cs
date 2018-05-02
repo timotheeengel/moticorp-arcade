@@ -17,7 +17,7 @@ public class ActivatePan : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (psMoveController.IsMoveButtonDown)
+        if (true)
         {
             isPanActive = true;
             readyText.enabled = true;

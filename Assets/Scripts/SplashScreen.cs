@@ -25,7 +25,7 @@ public class SplashScreen : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton("Submit") || ReadyToPlay())
         {
-            concierge.BringNextCourse("Main");
+            concierge.BringNextCourse("Stage_GameShow");
         }
 	}
 
@@ -34,7 +34,7 @@ public class SplashScreen : MonoBehaviour {
         // TODO: Make recursive
         if (activePans[0].IsPanActive() && activePans[1].IsPanActive())
         {
-            return true;
+            //return true;
         }
         return false;
     }
