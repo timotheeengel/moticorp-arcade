@@ -7,13 +7,16 @@ public class FridgeNew : MonoBehaviour {
 
     [SerializeField] List<GameObject> ingredients;
     [SerializeField] int maxAmountOfSameIngredient = 1;
+    [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
+    private RecipeDisplay recipeDisplay;
 
     // Use this for initialization
     void Start () {
+        recipeDisplay = FindObjectOfType<RecipeDisplay>();
         recipe = new List<RecipeItem>();
-        RecipeComparisonTest();
+        GenerateRecipe();
     }
 	
     public List<GameObject> GetAvailableIngredients()
@@ -30,7 +33,7 @@ public class FridgeNew : MonoBehaviour {
 
         List<GameObject> unusedIngredients = ingredients.ToList();
         
-        int amountOfIngredients = Random.Range(1, ingredients.Count);
+        int amountOfIngredients = Random.Range(1, maxAmountOfDifferentIngredients);
         
         for (int i = 0; i < amountOfIngredients; i++)
         {
@@ -41,56 +44,22 @@ public class FridgeNew : MonoBehaviour {
 
             unusedIngredients.Remove(currentIngredient);
         }
-
+        recipeDisplay.DisplayRecipe(recipe);
         return recipe;
     }
 
     public int EvaluatePanContent(List<GameObject> panContent)
     {
-        int basicScore = 0;
-        foreach (GameObject ingredient in panContent)
+        if (IsRecipeCompleted(panContent))
         {
-            basicScore += ingredient.GetComponent<Food>().GetPointValue();
+            GenerateRecipe();
+            return recipeBonusPoints;
         }
-
-        int recipeBonus = 0;
-        if (IsRecipeCompletedV2(panContent))
-        {
-            recipeBonus += recipeBonusPoints;
-        }
-
-        return basicScore + recipeBonus;
+        return 0;
     }
 
-    // Out-dated! Use V2
-    private bool OLDIsRecipeCompletedV1(List<GameObject> panContents)
-    {
-        List < RecipeItem > adjustedPanContents = new List<RecipeItem>();
-        while (panContents.Count > 0)
-        {
-            GameObject foodType = panContents[0];
-            List<GameObject> foodQuantity = panContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
-            adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
 
-            panContents.RemoveAll(f => foodType);
-        }
-
-        // TODO: Fix THIS!
-
-        foreach (RecipeItem item in recipe) {
-            if (!adjustedPanContents.Exists
-                    (e =>
-                    e.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID()
-                    && e.quantity >= item.quantity)
-                )
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private bool IsRecipeCompletedV2(List<GameObject> panContents)
+    private bool IsRecipeCompleted(List<GameObject> panContents)
     {
         List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
         while (panContents.Count > 0)
@@ -100,9 +69,7 @@ public class FridgeNew : MonoBehaviour {
             adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
             panContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
         }
-
-        // TODO: Fix THIS!
-
+       
         foreach (RecipeItem item in recipe)
         {
             bool foundItemInPan = false;
@@ -137,19 +104,38 @@ public class FridgeNew : MonoBehaviour {
             }
         }
 
+        bool checkingListAgainstOneAnother = false;
+        checkingListAgainstOneAnother = IsRecipeCompleted(panContents);
+        print(checkingListAgainstOneAnother);
+    }
+
+    // Out-dated! Use V2
+    private bool OLDIsRecipeCompletedV1(List<GameObject> panContents)
+    {
+        List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
+        while (panContents.Count > 0)
+        {
+            GameObject foodType = panContents[0];
+            List<GameObject> foodQuantity = panContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
+
+            panContents.RemoveAll(f => foodType);
+        }
+
+        // TODO: Fix THIS!
+
         foreach (RecipeItem item in recipe)
         {
-            Debug.Log("The recipe contains " + item.ingredient.GetComponent<Food>().GetName() + " Q: " + item.quantity);
+            if (!adjustedPanContents.Exists
+                    (e =>
+                    e.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID()
+                    && e.quantity >= item.quantity)
+                )
+            {
+                return false;
+            }
         }
-
-        foreach (GameObject ingredient in panContents)
-        {
-            Debug.Log("The pan contains " + ingredient.GetComponent<Food>().GetName());
-        }
-
-        bool checkingListAgainstOneAnother = false;
-        checkingListAgainstOneAnother = IsRecipeCompletedV2(panContents);
-        print(checkingListAgainstOneAnother);
+        return true;
     }
 
 
@@ -175,7 +161,6 @@ public struct RecipeItem
     {
         if (caughtQ >= quantity)
         {
-            Debug.Log(caughtQ + " && " + quantity);
             return true;
         }
         return false;

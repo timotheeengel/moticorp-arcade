@@ -63,5 +63,7 @@ MonoBehaviour:
   - {fileID: 1636641403216450, guid: e1ca576a98dba784382085f052e8805d, type: 2}
   - {fileID: 1781510810014320, guid: 6198dc460897ea54897055a176561a7a, type: 2}
   - {fileID: 1447552492000952, guid: 25d450c68b72120469f8f338640ecd1c, type: 2}
-  maxAmountOfSameIngredient: 20
+  - {fileID: 1229749213697772, guid: 463f03648a3f2a542b6f8b9096023992, type: 2}
+  maxAmountOfSameIngredient: 2
+  maxAmountOfDifferentIngredients: 4
   recipeBonusPoints: 100

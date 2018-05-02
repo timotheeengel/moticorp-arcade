@@ -17,7 +17,10 @@ public class Scoreboard : MonoBehaviour
     public static int roundLeftScore = 0;
     public static int roundRightScore = 0;
 
+    // Overall scores + PlayerPrefs keys
+    private string MyPlayerPrefsKey_overallLeft = "overallLeftScore";
     public static int overallLeftScore = 0;
+    private string MyPlayerPrefsKey_overallRight = "overallRightScore";
     public static int overallRightScore = 0;
 
     public static Scoreboard instance;
@@ -39,6 +42,9 @@ public class Scoreboard : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        overallLeftScore = PlayerPrefs.GetInt(MyPlayerPrefsKey_overallLeft, 0);
+        overallRightScore = PlayerPrefs.GetInt(MyPlayerPrefsKey_overallRight, 0);
     }
 
     void UpdateDisplay()
@@ -86,8 +92,7 @@ public class Scoreboard : MonoBehaviour
     {
         ResetScores();
         ResetRoundScores();
-        overallLeftScore = 0;
-        overallRightScore = 0;
+        ResetAllScores();
     }
     
     public void SetActive(bool state)
@@ -103,18 +108,16 @@ public class Scoreboard : MonoBehaviour
         }
     }
 
-    //public void AddScoreLeft(int points)
-    //{
-    //    leftScore += points;
-    //    roundLeftScore += points;
-    //    UpdateDisplay();
-    //}
+    void ResetOverallScores ()
+    {
+        PlayerPrefs.SetInt(MyPlayerPrefsKey_overallLeft, 0);
+        PlayerPrefs.SetInt(MyPlayerPrefsKey_overallRight, 0);
+    }
 
-    //public void AddScoreRight(int points)
-    //{
-    //    rightScore += points;
-    //    roundRightScore += points;
-    //    UpdateDisplay();
-    //}
+    public void SaveOverallScores()
+    {
+        PlayerPrefs.SetInt(MyPlayerPrefsKey_overallLeft, overallLeftScore);
+        PlayerPrefs.SetInt(MyPlayerPrefsKey_overallRight, overallRightScore);
+    }
 }
 

@@ -1,7 +1,18 @@
 fileFormatVersion: 2
 guid: 553ad608567fb9643a3045309d803ad6
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: 3_animation_0
+    21300002: 3_animation_1
+    21300004: 3_animation_2
+    21300006: 3_animation_3
+    21300008: 3_animation_4
+    21300010: 3_animation_5
+    21300012: 3_animation_6
+    21300014: 3_animation_7
+    21300016: 3_animation_8
+    21300018: 3_animation_9
+    21300020: 3_animation_10
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -91,11 +102,231 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 3_animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1638
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25a6339698f3b14a867a4949de1aa81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_1
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1638
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cf2c01f26230744a26f86c9f428fc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_2
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 1638
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 593e1a57ddc32594986b6f56ca7b77c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_3
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 1638
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c61f071e9973c6478e70dcb722ffe6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_4
+      rect:
+        serializedVersion: 2
+        x: 3276
+        y: 1638
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d5dca7a15f1c645822c87bd16680ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1228
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1c19fa5f69f564c931c8b0af93bf12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_6
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1228
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adab7eb9eee237f43a218fb9a3b1d58b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_7
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 1228
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd463e292a8119a49b20023fd715ea79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_8
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 1228
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1950efaa710bc24d9df6df74199a8c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_9
+      rect:
+        serializedVersion: 2
+        x: 3276
+        y: 1228
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f333ece88d38f454ebe0a11570dce0bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_animation_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 818
+        width: 819
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a0dd94088139143b1f85074eb830e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33410960d5beb45459703f84d7a0ac6f
     vertices: []
     indices: 
     edges: []
