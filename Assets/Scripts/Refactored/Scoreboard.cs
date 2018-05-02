@@ -14,8 +14,8 @@ public class Scoreboard : MonoBehaviour
     private Text displayRightScore;
 
     // TODO: Save round + overall score as a scriptable object  
-    public static int roundLeftScore = 0;
-    public static int roundRightScore = 0;
+    public int roundLeftScore = 0;
+    public int roundRightScore = 0;
 
     // Overall scores + PlayerPrefs keys
     private string MyPlayerPrefsKey_overallLeft = "overallLeftScore";

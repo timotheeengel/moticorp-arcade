@@ -28,7 +28,6 @@ public class Concierge : MonoBehaviour {
         bool isScoreUIAvailable = CheckForScoreUI(stage);
         Scoreboard scoreboard = GameObject.Find("Scoreboard").GetComponent<Scoreboard>();
         scoreboard.SetActive(isScoreUIAvailable);
-        scoreboard.ResetRoundScores();
     }
 
     bool CheckForScoreUI(Scene stage)

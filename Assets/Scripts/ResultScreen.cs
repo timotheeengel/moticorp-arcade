@@ -17,8 +17,7 @@ public class ResultScreen : MonoBehaviour {
         {
             Debug.LogWarning("No Concierge found in your Restaurant");
         }
-        scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
-        DisplayFinalResutlts();
+        DisplayFinalResults();
 	}
 	
 	// Update is called once per frame
@@ -29,15 +28,19 @@ public class ResultScreen : MonoBehaviour {
         }
 	}
 
-    void DisplayFinalResutlts()
+    void DisplayFinalResults()
     {
+        scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
+        if (scoreboard == null)
+        {
+            Debug.LogError("Scoreboard missing. Cannot display Scores!");
+        }
+
         PlayerScoreLeft = GameObject.Find("ScoreLeft").GetComponent<Text>();
         PlayerScoreRight = GameObject.Find("ScoreRight").GetComponent<Text>();
 
-        PlayerScoreLeft.text = Scoreboard.roundLeftScore.ToString();
-        PlayerScoreRight.text = Scoreboard.roundRightScore.ToString();
-
-        scoreboard.ResetAllScores();
+        PlayerScoreLeft.text = scoreboard.roundLeftScore.ToString();
+        PlayerScoreRight.text = scoreboard.roundRightScore.ToString();
     }
 }
 

@@ -18,7 +18,15 @@ public class FridgeNew : MonoBehaviour {
         recipe = new List<RecipeItem>();
         GenerateRecipe();
     }
-	
+
+    private void Update()
+    {
+        if(Debug.isDebugBuild && Input.GetButtonDown("Submit"))
+        {
+            GenerateRecipe();
+        }
+    }
+
     public List<GameObject> GetAvailableIngredients()
     {
         return ingredients;

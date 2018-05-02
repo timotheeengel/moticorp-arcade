@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class RecipeDisplay : MonoBehaviour {
 
+    [SerializeField] Texture[] recipeBackground;
     RawImage[] iconDisplays;
+    RawImage recipeBG;
     List<RecipeItem> foodIcons;
 
     private void Awake()
     {
         iconDisplays = GetComponentsInChildren<RawImage>();
+        recipeBG = GameObject.Find("RecipeBG").GetComponent<RawImage>();
         // iconDisplays.OrderBy(iconName => iconName.name);
         foreach (RawImage icon in iconDisplays)
         {
@@ -21,6 +24,9 @@ public class RecipeDisplay : MonoBehaviour {
 
     void UpdateDisplay(List <RecipeItem> recipeItems)
     {
+        // TODO: Make so the current recipeBackground cannot be chosen by the RNG
+        recipeBG.texture = recipeBackground[Random.Range(0, recipeBackground.Length)];
+
         foreach (RawImage icon in iconDisplays)
         {
             icon.enabled = false;

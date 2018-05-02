@@ -53,4 +53,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonScoringStages:
   - SplashScreen
-  - ResultScreen
