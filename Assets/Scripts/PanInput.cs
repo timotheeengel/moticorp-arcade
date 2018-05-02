@@ -41,7 +41,7 @@ public class PanInput : MonoBehaviour {
             player = CONTROLS.RIGHT;
             Controller = GameObject.FindGameObjectWithTag("RightController");
         }
-        keyboardPosition = transform.position;
+        keyboardPosition.y = transform.position.y;
         //MoveSetup.instance.onStart += StartMovement;
     }
 
