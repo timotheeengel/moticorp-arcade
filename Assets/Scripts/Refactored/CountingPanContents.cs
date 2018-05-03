@@ -56,22 +56,26 @@ public class CountingPanContents : MonoBehaviour {
         scoreboard.AddScore(playerSide, recipePoints);
     }
 
-    // TODO: Check for bugs - possibly the reason we get double the points because we do not differenciate between existing score and new score.
+    public Scoreboard.SCORESIDE GetPlayerSide()
+    {
+        return playerSide;
+    }
+
     public void CountPanContents()
     {
-        int points = 0;
-        foreach (GameObject ingredient in panContents)
-        {
-            points += ingredient.GetComponent<Food>().GetPointValue();
-        }
+        int amountOfFood = panContents.Count;
         int bonus = fridge.EvaluatePanContent(panContents);
         if (bonus > 0)
         {
             completedRecipes++;
-            points += bonus;
+            scoreboard.AddScore(playerSide, bonus);
         }
 
-        scoreboard.AddScore(playerSide, points);
+        for (int i = 0; i < amountOfFood; i++)
+        {
+            Destroy(panContents[0]);
+            panContents.RemoveAt(0);
+        }
     }
 }
 

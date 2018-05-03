@@ -70,12 +70,13 @@ public class FridgeNew : MonoBehaviour {
     private bool IsRecipeCompleted(List<GameObject> panContents)
     {
         List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
-        while (panContents.Count > 0)
+        List<GameObject> tempPanContents = new List<GameObject>(panContents);
+        while (tempPanContents.Count > 0)
         {
-            GameObject foodType = panContents[0];
-            List<GameObject> foodQuantity = panContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            GameObject foodType = tempPanContents[0];
+            List<GameObject> foodQuantity = tempPanContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
             adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
-            panContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            tempPanContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
         }
        
         foreach (RecipeItem item in recipe)

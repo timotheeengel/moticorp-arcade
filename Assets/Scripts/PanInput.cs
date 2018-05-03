@@ -64,8 +64,8 @@ public class PanInput : MonoBehaviour {
             case CONTROLS.LEFT:
 
                 movement = new Vector3(
-                    Time.deltaTime * movementSpeed * Input.GetAxis("Horizontal"),
-                    Time.deltaTime * movementSpeed * Input.GetAxis("Vertical"),
+                    Time.deltaTime * movementSpeed * Input.GetAxis("HorizontalP1"),
+                    Time.deltaTime * movementSpeed * Input.GetAxis("VerticalP1"),
                     0);
                 break;
 
