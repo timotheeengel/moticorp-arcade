@@ -71,9 +71,20 @@ public class FridgeNew : MonoBehaviour {
     {
         List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
         List<GameObject> tempPanContents = new List<GameObject>(panContents);
+
+        // The 2 null safe guards below are in place because of 1 single issue:
+        // When the player pans overlapt, the ingredient is added to both panContents list. If however one of the players happens to be
+        // above their stove at the time, this ingredient's gameobject will be destroyed and deleted from one of the lists but not the other.
+        // In other words, the safeguards protect against analyzing ingredient that no longer exist.
+
         while (tempPanContents.Count > 0)
         {
             GameObject foodType = tempPanContents[0];
+            if (foodType == null)
+            {
+                tempPanContents.Remove(foodType);
+                continue;
+            }
             List<GameObject> foodQuantity = tempPanContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
             adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
             tempPanContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
@@ -85,6 +96,10 @@ public class FridgeNew : MonoBehaviour {
             int foodQ = 0;
             foreach (RecipeItem food in adjustedPanContents)
             {
+                if(food.ingredient == null)
+                {
+                    continue;
+                }
                 if (food.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID())
                 {
                     foundItemInPan = true;

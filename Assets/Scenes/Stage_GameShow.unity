@@ -226,7 +226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1283196545623754, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1283196545623754, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_TagString
@@ -1354,7 +1354,17 @@ Prefab:
     - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
         type: 2}
       propertyPath: m_Size.z
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d3fde98c99ff4847a55f3d4c995f2de, type: 2}
@@ -2305,6 +2315,21 @@ Prefab:
     - target: {fileID: 1845802876589692, guid: 4d3fde98c99ff4847a55f3d4c995f2de, type: 2}
       propertyPath: m_Name
       value: StoveTopRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65243022977186462, guid: 4d3fde98c99ff4847a55f3d4c995f2de,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d3fde98c99ff4847a55f3d4c995f2de, type: 2}
