@@ -42,18 +42,13 @@ public class PanInput : MonoBehaviour {
             Controller = GameObject.FindGameObjectWithTag("RightController");
         }
         keyboardPosition.y = transform.position.y;
+        keyboardPosition.z = transform.position.z;
         //MoveSetup.instance.onStart += StartMovement;
     }
 
     public float CalculateScale()
     {
         return transform.position.x / Controller.transform.position.x;
-    }
-
-    private void Update()
-    {
-        HandleInput();
-        rb.MovePosition(controllerPosition + keyboardPosition);
     }
 
     void HandleInput()
@@ -86,6 +81,8 @@ public class PanInput : MonoBehaviour {
     {
         if(Controller!=null)
             HandlePSMoveInput();
+        HandleInput();
+        rb.MovePosition(controllerPosition + keyboardPosition);
     }
 
     private void HandlePSMoveInput()
