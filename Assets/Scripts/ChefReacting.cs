@@ -28,20 +28,20 @@ public class ChefReacting : MonoBehaviour {
         }
 
         // Todo: Make proper reaction script
-        int react = Random.Range(0, 4);
+        int react = Random.Range(0,3);
         switch (react)
         {
             case 0:
-                animator.SetTrigger("Angry");
+                animator.SetTrigger("OK");
                 break;
             case 1:
-                animator.SetTrigger("ThumbsUp");
+                animator.SetTrigger("Delicious");
                 break;
             case 2:
-                animator.SetTrigger("Excited");
+                animator.SetTrigger("Yum");
                 break;
-            case 3:
-                animator.SetTrigger("Disappointed");
+            default:
+                Debug.LogWarning("Something went horrendously wrong in ChefReacting.cs");
                 break;
         }
         timeSinceLastReaction = 0;
