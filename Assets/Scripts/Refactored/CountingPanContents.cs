@@ -73,8 +73,9 @@ public class CountingPanContents : MonoBehaviour {
 
         for (int i = 0; i < amountOfFood; i++)
         {
-            Destroy(panContents[0]);
+            GameObject temp = panContents[0];
             panContents.RemoveAt(0);
+            Destroy(temp);
         }
     }
 }
