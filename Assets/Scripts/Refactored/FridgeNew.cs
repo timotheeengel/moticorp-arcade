@@ -5,12 +5,27 @@ using System.Linq;
 
 public class FridgeNew : MonoBehaviour {
 
+    public static FridgeNew instance = null;
+
     [SerializeField] List<GameObject> ingredients;
     [SerializeField] int maxAmountOfSameIngredient = 1;
     [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
     private RecipeDisplay recipeDisplay;
+    
+    public delegate void OnGenerateRecipe();
+    public event OnGenerateRecipe onGenerateRecipe;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            Debug.LogError("Surplus Fridge!", gameObject);
+            Destroy(gameObject);
+        }
+        instance = this;
+    }
 
     // Use this for initialization
     void Start () {
@@ -53,6 +68,7 @@ public class FridgeNew : MonoBehaviour {
             unusedIngredients.Remove(currentIngredient);
         }
         recipeDisplay.DisplayRecipe(recipe);
+        onGenerateRecipe();
         return recipe;
     }
 
@@ -162,7 +178,22 @@ public class FridgeNew : MonoBehaviour {
         return true;
     }
 
-
+    public void GetIngredientStatus(List<GameObject> InRecipe, List<GameObject> NotInRecipe, float duplication)
+    {
+        float total = 0;
+        float unique = 0;
+        foreach (var item in recipe)
+        {
+            unique++;
+            for (int i = 0; i < item.quantity; i++)
+            {
+                total++;
+                InRecipe.Add(item.ingredient);
+            }
+        }
+        NotInRecipe.AddRange(ingredients.FindAll(f => recipe.Exists(e => e.ingredient.GetComponent<Food>().GetID() == f.GetComponent<Food>().GetID()) == false));//:^)
+        duplication = total / unique;
+    }
 }
 
 public struct RecipeItem
