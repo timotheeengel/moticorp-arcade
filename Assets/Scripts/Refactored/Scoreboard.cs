@@ -102,6 +102,7 @@ public class Scoreboard : MonoBehaviour
         {
             displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
             displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
+            UpdateDisplay();
         } else
         {
             Debug.Log("No Scoring in this scene. Remember to  reset the Scores when needed /° ! °\\");
