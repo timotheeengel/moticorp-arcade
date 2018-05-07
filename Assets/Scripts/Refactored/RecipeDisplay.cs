@@ -37,7 +37,6 @@ public class RecipeDisplay : MonoBehaviour {
         {
             for (int j = 0; j < foodIcons[i].quantity; j++)
             {
-
                 iconDisplays[offset].enabled = true;
                 iconDisplays[offset].texture = foodIcons[i].ingredient.GetComponent<Food>().GetIcon();
                 offset++;

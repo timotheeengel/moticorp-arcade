@@ -7,6 +7,7 @@ public class CountingPanContents : MonoBehaviour {
     Scoreboard scoreboard;
     Scoreboard.SCORESIDE playerSide;
     List<GameObject> panContents = new List<GameObject>();
+    DisplayPanContents contentDisplay;
 
     FridgeNew fridge;
 
@@ -17,6 +18,8 @@ public class CountingPanContents : MonoBehaviour {
         scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
         fridge = FindObjectOfType<FridgeNew>().GetComponent<FridgeNew>();
         ScriptInitialization();
+        contentDisplay = GetComponent<DisplayPanContents>();
+        contentDisplay.InitiliazeDisplay(playerSide);
 	}
 
     void ScriptInitialization ()
@@ -38,7 +41,8 @@ public class CountingPanContents : MonoBehaviour {
             panContents.Add(other.gameObject);
             scoreboard.AddScore(playerSide, other.GetComponent<Food>().GetPointValue());
         }
-
+        SanitizePanContents();
+        contentDisplay.UpdateDisplay(panContents);
     }
 
     private void OnTriggerExit(Collider other)
@@ -48,7 +52,8 @@ public class CountingPanContents : MonoBehaviour {
             panContents.Remove(other.gameObject);
             scoreboard.AddScore(playerSide, -other.GetComponent<Food>().GetPointValue());
         }
-        
+        SanitizePanContents();
+        contentDisplay.UpdateDisplay(panContents);
     }
 
     public void AddRecipeBonusScore(int recipePoints)
@@ -56,24 +61,22 @@ public class CountingPanContents : MonoBehaviour {
         scoreboard.AddScore(playerSide, recipePoints);
     }
 
-    public Scoreboard.SCORESIDE GetPlayerSide()
+    void SanitizePanContents()
     {
-        return playerSide;
-    }
-
-    public void CountPanContents()
-    {
-
         for (int i = 0; i < panContents.Count; i++)
         {
             if (panContents[i] == null)
             {
-                panContents.RemoveAt(i);
+                panContents.Remove(panContents[i]);
+                Debug.Log("Removed null item");
                 i--;
             }
-        } 
+        }
+    }
 
-
+    public void CountPanContents()
+    {
+        SanitizePanContents();
         int amountOfFood = panContents.Count;
 
         int bonus = fridge.EvaluatePanContent(panContents);
@@ -89,6 +92,12 @@ public class CountingPanContents : MonoBehaviour {
             panContents.RemoveAt(0);
             Destroy(temp);
         }
+        contentDisplay.UpdateDisplay(panContents);
+    }
+
+    public Scoreboard.SCORESIDE GetPlayerSide()
+    {
+        return playerSide;
     }
 }
 
