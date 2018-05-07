@@ -91,6 +91,7 @@ public class PanInput : MonoBehaviour {
         Vector3 dest = ghostTarget - transform.position;
         dest /= 2;
         controllerPosition = transform.position + dest;
+        controllerPosition.z = 0;
         rb.rotation = Quaternion.Euler(0, 0, JitterFilterRoll());
     }
 
@@ -116,7 +117,7 @@ public class PanInput : MonoBehaviour {
         posSamples.RemoveAt(0);
 
         Vector3 ret = new Vector3(0, 0, 0);
-        foreach (var item in posSamples)
+        foreach (var item in posSamples)    
             ret += item;
         ret /= posSamples.Count;
 

@@ -313,6 +313,11 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.096
       objectReference: {fileID: 0}
+    - target: {fileID: 54513517197090832, guid: 52f334ba8d012784c8f64eceecb76229,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114114875739098344, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
@@ -3233,7 +3238,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &1220496298
 Transform:
