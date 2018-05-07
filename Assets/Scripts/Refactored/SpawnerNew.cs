@@ -21,9 +21,9 @@ public class SpawnerNew : MonoBehaviour
 
     private void Start()
     {
-        stageBoundaries = FindObjectOfType<StageBoundaries>().GetComponent<StageBoundaries>();
-        ingredientsList = FindObjectOfType<FridgeNew>().GetComponent<FridgeNew>().GetAvailableIngredients();
-        InvokeRepeating("SpawnFood", 0, spawnRate);
+        stageBoundaries = FindObjectOfType<StageBoundaries>();
+        ingredientsList = FridgeNew.instance.GetAvailableIngredients();
+        //InvokeRepeating("SpawnFood", 0, spawnRate);
     }
 
     private Quaternion RandomAngle()
