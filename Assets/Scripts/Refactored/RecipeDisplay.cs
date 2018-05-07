@@ -31,12 +31,16 @@ public class RecipeDisplay : MonoBehaviour {
         {
             icon.enabled = false;
         }
+
+        int offset = 0;
         for (int i = 0; i < foodIcons.Count; i++)
         {
             for (int j = 0; j < foodIcons[i].quantity; j++)
             {
-                iconDisplays[i + j].enabled = true;
-                iconDisplays[i + j].texture = foodIcons[i].ingredient.GetComponent<Food>().GetIcon();
+
+                iconDisplays[offset].enabled = true;
+                iconDisplays[offset].texture = foodIcons[i].ingredient.GetComponent<Food>().GetIcon();
+                offset++;
             }
         }
     }
