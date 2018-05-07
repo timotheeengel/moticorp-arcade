@@ -91,12 +91,12 @@ public class Cannon : MonoBehaviour {
         }
         else
             instance = this;
+        FridgeNew.instance.onGenerateRecipe += AssembleAmmunitionList;
     }
 
     // Use this for initialization
     void Start () {
         SetWeights(RecipeIngredientWeight,NonRecipeIngredientWeight,TrashWeight);
-        FridgeNew.instance.onGenerateRecipe += AssembleAmmunitionList;
         StartCoroutine(FireFood());
 	}
 	
