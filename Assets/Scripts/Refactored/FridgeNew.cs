@@ -74,6 +74,7 @@ public class FridgeNew : MonoBehaviour {
 
     public int EvaluatePanContent(List<GameObject> panContent)
     {
+        Debug.Log(IsRecipeCompleted(panContent));
         if (IsRecipeCompleted(panContent))
         {
             GenerateRecipe();
@@ -93,37 +94,83 @@ public class FridgeNew : MonoBehaviour {
         // above their stove at the time, this ingredient's gameobject will be destroyed and deleted from one of the lists but not the other.
         // In other words, the safeguards protect against analyzing ingredient that no longer exist.
 
+        //int count = 0;
         while (tempPanContents.Count > 0)
         {
             GameObject foodType = tempPanContents[0];
+            //Debug.Log("Current foodtype " + foodType.GetComponent<Food>().GetName());
             if (foodType == null)
             {
                 tempPanContents.Remove(foodType);
                 continue;
             }
             List<GameObject> foodQuantity = tempPanContents.FindAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
-            adjustedPanContents.Add(new RecipeItem(panContents[0], foodQuantity.Count));
-            tempPanContents.RemoveAll(f => f.GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID());
+            adjustedPanContents.Add(new RecipeItem(tempPanContents[0], foodQuantity.Count));
+
+            //Debug.Log("Found " + foodQuantity.Count + " " + foodType.GetComponent<Food>().GetName());
+            //Debug.Log("Added " + adjustedPanContents[count].quantity + " " + adjustedPanContents[count].ingredient.GetComponent<Food>().GetName());
+            //Debug.Log(adjustedPanContents.Count);
+            //count++;
+
+            Food food = foodType.GetComponent<Food>();
+            for (int i = 0; i < tempPanContents.Count; i++)
+            {
+                if (tempPanContents[i].GetComponent<Food>().GetID() == food.GetID())
+                {
+                    tempPanContents.Remove(tempPanContents[i]);
+                    i--;
+                }
+            }
+            for (int i = 0; i < tempPanContents.Count; i++)
+            {
+                if (tempPanContents[i].GetComponent<Food>().GetID() == foodType.GetComponent<Food>().GetID())
+                {
+                    tempPanContents.RemoveAt(i);
+                }
+            }
         }
-       
-        foreach (RecipeItem item in recipe)
+
+        // Suggested by Tommi - Not working either
+        //int count = 0;
+        //foreach (RecipeItem required in recipe)
+        //{
+        //    Food outer = required.ingredient.GetComponent<Food>();
+        //    foreach (RecipeItem have in adjustedPanContents)
+        //    {
+        //        Food inner = have.ingredient.GetComponent<Food>();
+        //        if (outer.GetID() == inner.GetID() && have.quantity >= required.quantity)
+        //        {
+        //            count++;
+        //            continue;
+        //        }
+        //    }
+        //}
+
+        //Debug.Log(count == recipe.Count);
+
+        //if (count == recipe.Count)
+        //    return true;
+
+        //return false;
+
+        for (int i = 0; i < recipe.Count; i++)
         {
             bool foundItemInPan = false;
             int foodQ = 0;
-            foreach (RecipeItem food in adjustedPanContents)
+            for(int j = 0; j < adjustedPanContents.Count; j++)
             {
-                if(food.ingredient == null)
+                if (adjustedPanContents[j].ingredient == null)
                 {
                     continue;
                 }
-                if (food.ingredient.GetComponent<Food>().GetID() == item.ingredient.GetComponent<Food>().GetID())
+                if (adjustedPanContents[j].ingredient.GetComponent<Food>().GetID() == recipe[i].ingredient.GetComponent<Food>().GetID())
                 {
                     foundItemInPan = true;
-                    foodQ = food.quantity;
+                    foodQ = adjustedPanContents[j].quantity;
                     break;
                 }
             }
-            if (foundItemInPan && item.EnoughQ(foodQ))
+            if (foundItemInPan && recipe[i].EnoughQ(foodQ))
             {
                 continue;
             }
@@ -143,10 +190,21 @@ public class FridgeNew : MonoBehaviour {
                 panContents.Add(recipe[i].ingredient);
             }
         }
+        panContents.Add(panContents[0]);
+
+        foreach (GameObject content in panContents)
+        {
+            Debug.Log(content.GetComponent<Food>().GetName());
+        }
+
+        foreach (RecipeItem item in recipe)
+        {
+            Debug.Log(item.ingredient.GetComponent<Food>().GetName() + " " + item.quantity);
+        }
 
         bool checkingListAgainstOneAnother = false;
         checkingListAgainstOneAnother = IsRecipeCompleted(panContents);
-        print(checkingListAgainstOneAnother);
+        Debug.Log(checkingListAgainstOneAnother);
     }
 
     // Out-dated! Use V2
@@ -214,6 +272,7 @@ public struct RecipeItem
 
     public bool EnoughQ (int caughtQ)
     {
+        Debug.Log("Name " + ingredient.GetComponent<Food>().GetName() + quantity + "&&" + caughtQ);
         if (caughtQ >= quantity)
         {
             return true;
