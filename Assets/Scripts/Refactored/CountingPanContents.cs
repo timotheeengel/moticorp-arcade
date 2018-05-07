@@ -63,7 +63,19 @@ public class CountingPanContents : MonoBehaviour {
 
     public void CountPanContents()
     {
+
+        for (int i = 0; i < panContents.Count; i++)
+        {
+            if (panContents[i] == null)
+            {
+                panContents.RemoveAt(i);
+                i--;
+            }
+        } 
+
+
         int amountOfFood = panContents.Count;
+
         int bonus = fridge.EvaluatePanContent(panContents);
         if (bonus > 0)
         {
