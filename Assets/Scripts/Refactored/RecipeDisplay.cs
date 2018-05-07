@@ -54,6 +54,5 @@ public class RecipeDisplay : MonoBehaviour {
             Debug.LogError("Recipe is too long for the UI!");
             return;
         }
-
     } 
 }
