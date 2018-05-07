@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
-  RecipeIngredientWeight: 1
+  RecipeIngredientWeight: 9
   NonRecipeIngredientWeight: 1
   TrashWeight: 0
   spawnPoint: {fileID: 26569094}
