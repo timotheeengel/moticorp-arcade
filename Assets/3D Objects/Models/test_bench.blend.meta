@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: e94b5c6f54c064a4fbf995259e3a3724
+guid: db9c8908117e67c418867b73e7eafcf3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material
+    2100000: Material__wood_texture_png
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
@@ -15,8 +15,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 977dceae7bdc6e4499f6f0de4e4fb3df, type: 2}
+      name: Material__wood_texture_png
+    second: {fileID: 2100000, guid: 0408c4cd2d8df2e4f8f9a35bbee0dd57, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,7 +72,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -91,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
