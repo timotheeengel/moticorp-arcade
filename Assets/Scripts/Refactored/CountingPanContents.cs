@@ -34,6 +34,18 @@ public class CountingPanContents : MonoBehaviour {
         }
     }
 
+    void ToGlowOrNotToGlow ()
+    {
+        if (fridge.GlowFactor(panContents) == true)
+        {
+            contentDisplay.RecipeIsComplete(true);
+        }
+        else
+        {
+            contentDisplay.RecipeIsComplete(false);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Food>())
@@ -43,6 +55,7 @@ public class CountingPanContents : MonoBehaviour {
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
+        ToGlowOrNotToGlow();
     }
 
     private void OnTriggerExit(Collider other)
@@ -54,6 +67,7 @@ public class CountingPanContents : MonoBehaviour {
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
+        ToGlowOrNotToGlow();
     }
 
     public void AddRecipeBonusScore(int recipePoints)
@@ -67,7 +81,7 @@ public class CountingPanContents : MonoBehaviour {
         {
             if (panContents[i] == null)
             {
-                panContents.Remove(panContents[i]);
+                panContents.RemoveAt(i);
                 Debug.Log("Removed null item");
                 i--;
             }
@@ -93,6 +107,7 @@ public class CountingPanContents : MonoBehaviour {
             Destroy(temp);
         }
         contentDisplay.UpdateDisplay(panContents);
+        contentDisplay.RecipeIsComplete(false);
     }
 
     public Scoreboard.SCORESIDE GetPlayerSide()

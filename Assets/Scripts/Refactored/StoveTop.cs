@@ -56,5 +56,4 @@ public class StoveTop : MonoBehaviour {
             timeOnStove += Time.deltaTime;
         }
     }
-
 }

@@ -27,9 +27,9 @@ public class Timer : MonoBehaviour {
         text.text = countdown.ToString();
 	}
 	
-    public void StartRound (bool state)
+    public void StartRound ()
     {
-        roundHasStarted = state;
+        roundHasStarted = true;
     }
 
 	// Update is called once per frame

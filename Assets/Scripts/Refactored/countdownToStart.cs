@@ -26,7 +26,7 @@ public class countdownToStart : MonoBehaviour {
 
             if (SecondsTillStart <= Mathf.Epsilon)
             {
-                timer.StartRound(true);
+                timer.StartRound();
                 launchedRound = true;
                 gameObject.SetActive(!launchedRound);
             }

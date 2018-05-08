@@ -79,6 +79,10 @@ public class FridgeNew : MonoBehaviour {
         return 0;
     }
 
+    public bool GlowFactor (List<GameObject> currentPanContents)
+    {
+        return IsRecipeCompleted(currentPanContents);
+    }
 
     private bool IsRecipeCompleted(List<GameObject> panContents)
     {
