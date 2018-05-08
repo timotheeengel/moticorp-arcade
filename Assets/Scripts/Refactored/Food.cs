@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Food : MonoBehaviour {
 
@@ -31,10 +32,27 @@ public class Food : MonoBehaviour {
             
             yield return null;
         }
-        yield return new WaitForSeconds(hangtime);
+        GameObject uiIcon = new GameObject();
+        uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = icon;
+        uiIcon.transform.parent = GameObject.Find("UI").transform;
+        uiIcon.transform.position = new Vector3(Camera.main.WorldToScreenPoint(transform.position).x,1040);
+        StartCoroutine(IconBob(uiIcon.transform, hangtime));
 
-        
+        yield return new WaitForSeconds(hangtime);
         GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    IEnumerator IconBob(Transform target, float hangtime)
+    {
+        float time = 0;
+        Vector3 basePos = target.position;
+        while (time < (hangtime + 0.5f))
+        {
+            time += Time.deltaTime;
+            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time*10) * 10, 0);
+            yield return null;
+        }
+        Destroy(target.gameObject);
     }
 
     public int GetPointValue()

@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
-  hangtime: 0
+  hangtime: 4
   RecipeIngredientWeight: 9
   NonRecipeIngredientWeight: 1
   TrashWeight: 0
