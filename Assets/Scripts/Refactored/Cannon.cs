@@ -7,6 +7,7 @@ public class Cannon : MonoBehaviour {
     public static Cannon instance;
 
     [SerializeField] float muzzleVelocity;
+    [SerializeField] float hangtime;
 
     [SerializeField] int RecipeIngredientWeight;
     [SerializeField] int NonRecipeIngredientWeight;
@@ -58,7 +59,7 @@ public class Cannon : MonoBehaviour {
                     toSpawn,
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
-                    ).GetComponent<Food>().Flight(FireTarget.instance.GetPositionOnLine(Line.Target,Random.Range(0f,1f)), muzzleVelocity);
+                    ).GetComponent<Food>().Flight(FireTarget.instance.GetPositionOnLine(Line.Target,Random.Range(0f,1f)), muzzleVelocity, hangtime);
 
                 GetComponentInChildren<ParticleSystem>().Play();
             }
@@ -91,17 +92,11 @@ public class Cannon : MonoBehaviour {
         }
         else
             instance = this;
-        FridgeNew.instance.onGenerateRecipe += AssembleAmmunitionList;
     }
 
     // Use this for initialization
     void Start () {
         SetWeights(RecipeIngredientWeight,NonRecipeIngredientWeight,TrashWeight);
         StartCoroutine(FireFood());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

@@ -13,9 +13,6 @@ public class FridgeNew : MonoBehaviour {
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
     private RecipeDisplay recipeDisplay;
-    
-    public delegate void OnGenerateRecipe();
-    public event OnGenerateRecipe onGenerateRecipe;
 
     private void Awake()
     {
@@ -68,7 +65,7 @@ public class FridgeNew : MonoBehaviour {
             unusedIngredients.Remove(currentIngredient);
         }
         recipeDisplay.DisplayRecipe(recipe);
-        onGenerateRecipe();
+        Cannon.instance.AssembleAmmunitionList();
         return recipe;
     }
 

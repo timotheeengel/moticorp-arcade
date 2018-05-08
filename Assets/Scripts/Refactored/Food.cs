@@ -9,12 +9,12 @@ public class Food : MonoBehaviour {
     [SerializeField] int id;
     [SerializeField] Texture icon;
 
-    public void Flight(Vector3 target, float speed)
+    public void Flight(Vector3 target, float speed, float hangtime)
     {
-        StartCoroutine(Trajectory(target, speed));
+        StartCoroutine(Trajectory(target, speed, hangtime));
     }
 
-    IEnumerator Trajectory(Vector3 target, float speed)
+    IEnumerator Trajectory(Vector3 target, float speed, float hangtime)
     {
         GetComponent<Rigidbody>().useGravity = false;
         Vector3 movement = transform.position - target;
@@ -31,7 +31,7 @@ public class Food : MonoBehaviour {
             
             yield return null;
         }
-        yield return new WaitForSeconds(4);//TODO magic number
+        yield return new WaitForSeconds(hangtime);
 
         
         GetComponent<Rigidbody>().useGravity = true;
