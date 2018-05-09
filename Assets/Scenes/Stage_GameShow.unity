@@ -2116,7 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
-  hangtime: 0
+  hangtime: 4
   RecipeIngredientWeight: 9
   NonRecipeIngredientWeight: 1
   TrashWeight: 0
@@ -2624,6 +2624,7 @@ GameObject:
   - component: {fileID: 771437746}
   - component: {fileID: 771437745}
   - component: {fileID: 771437744}
+  - component: {fileID: 771437748}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2715,6 +2716,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &771437748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771437743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68be056bf42545f44aa8dd6cab9e070a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IncomingFoodIconPosY: 1040
+  IncomingFoodIconBG: {fileID: 2800000, guid: cd44789377a4b3c41a15dac04eb2551d, type: 3}
+  IncomingFoodIconBobSpeed: 10
+  IncomingFoodIconBobMagnitude: 10
 --- !u!1001 &799260593
 Prefab:
   m_ObjectHideFlags: 0
