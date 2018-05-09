@@ -32,11 +32,14 @@ public class Food : MonoBehaviour {
             
             yield return null;
         }
+        GameObject uiIconbg = new GameObject();
         GameObject uiIcon = new GameObject();
+        uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
         uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = icon;
-        uiIcon.transform.parent = GameObject.Find("UI").transform;
-        uiIcon.transform.position = new Vector3(Camera.main.WorldToScreenPoint(transform.position).x,1040);
-        StartCoroutine(IconBob(uiIcon.transform, hangtime));
+        uiIconbg.transform.parent = GameObject.Find("UI").transform;
+        uiIcon.transform.parent = uiIconbg.transform;
+        uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(transform.position).x,UIGlobals.incomingFoodIconPosY);
+        StartCoroutine(IconBob(uiIconbg.transform, hangtime));
 
         yield return new WaitForSeconds(hangtime);
         GetComponent<Rigidbody>().useGravity = true;
@@ -46,10 +49,10 @@ public class Food : MonoBehaviour {
     {
         float time = 0;
         Vector3 basePos = target.position;
-        while (time < (hangtime + 0.5f))
+        while (time < (hangtime + 0.5f))//TODO magic number
         {
             time += Time.deltaTime;
-            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time*10) * 10, 0);
+            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time*UIGlobals.incomingFoodIconBobSpeed) * UIGlobals.incomingFoodIconBobMagnitude, 0);
             yield return null;
         }
         Destroy(target.gameObject);
