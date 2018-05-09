@@ -49,7 +49,9 @@ public class Scoreboard : MonoBehaviour
 
     void UpdateDisplay()
     {
+        if(displayLeftScore != null)
         displayLeftScore.text = leftScore.ToString();
+        if (displayRightScore != null)
         displayRightScore.text = rightScore.ToString();
     }
 
