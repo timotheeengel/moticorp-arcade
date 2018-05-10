@@ -6,25 +6,30 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
     [Tooltip("Length of Round in seconds")] [SerializeField] float countdown = 30f;
+    float roundLength;
     [SerializeField] float nextRoundDelay = 5f;
-    Text text;
     Concierge concierge;
     public bool roundHasStarted = false;
     bool roundHasEnded = false;
 
+    float rotationSpeed;
+    Transform eggTimerTop;
+    Quaternion eggTimerOriginalPos;
+    [SerializeField] Transform eggTimerFinalPos;
+
 	// Use this for initialization
 	void Start () {
-        text = GetComponent<Text>();
+        eggTimerTop = GameObject.Find("EggTimerTop").transform;
+        eggTimerOriginalPos = eggTimerTop.rotation;
+
+        rotationSpeed = (eggTimerFinalPos.transform.rotation.z - eggTimerOriginalPos.z) * countdown;
+
+        roundLength = countdown;
         concierge = FindObjectOfType<Concierge>();
         if (concierge == null)
         {
             Debug.LogError("Your restaurant does not have a Concierge!");
         }
-        if (text == null)
-        {
-            Debug.LogWarning("Could not find the Egg timer!");
-        }
-        text.text = countdown.ToString();
 	}
 	
     public void StartRound ()
@@ -34,41 +39,27 @@ public class Timer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (!roundHasStarted)
+        if (roundHasStarted && !roundHasEnded)
         {
-            // TODO: Rewrite in a more elegant manner
-            text.text = "00:" + countdown.ToString();
-            return;
+            EggTimerTurns();
         }
-        if (!roundHasEnded)
-        {
-            CurrentRoundTime();
-        }
-        else
+        else if (roundHasEnded)
         {
             EndRound();
         }
 
     }
 
-    void CurrentRoundTime()
+   void EggTimerTurns()
     {
         countdown -= Time.deltaTime;
-        if (countdown >= Mathf.Epsilon)
+        // TODO: Remove magic number and find why it ain't working!
+        eggTimerTop.rotation = Quaternion.RotateTowards(eggTimerTop.rotation, eggTimerFinalPos.rotation, Time.deltaTime * rotationSpeed / 4);
+
+        if (countdown <= Mathf.Epsilon)
         {
-            int seconds = (int)countdown;
-            if (seconds < 10) // Find a cleaner solution
-            {
-                text.text = "00:0" + seconds.ToString();
-            }
-            else
-            {
-                text.text = "00:" + seconds.ToString();
-            }
-            return;
+            roundHasEnded = true;
         }
-        roundHasEnded = true;
-        text.text = "00:00";
     }
 
     void EndRound()
