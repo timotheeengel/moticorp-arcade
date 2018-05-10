@@ -47,6 +47,17 @@ public class Scoreboard : MonoBehaviour
         overallRightScore = PlayerPrefs.GetInt(MyPlayerPrefsKey_overallRight, 0);
     }
 
+    private void Update()
+    {
+        if(Debug.isDebugBuild)
+        {
+            if (Input.GetButtonDown("Reset Scores"))
+            {
+                ResetRoundScores();
+            }
+        }
+    }
+
     void UpdateDisplay()
     {
         if(displayLeftScore != null)
