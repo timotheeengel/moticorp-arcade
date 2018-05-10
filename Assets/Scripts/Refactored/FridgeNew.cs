@@ -8,6 +8,7 @@ public class FridgeNew : MonoBehaviour {
     public static FridgeNew instance = null;
 
     [SerializeField] List<GameObject> ingredients;
+    [SerializeField] List<GameObject> traps;
     [SerializeField] int maxAmountOfSameIngredient = 1;
     [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
@@ -42,6 +43,11 @@ public class FridgeNew : MonoBehaviour {
     public List<GameObject> GetAvailableIngredients()
     {
         return ingredients;
+    }
+
+    public List<GameObject> GetAvailableTrash()
+    {
+        return traps;
     }
 
     private List<RecipeItem> GenerateRecipe()
