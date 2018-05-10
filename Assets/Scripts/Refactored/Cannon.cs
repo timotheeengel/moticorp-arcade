@@ -91,7 +91,7 @@ public class Cannon : MonoBehaviour
         uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
         uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Food>().GetIcon();
         uiIconbg.transform.parent = GameObject.Find("UI").transform;
-        uiIcon.transform.parent = uiIconbg.transform;
+        uiIcon.transform.SetParent(uiIconbg.transform,false);
         uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, UIGlobals.incomingFoodIconPosY);
         StartCoroutine(IconBob(uiIconbg.transform, hangtime));
 

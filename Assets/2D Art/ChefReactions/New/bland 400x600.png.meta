@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 8e2b66054013da644bfb2c7851103617
+guid: 62155c500faf13544a4be3f748d70749
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Chef - Intermediary Movement 500x600_0
-    21300002: Chef - Intermediary Movement 500x600_1
+    21300000: bland 400x600_0
+    21300002: bland 400x600_1
+    21300004: bland 400x600_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -84,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_0
+      name: bland 400x600_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 524
-        width: 600
-        height: 500
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,19 +99,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a1bd28e266d3646a791959d364924f
+      spriteID: cf388622b80f6ab468191daca1d2cb38
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_1
+      name: bland 400x600_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
-        width: 600
-        height: 500
+        x: 400
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,7 +119,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37550c90cf05a6d4681d3810b3fecbc9
+      spriteID: 4f43f7cac8f0f9e49a95bbfeb2e761b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bland 400x600_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 424
+        width: 400
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d92cc2a1f34f0b4dbea58316e8c51ad
       vertices: []
       indices: 
       edges: []
@@ -126,7 +147,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a93727a37d0737e4f825a2b60cb884be
+    spriteID: 90f0f1fff1c093e4ca0ea456136e795d
     vertices: []
     indices: 
     edges: []

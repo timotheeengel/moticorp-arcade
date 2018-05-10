@@ -75,9 +75,9 @@ public class FridgeNew : MonoBehaviour {
         return recipe;
     }
 
-    public int EvaluatePanContent(List<GameObject> panContent)
+    public int EvaluatePanContent(List<GameObject> panContent, CONTROLS pan)
     {
-        if (IsRecipeCompleted(panContent))
+        if (IsRecipeCompleted(panContent, true, pan))
         {
             GenerateRecipe();
             return recipeBonusPoints;
@@ -87,13 +87,16 @@ public class FridgeNew : MonoBehaviour {
 
     public bool GlowFactor (List<GameObject> currentPanContents)
     {
-        return IsRecipeCompleted(currentPanContents);
+        return IsRecipeCompleted(currentPanContents, false);
     }
 
-    private bool IsRecipeCompleted(List<GameObject> panContents)
-    {
+    private bool IsRecipeCompleted(List<GameObject> panContents, bool isDelivery, CONTROLS pan = CONTROLS.LEFT)
+   {
         List<RecipeItem> adjustedPanContents = new List<RecipeItem>();
         List<GameObject> tempPanContents = new List<GameObject>(panContents);
+
+        int surplusPositives = 0;
+        int negatives = 0;
 
         // The 2 null safe guards below are in place because of 1 single issue:
         // When the player pans overlapt, the ingredient is added to both panContents list. If however one of the players happens to be
@@ -166,13 +169,16 @@ public class FridgeNew : MonoBehaviour {
 
         //return false;
 
+        bool recipeComplete = true;
+        List<int> InRecipe = new List<int>();
+
         for (int i = 0; i < recipe.Count; i++)
         {
             bool foundItemInPan = false;
             int foodQ = 0;
             for(int j = 0; j < adjustedPanContents.Count; j++)
             {
-                if (adjustedPanContents[j].ingredient == null)
+                if (adjustedPanContents[j].ingredient == null)//could this happen?
                 {
                     continue;
                 }
@@ -180,6 +186,7 @@ public class FridgeNew : MonoBehaviour {
                 {
                     foundItemInPan = true;
                     foodQ = adjustedPanContents[j].quantity;
+                    InRecipe.Add(j);
                     break;
                 }
             }
@@ -187,9 +194,26 @@ public class FridgeNew : MonoBehaviour {
             {
                 continue;
             }
-            return false;
+            recipeComplete = false;
         }
-        return true;
+
+        if (isDelivery)
+        {
+            for (int i = 0; i < adjustedPanContents.Count; i++)
+            {
+                if (recipeComplete && InRecipe.Contains(i))
+                    continue;
+                if (adjustedPanContents[i].ingredient.GetComponent<Food>().GetPointValue() < 0)
+                    negatives++;
+                else
+                    surplusPositives++;
+            }
+
+            ChefReacting.instance.React(recipeComplete, surplusPositives, negatives, pan);
+
+        }
+
+        return recipeComplete;
     }
 
     private void RecipeComparisonTest()
@@ -216,7 +240,7 @@ public class FridgeNew : MonoBehaviour {
         }
 
         bool checkingListAgainstOneAnother = false;
-        checkingListAgainstOneAnother = IsRecipeCompleted(panContents);
+        checkingListAgainstOneAnother = IsRecipeCompleted(panContents, true);
         Debug.Log(checkingListAgainstOneAnother);
     }
 

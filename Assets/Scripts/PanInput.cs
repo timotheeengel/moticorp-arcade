@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CONTROLS { LEFT, RIGHT };
+
 public class PanInput : MonoBehaviour {
 
     [SerializeField] GameObject Controller;
@@ -11,8 +13,7 @@ public class PanInput : MonoBehaviour {
     Vector3 keyboardPosition = Vector3.zero;
     Vector3 controllerPosition = Vector3.zero;
 
-    CONTROLS player;
-    enum CONTROLS { LEFT, RIGHT };
+    public CONTROLS player;
 
     [SerializeField] int JitterFilterSampleCount;
     List<Vector3> posSamples;

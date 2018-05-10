@@ -15,16 +15,16 @@ public class DisplayPanContents : MonoBehaviour {
     bool recipeComplete = false;
 
     // Use this for initialization
-    public void InitiliazeDisplay (Scoreboard.SCORESIDE playerSide) {
+    public void InitiliazeDisplay (CONTROLS playerSide) {
         GameObject display;
         switch (playerSide)
         {
-            case Scoreboard.SCORESIDE.LEFT:
+            case CONTROLS.LEFT:
                 display = GameObject.Find("PanContentsLeft");
                 panDisplayIcons = display.GetComponentsInChildren<RawImage>();
                 panDisplayOutline = display.GetComponentsInChildren<Outline>();
                 break;
-            case Scoreboard.SCORESIDE.RIGHT:
+            case CONTROLS.RIGHT:
                 display = GameObject.Find("PanContentsRight");
                 panDisplayIcons = display.GetComponentsInChildren<RawImage>();
                 panDisplayOutline = display.GetComponentsInChildren<Outline>();

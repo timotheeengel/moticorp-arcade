@@ -5,7 +5,7 @@ using UnityEngine;
 public class CountingPanContents : MonoBehaviour {
 
     Scoreboard scoreboard;
-    Scoreboard.SCORESIDE playerSide;
+    CONTROLS playerSide;
     List<GameObject> panContents = new List<GameObject>();
     DisplayPanContents contentDisplay;
 
@@ -26,11 +26,11 @@ public class CountingPanContents : MonoBehaviour {
     {
         if (transform.parent.position.x > 0)
         {
-            playerSide = Scoreboard.SCORESIDE.RIGHT;
+            playerSide = CONTROLS.RIGHT;
         }
         else
         {
-            playerSide = Scoreboard.SCORESIDE.LEFT;
+            playerSide = CONTROLS.LEFT;
         }
     }
 
@@ -93,7 +93,7 @@ public class CountingPanContents : MonoBehaviour {
         SanitizePanContents();
         int amountOfFood = panContents.Count;
 
-        int bonus = fridge.EvaluatePanContent(panContents);
+        int bonus = fridge.EvaluatePanContent(panContents, playerSide);
         if (bonus > 0)
         {
             completedRecipes++;
@@ -110,7 +110,7 @@ public class CountingPanContents : MonoBehaviour {
         contentDisplay.RecipeIsComplete(false);
     }
 
-    public Scoreboard.SCORESIDE GetPlayerSide()
+    public CONTROLS GetPlayerSide()
     {
         return playerSide;
     }

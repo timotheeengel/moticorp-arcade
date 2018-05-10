@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 8e2b66054013da644bfb2c7851103617
+guid: f53e3ae8b8e47214691baf68e85841ae
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Chef - Intermediary Movement 500x600_0
-    21300002: Chef - Intermediary Movement 500x600_1
+    21300000: new chef tasteless 400x600_0
+    21300002: new chef tasteless 400x600_1
+    21300004: new chef tasteless 400x600_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -84,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_0
+      name: new chef tasteless 400x600_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 524
-        width: 600
-        height: 500
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,19 +99,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a1bd28e266d3646a791959d364924f
+      spriteID: 8191fa7d26e668f46900e6d45258a22a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_1
+      name: new chef tasteless 400x600_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
-        width: 600
-        height: 500
+        x: 400
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,7 +119,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37550c90cf05a6d4681d3810b3fecbc9
+      spriteID: 58c2d9e9e8273464fb960bdee03ffc6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new chef tasteless 400x600_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 424
+        width: 400
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02fc32bc9789f943bc6767e35c2e59d
       vertices: []
       indices: 
       edges: []
@@ -126,7 +147,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a93727a37d0737e4f825a2b60cb884be
+    spriteID: 0702e0590bd343046accc7ca586a8411
     vertices: []
     indices: 
     edges: []
