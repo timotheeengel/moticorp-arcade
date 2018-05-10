@@ -1565,6 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a9a461f6088ec4cafac1e310d10a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 2
 --- !u!1 &535594674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
+  hangtime: 0
   RecipeIngredientWeight: 9
   NonRecipeIngredientWeight: 1
   TrashWeight: 0
@@ -4538,7 +4540,7 @@ SpriteRenderer:
   m_Size: {x: 8.19, y: 4.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!95 &1629047564
 Animator:
@@ -5453,6 +5455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a9a461f6088ec4cafac1e310d10a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 2
 --- !u!4 &1940517804 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4802656975433782, guid: 4d3fde98c99ff4847a55f3d4c995f2de,

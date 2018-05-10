@@ -1797,7 +1797,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0e1d0365a39f4640b720004c7d18d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da86eba4c7e3d6a409cd3d73170a64ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2140,7 +2140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0e1d0365a39f4640b720004c7d18d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da86eba4c7e3d6a409cd3d73170a64ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2543,7 +2543,6 @@ GameObject:
   - component: {fileID: 556223445}
   - component: {fileID: 556223446}
   - component: {fileID: 556223447}
-  - component: {fileID: 556223448}
   m_Layer: 0
   m_Name: blue_backrow
   m_TagString: Untagged
@@ -2599,7 +2598,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0e1d0365a39f4640b720004c7d18d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da86eba4c7e3d6a409cd3d73170a64ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2627,20 +2626,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &556223448
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 556223444}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &573289373
 GameObject:
   m_ObjectHideFlags: 0
@@ -5538,7 +5523,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 69062348f278d6b468e14dc79376a963, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 80c61622ee357cd4b8e0862a8945aa6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6402,7 +6387,12 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 39e3a0dabbd40cd42989b2817d24c2c5, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: dbb918db56744604a844863a4f35c26a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0fda9ef3f3dff53408379148074c8f35, type: 2}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: dbb918db56744604a844863a4f35c26a, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: dbb918db56744604a844863a4f35c26a, type: 3}
   m_IsPrefabParent: 0
 --- !u!1001 &1725181474
@@ -7602,7 +7592,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0e1d0365a39f4640b720004c7d18d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da86eba4c7e3d6a409cd3d73170a64ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
