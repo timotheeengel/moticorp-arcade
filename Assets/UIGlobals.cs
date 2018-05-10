@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UIGlobals : MonoBehaviour {
 
-    [SerializeField] int IncomingFoodIconPosY = 0;
+    [SerializeField] int IncomingFoodIconPosY = 1040;
     [SerializeField] Texture IncomingFoodIconBG;
-    [SerializeField] float IncomingFoodIconBobSpeed = 0;
-    [SerializeField] float IncomingFoodIconBobMagnitude = 0;
+    [SerializeField] float IncomingFoodIconBobSpeed = 10f;
+    [SerializeField] float IncomingFoodIconBobMagnitude = 10f;
 
     public static int incomingFoodIconPosY = 0;
     public static Texture incomingFoodIconBG;
