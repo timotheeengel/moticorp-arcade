@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Cannon : MonoBehaviour {
+public class Cannon : MonoBehaviour
+{
 
     public static Cannon instance;
 
@@ -21,7 +23,7 @@ public class Cannon : MonoBehaviour {
 
     [SerializeField] float cooldown = 0;
     float cooldownTimer = 0;
-    
+
     public void AssembleAmmunitionList()
     {
         inRecipe.Clear();
@@ -32,7 +34,7 @@ public class Cannon : MonoBehaviour {
 
     IEnumerator FireFood()
     {
-        if(inRecipe.Count == 0)
+        if (inRecipe.Count == 0)
         {
             yield return null;
         }
@@ -55,16 +57,59 @@ public class Cannon : MonoBehaviour {
                     toSpawn = new GameObject();
                 }
 
-                Instantiate(
+                StartCoroutine(Trajectory(FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f)), Instantiate(
                     toSpawn,
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
-                    ).GetComponent<Food>().Flight(FireTarget.instance.GetPositionOnLine(Line.Target,Random.Range(0f,1f)), muzzleVelocity, hangtime);
+                    ).transform));
 
                 GetComponentInChildren<ParticleSystem>().Play();
             }
             yield return null;
         }
+    }
+
+    IEnumerator Trajectory(Vector3 target, Transform item)
+    {
+        item.GetComponent<Rigidbody>().useGravity = false;
+        Vector3 movement = item.position - target;
+        Vector3 upwardsMovement = new Vector3(0, 3, 0);//TODO magic number
+        while (true)
+        {
+            movement = target - item.position;
+            if (movement.magnitude < 0.1)
+            {
+                item.Translate(FireTarget.instance.GetOffset(), Space.World);
+                break;
+            }
+            item.Translate((movement.normalized * muzzleVelocity + upwardsMovement) * Time.deltaTime, Space.World);
+
+            yield return null;
+        }
+        GameObject uiIconbg = new GameObject();
+        GameObject uiIcon = new GameObject();
+        uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
+        uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Food>().GetIcon();
+        uiIconbg.transform.parent = GameObject.Find("UI").transform;
+        uiIcon.transform.parent = uiIconbg.transform;
+        uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, UIGlobals.incomingFoodIconPosY);
+        StartCoroutine(IconBob(uiIconbg.transform, hangtime));
+
+        yield return new WaitForSeconds(hangtime);
+        item.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    IEnumerator IconBob(Transform target, float hangtime)
+    {
+        float time = 0;
+        Vector3 basePos = target.position;
+        while (time < (hangtime + 0.5f))//TODO magic number
+        {
+            time += Time.deltaTime;
+            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time * UIGlobals.incomingFoodIconBobSpeed) * UIGlobals.incomingFoodIconBobMagnitude, 0);
+            yield return null;
+        }
+        Destroy(target.gameObject);
     }
 
     //A value of -1 keeps it at current
@@ -95,8 +140,9 @@ public class Cannon : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-        SetWeights(RecipeIngredientWeight,NonRecipeIngredientWeight,TrashWeight);
+    void Start()
+    {
+        SetWeights(RecipeIngredientWeight, NonRecipeIngredientWeight, TrashWeight);
         StartCoroutine(FireFood());
-	}
+    }
 }
