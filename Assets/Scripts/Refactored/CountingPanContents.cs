@@ -48,10 +48,11 @@ public class CountingPanContents : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Food>())
+        Food food = other.GetComponent<Food>();
+        if (food != null)
         {
             panContents.Add(other.gameObject);
-            scoreboard.AddScore(playerSide, other.GetComponent<Food>().GetPointValue());
+            scoreboard.AddScore(playerSide, food.GetPointValue());
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
@@ -60,10 +61,13 @@ public class CountingPanContents : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Food>())
+        
+        Food food = other.GetComponent<Food>();
+        if (food != null)
         {
             panContents.Remove(other.gameObject);
-            scoreboard.AddScore(playerSide, -other.GetComponent<Food>().GetPointValue());
+            scoreboard.AddScore(playerSide, -food.GetPointValue());
+            food.HasExitedPan();
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);

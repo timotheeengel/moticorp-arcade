@@ -8,6 +8,8 @@ TagManager:
   - RightPan
   - LeftController
   - RightController
+  - FxTemporaire
+  - CaughtFood
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Food
   - 
   - 
   - 
