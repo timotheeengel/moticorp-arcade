@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 8e2b66054013da644bfb2c7851103617
+guid: 52e7de394a1d365408cc29619e4ab18f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Chef - Intermediary Movement 500x600_0
-    21300002: Chef - Intermediary Movement 500x600_1
+    21300000: new chef disgraceful 400x600_0
+    21300002: new chef disgraceful 400x600_1
+    21300004: new chef disgraceful 400x600_2
+    21300006: new chef disgraceful 400x600_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -84,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_0
+      name: new chef disgraceful 400x600_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 524
-        width: 600
-        height: 500
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a1bd28e266d3646a791959d364924f
+      spriteID: 2b884292ac9a7614faa55d33f4d1e99e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chef - Intermediary Movement 500x600_1
+      name: new chef disgraceful 400x600_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
-        width: 600
-        height: 500
+        x: 400
+        y: 424
+        width: 400
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,7 +120,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37550c90cf05a6d4681d3810b3fecbc9
+      spriteID: 1bf4c2c3325f91b4bad09f30ee1851a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new chef disgraceful 400x600_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 424
+        width: 400
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f158b879f093448b2c8bab8410c730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new chef disgraceful 400x600_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 424
+        width: 400
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e22bbce9aa227b429f8223480ea97e1
       vertices: []
       indices: 
       edges: []
@@ -126,7 +168,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a93727a37d0737e4f825a2b60cb884be
+    spriteID: 1cc612d17d8f1344ca53a2bea07ff536
     vertices: []
     indices: 
     edges: []

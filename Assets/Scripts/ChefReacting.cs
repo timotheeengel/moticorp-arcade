@@ -4,46 +4,87 @@ using UnityEngine;
 
 public class ChefReacting : MonoBehaviour {
 
-    [SerializeField] float reactInterval = 4f;
-    float timeSinceLastReaction = 0;
+    public static ChefReacting instance;
 
     Animator animator;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        if (!instance)
+            instance = this;
+        else
+            Destroy(this);
+    }
+
+    // Use this for initialization
+    void Start () {
         animator = GetComponent<Animator>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        React();
-	}
 
-    void React()
+    enum Reaction
     {
-        timeSinceLastReaction += Time.deltaTime;
-        if (timeSinceLastReaction <= reactInterval)
-        {
+        Ok, Great, Excellent, Clean, NotGood, Bad, Awful
+    }
+
+    public void React(bool success, int positives, int negatives, CONTROLS pan)
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             return;
+        if (!success && positives == 0 && negatives == 0)
+            return;
+        Reaction reaction = Reaction.Ok;
+        
+        if (success)
+        {
+            if (positives > 0 && negatives == 0)
+                reaction = Reaction.Great;
+            if (positives == 0 && negatives == 0)
+                reaction = Reaction.Clean;
+            //Excellent makes no sense
+        }
+        else
+        {
+            if (positives < 4)
+                reaction = Reaction.NotGood;
+            if (negatives > 0)
+                reaction = Reaction.Bad;
+            if (negatives > 1 || positives == 0)
+                reaction = Reaction.Awful;
         }
 
-        // Todo: Make proper reaction script
-        int react = Random.Range(0,3);
-        switch (react)
+        if (pan == CONTROLS.LEFT)
+            animator.SetBool("Left", true);
+        else
+            animator.SetBool("Left", false);
+
+        switch (reaction)
         {
-            case 0:
+            case Reaction.Ok:
                 animator.SetTrigger("OK");
                 break;
-            case 1:
+            case Reaction.Great:
+                animator.SetTrigger("Yum");
+                break;
+            case Reaction.Excellent:
                 animator.SetTrigger("Delicious");
                 break;
-            case 2:
-                animator.SetTrigger("Yum");
+            case Reaction.Clean:
+                //Excellent is inactive and there is no react for clean
+                animator.SetTrigger("Delicious");
+                break;
+            case Reaction.NotGood:
+                animator.SetTrigger("Bland");
+                break;
+            case Reaction.Bad:
+                animator.SetTrigger("Tasteless");
+                break;
+            case Reaction.Awful:
+                animator.SetTrigger("Disgraceful");
                 break;
             default:
                 Debug.LogWarning("Something went horrendously wrong in ChefReacting.cs");
                 break;
         }
-        timeSinceLastReaction = 0;
+        animator.SetTrigger("React");
     }
 }

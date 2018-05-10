@@ -523,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 0}
   movementSpeed: 2
+  player: 0
   JitterFilterSampleCount: 4
 --- !u!1 &68955328
 GameObject:
@@ -3100,7 +3101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918a4108d3ea5614389575d46775dee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactInterval: 4
 --- !u!95 &658786388
 Animator:
   serializedVersion: 3
@@ -3113,7 +3113,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2f9a0a3d6ea501f44a90e3a7f6d59ae7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4638,6 +4638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 0}
   movementSpeed: 2
+  player: 0
   JitterFilterSampleCount: 4
 --- !u!114 &1220496296
 MonoBehaviour:

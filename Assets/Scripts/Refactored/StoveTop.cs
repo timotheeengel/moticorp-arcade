@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoveTop : MonoBehaviour {
 
-    Scoreboard.SCORESIDE side;
+    CONTROLS side;
     [SerializeField] float validationTime = 0.5f;
     float timeOnStove = 0f;
     bool onCorrectStove = false;
@@ -15,11 +15,11 @@ public class StoveTop : MonoBehaviour {
 	void Start () {
 		if (transform.position.x < 0)
         {
-            side = Scoreboard.SCORESIDE.LEFT;
+            side = CONTROLS.LEFT;
             
         } else
         {
-            side = Scoreboard.SCORESIDE.RIGHT;
+            side = CONTROLS.RIGHT;
         }
     }
 

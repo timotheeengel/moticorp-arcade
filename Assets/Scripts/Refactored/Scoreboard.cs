@@ -25,12 +25,6 @@ public class Scoreboard : MonoBehaviour
 
     public static Scoreboard instance;
 
-    public enum SCORESIDE
-    {
-        LEFT,
-        RIGHT
-    }
-
     private void Awake()
     {
         if (instance)
@@ -66,17 +60,17 @@ public class Scoreboard : MonoBehaviour
         displayRightScore.text = rightScore.ToString();
     }
 
-    public void AddScore(SCORESIDE side, int points)
+    public void AddScore(CONTROLS side, int points)
     {
         switch (side)
         {
-            case SCORESIDE.LEFT:
+            case CONTROLS.LEFT:
                 leftScore += points;
                 roundLeftScore += points;
                 overallLeftScore += points;
                 displayLeftScore.text = leftScore.ToString();
                 break;
-            case SCORESIDE.RIGHT:
+            case CONTROLS.RIGHT:
                 rightScore += points;
                 roundRightScore += points;
                 overallRightScore += points;
