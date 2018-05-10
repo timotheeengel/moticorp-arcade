@@ -45,6 +45,11 @@ public class FridgeNew : MonoBehaviour {
         return ingredients;
     }
 
+    public List<GameObject> GetAvailableTrash()
+    {
+        return traps;
+    }
+
     private List<RecipeItem> GenerateRecipe()
     {
         if (recipe.Count > 0)

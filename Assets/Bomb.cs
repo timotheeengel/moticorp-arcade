@@ -62,4 +62,9 @@ public class Bomb : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    public void StartTime()
+    {
+        hasTimerStarted = true;
+    }
 }
