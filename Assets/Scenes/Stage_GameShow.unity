@@ -2805,8 +2805,18 @@ Prefab:
     - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
         type: 2}
       propertyPath: countdown
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
+        type: 2}
+      propertyPath: eggTimerOriginalPos
+      value: 
+      objectReference: {fileID: 1743414548}
+    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
+        type: 2}
+      propertyPath: eggTimerTop
+      value: 
+      objectReference: {fileID: 1743414548}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef619dc9c8d96e34cb15d79fcc5d576c, type: 2}
   m_IsPrefabParent: 0
@@ -2861,6 +2871,9 @@ MonoBehaviour:
   NonRecipeIngredientWeight: 1
   TrashWeight: 0
   spawnPoint: {fileID: 26569094}
+  bomb: {fileID: 0}
+  bombIcon: {fileID: 0}
+  bombBG: {fileID: 0}
   cooldown: 1
 --- !u!1001 &619799450
 Prefab:
@@ -5905,6 +5918,7 @@ MonoBehaviour:
   countdown: 30
   nextRoundDelay: 5
   roundHasStarted: 0
+  eggTimerTop: {fileID: 0}
   eggTimerFinalPos: {fileID: 0}
 --- !u!1 &1584779251
 GameObject:
@@ -6511,6 +6525,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1743414548 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4305801786074302, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
+    type: 2}
+  m_PrefabInternal: {fileID: 579442343}
 --- !u!1 &1749102271
 GameObject:
   m_ObjectHideFlags: 0
