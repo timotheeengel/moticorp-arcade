@@ -7,20 +7,24 @@ public class Bomb : MonoBehaviour {
     [SerializeField] int blastForce = 100;
     [SerializeField] float explosionRadius = 10.0f;
     [SerializeField] float timer = 3.0f;
-    bool hasTimerStarted = false;
+    [SerializeField] AudioClip boomSFX;
     bool hasGoneBoom = false;
+    AudioSource audioSource;
 
     ParticleSystem explosionParticles;
+    Rigidbody rb;
 
     private void Start()
     {
-        explosionParticles = GetComponent<ParticleSystem>();
+        explosionParticles = GetComponentInChildren<ParticleSystem>();
+        rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update () {
-        
-        if (hasTimerStarted == true){
+        if (rb.useGravity == true)
+        {
             TickTock();
         }
 	}
@@ -39,6 +43,8 @@ public class Bomb : MonoBehaviour {
     {
         if (hasGoneBoom == false)
         {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(boomSFX);
             explosionParticles.Play();
             GetComponent<MeshRenderer>().enabled = false;
 
@@ -61,10 +67,5 @@ public class Bomb : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-    }
-
-    public void StartTime()
-    {
-        hasTimerStarted = true;
     }
 }
