@@ -6,6 +6,10 @@ public class StoveTop : MonoBehaviour {
 
     CONTROLS side;
     [SerializeField] float validationTime = 0.5f;
+    [SerializeField] AudioClip validationSound;
+    AudioSource audioSource;
+    ParticleSystem flame;
+
     float timeOnStove = 0f;
     bool onCorrectStove = false;
     bool countedPanContents = false;
@@ -21,6 +25,9 @@ public class StoveTop : MonoBehaviour {
         {
             side = CONTROLS.RIGHT;
         }
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = validationSound;
+        flame = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +55,9 @@ public class StoveTop : MonoBehaviour {
     {
         if (!countedPanContents && timeOnStove >= validationTime)
         {
+            flame.Play();
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(validationSound);
             pan.CountPanContents();
             countedPanContents = true;
         }
