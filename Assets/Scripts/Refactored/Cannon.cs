@@ -28,11 +28,9 @@ public class Cannon : MonoBehaviour
     [SerializeField] float cooldown = 0;
     float cooldownTimer = 0;
 
-    bool hasRoundStarted = false;
-
     public void StartRound()
     {
-        hasRoundStarted = true;
+        StartCoroutine(FireFood());
     }
 
     public void AssembleAmmunitionList()
@@ -45,12 +43,6 @@ public class Cannon : MonoBehaviour
 
     IEnumerator FireFood()
     {
-        // TODO: Not working
-        if (hasRoundStarted == false)
-        {
-            Debug.Log("Round has not started yet");
-            yield return null;
-        }
         if (inRecipe.Count == 0)
         {
             yield return null;
@@ -169,6 +161,10 @@ public class Cannon : MonoBehaviour
     void Start()
     {
         SetWeights(RecipeIngredientWeight, NonRecipeIngredientWeight, TrashWeight);
-        StartCoroutine(FireFood());
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }
