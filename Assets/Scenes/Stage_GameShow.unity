@@ -432,7 +432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4470003341971504, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4470003341971504, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3347,6 +3347,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114570072186877856, guid: 6a94195ac6df24b41ad719bbfabc0639,
+        type: 2}
+      propertyPath: hangtime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23646293708305592, guid: 6a94195ac6df24b41ad719bbfabc0639,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570072186877856, guid: 6a94195ac6df24b41ad719bbfabc0639,
+        type: 2}
+      propertyPath: TrashWeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a94195ac6df24b41ad719bbfabc0639, type: 2}
   m_IsPrefabParent: 0
@@ -4836,7 +4851,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220496294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.2, z: -0.152}
+  m_LocalPosition: {x: -0.5, y: 0.3, z: -0.152}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2113842510}
@@ -6432,15 +6447,6 @@ Prefab:
     - target: {fileID: 4146732726448080, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907396669787366, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82716101777662250, guid: e6578a66b80150a49bf2148abe2e7f31,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}

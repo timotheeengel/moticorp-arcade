@@ -28,7 +28,7 @@ public class MoveSetup : MonoBehaviour {
     {
         if (level == 1)
         {
-            scale = 3;
+            scale = 2;
             //onStart();
         }
     }
