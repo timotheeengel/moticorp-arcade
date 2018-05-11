@@ -20,9 +20,9 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         eggTimerOriginalPos = eggTimerTop.transform;
-        Debug.Log("Final Rot " + eggTimerFinalPos.transform.localRotation.eulerAngles.y);
-        Debug.Log("Start Rot " + eggTimerOriginalPos.localRotation.eulerAngles.y);
-        Debug.Log(eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalPos.localRotation.eulerAngles.y);
+        //Debug.Log("Final Rot " + eggTimerFinalPos.transform.localRotation.eulerAngles.y);
+        //Debug.Log("Start Rot " + eggTimerOriginalPos.localRotation.eulerAngles.y);
+        //Debug.Log(eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalPos.localRotation.eulerAngles.y);
         // TODO: Find out why we are rotating around Z but the correct values seem to be stored in Y ... !!!
         rotationSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalPos.localRotation.eulerAngles.y) / countdown;
 
