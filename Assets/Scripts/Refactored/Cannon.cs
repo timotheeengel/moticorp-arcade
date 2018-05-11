@@ -16,6 +16,10 @@ public class Cannon : MonoBehaviour
     [SerializeField] int TrashWeight;
     [SerializeField] Transform spawnPoint;
 
+    [SerializeField] GameObject bomb;
+    [SerializeField] Texture bombIcon;
+    [SerializeField] Texture bombBG;
+
     List<GameObject> inRecipe = new List<GameObject>();
     List<GameObject> notInRecipe = new List<GameObject>();
 
@@ -23,6 +27,11 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] float cooldown = 0;
     float cooldownTimer = 0;
+
+    public void StartRound()
+    {
+        StartCoroutine(FireFood());
+    }
 
     public void AssembleAmmunitionList()
     {
@@ -40,6 +49,7 @@ public class Cannon : MonoBehaviour
         }
         while (true)
         {
+            bool isBomb = false;
             cooldownTimer -= Time.deltaTime;
             if (cooldownTimer < 0)
             {
@@ -53,15 +63,15 @@ public class Cannon : MonoBehaviour
                     toSpawn = notInRecipe[Random.Range(0, notInRecipe.Count)];
                 else
                 {
-                    Debug.Log("Tried to fire trash, but that hasn't been implemented");
-                    toSpawn = new GameObject();
+                    isBomb = true;
+                    toSpawn = bomb;
                 }
 
                 StartCoroutine(Trajectory(FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f)), Instantiate(
                     toSpawn,
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
-                    ).transform));
+                    ).transform,isBomb));
 
                 GetComponentInChildren<ParticleSystem>().Play();
             }
@@ -69,7 +79,7 @@ public class Cannon : MonoBehaviour
         }
     }
 
-    IEnumerator Trajectory(Vector3 target, Transform item)
+    IEnumerator Trajectory(Vector3 target, Transform item, bool isBomb)
     {
         item.GetComponent<Rigidbody>().useGravity = false;
         Vector3 movement = item.position - target;
@@ -88,8 +98,16 @@ public class Cannon : MonoBehaviour
         }
         GameObject uiIconbg = new GameObject();
         GameObject uiIcon = new GameObject();
-        uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
-        uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Food>().GetIcon();
+        if(!isBomb)
+        {
+            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
+            uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Food>().GetIcon();
+        }
+        else
+        {
+            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = bombBG;
+            uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = bombIcon;
+        }
         uiIconbg.transform.parent = GameObject.Find("UI").transform;
         uiIcon.transform.SetParent(uiIconbg.transform,false);
         uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, UIGlobals.incomingFoodIconPosY);
@@ -143,6 +161,10 @@ public class Cannon : MonoBehaviour
     void Start()
     {
         SetWeights(RecipeIngredientWeight, NonRecipeIngredientWeight, TrashWeight);
-        StartCoroutine(FireFood());
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

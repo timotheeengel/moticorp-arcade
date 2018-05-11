@@ -19,9 +19,9 @@ public class Scoreboard : MonoBehaviour
 
     // Overall scores + PlayerPrefs keys
     private string MyPlayerPrefsKey_overallLeft = "overallLeftScore";
-    public static int overallLeftScore = 0;
+    public int overallLeftScore = 0;
     private string MyPlayerPrefsKey_overallRight = "overallRightScore";
-    public static int overallRightScore = 0;
+    public int overallRightScore = 0;
 
     public static Scoreboard instance;
 
@@ -45,9 +45,14 @@ public class Scoreboard : MonoBehaviour
     {
         if(Debug.isDebugBuild)
         {
+            // Reset Scores = delete key
             if (Input.GetButtonDown("Reset Scores"))
             {
                 ResetRoundScores();
+            }
+            if (Input.GetButtonDown("Reset Overall Scores"))
+            {
+                ResetOverallScores();
             }
         }
     }

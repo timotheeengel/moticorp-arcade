@@ -11,9 +11,16 @@ public class RecipeDisplay : MonoBehaviour {
     RawImage recipeBG;
     List<RecipeItem> foodIcons;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip noteOn;
+    [SerializeField] AudioClip noteOff;
+
+    int currentRecipeBG;
+
     private void Awake()
     {
         iconDisplays = GetComponentsInChildren<RawImage>();
+        audioSource = GetComponent<AudioSource>();
         recipeBG = GameObject.Find("RecipeBG").GetComponent<RawImage>();
         // iconDisplays.OrderBy(iconName => iconName.name);
         foreach (RawImage icon in iconDisplays)
@@ -24,9 +31,17 @@ public class RecipeDisplay : MonoBehaviour {
 
     void UpdateDisplay(List <RecipeItem> recipeItems)
     {
-        // TODO: Make so the current recipeBackground cannot be chosen by the RNG
-        recipeBG.texture = recipeBackground[Random.Range(0, recipeBackground.Length)];
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(noteOff);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.clip = noteOn;
+        audioSource.PlayDelayed(noteOff.length);
 
+        int newRecipeBG = Random.Range(0, recipeBackground.Length);
+        if (newRecipeBG == currentRecipeBG) { currentRecipeBG++; }
+        else { currentRecipeBG = newRecipeBG; }
+
+        recipeBG.texture = recipeBackground[currentRecipeBG];
         foreach (RawImage icon in iconDisplays)
         {
             icon.enabled = false;
