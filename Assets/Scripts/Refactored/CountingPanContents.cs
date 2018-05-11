@@ -118,5 +118,14 @@ public class CountingPanContents : MonoBehaviour {
     {
         return playerSide;
     }
+
+    public bool isPanEmpty()
+    {
+        if (panContents.Count == 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }
 

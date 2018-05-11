@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114973727583047096}
   - component: {fileID: 54489261983319580}
   - component: {fileID: 82321051043835038}
+  - component: {fileID: 64797479206506284}
   m_Layer: 0
   m_Name: onion_prefab
   m_TagString: Untagged
@@ -101,6 +102,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!64 &64797479206506284
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918802741242412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 361d38750d6e9e64fb19de19a0ae19ce, type: 3}
 --- !u!82 &82321051043835038
 AudioSource:
   m_ObjectHideFlags: 1

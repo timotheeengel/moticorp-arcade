@@ -33,7 +33,7 @@ public class StoveTop : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         CountingPanContents validPan = other.gameObject.GetComponentInChildren<CountingPanContents>();
-        if (validPan && side == validPan.GetPlayerSide())
+        if (validPan && side == validPan.GetPlayerSide() && validPan.isPanEmpty() == false)
         {
             pan = validPan;
             onCorrectStove = true;
