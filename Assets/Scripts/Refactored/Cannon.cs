@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Cannon : MonoBehaviour
 {
-
     public static Cannon instance;
 
     [SerializeField] float muzzleVelocity;
@@ -19,6 +18,12 @@ public class Cannon : MonoBehaviour
     [SerializeField] GameObject bomb;
     [SerializeField] Texture bombIcon;
     [SerializeField] Texture bombBG;
+
+    [SerializeField] int IncomingFoodIconPosY = 1040;
+    [SerializeField] Texture IncomingFoodIconBG;
+    [SerializeField] float IncomingFoodIconBobSpeed = 10f;
+    [SerializeField] float IncomingFoodIconBobMagnitude = 10f;
+    [SerializeField] float IncomingFoodIconExtraHangtime = 0f;
 
     List<GameObject> inRecipe = new List<GameObject>();
     List<GameObject> notInRecipe = new List<GameObject>();
@@ -100,7 +105,7 @@ public class Cannon : MonoBehaviour
         GameObject uiIcon = new GameObject();
         if(!isBomb)
         {
-            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = UIGlobals.incomingFoodIconBG;
+            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = IncomingFoodIconBG;
             uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Food>().GetIcon();
         }
         else
@@ -110,21 +115,21 @@ public class Cannon : MonoBehaviour
         }
         uiIconbg.transform.parent = GameObject.Find("UI").transform;
         uiIcon.transform.SetParent(uiIconbg.transform,false);
-        uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, UIGlobals.incomingFoodIconPosY);
-        StartCoroutine(IconBob(uiIconbg.transform, hangtime));
+        uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, IncomingFoodIconPosY);
+        StartCoroutine(IconBob(uiIconbg.transform));
 
         yield return new WaitForSeconds(hangtime);
         item.GetComponent<Rigidbody>().useGravity = true;
     }
 
-    IEnumerator IconBob(Transform target, float hangtime)
+    IEnumerator IconBob(Transform target)
     {
         float time = 0;
         Vector3 basePos = target.position;
-        while (time < (hangtime + 0.5f))//TODO magic number
+        while (time < (hangtime + IncomingFoodIconExtraHangtime))
         {
             time += Time.deltaTime;
-            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time * UIGlobals.incomingFoodIconBobSpeed) * UIGlobals.incomingFoodIconBobMagnitude, 0);
+            target.position = new Vector3(basePos.x, basePos.y + Mathf.Sin(time * IncomingFoodIconBobSpeed) * IncomingFoodIconBobMagnitude, 0);
             yield return null;
         }
         Destroy(target.gameObject);

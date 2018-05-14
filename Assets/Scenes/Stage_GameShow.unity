@@ -3347,21 +3347,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114570072186877856, guid: 6a94195ac6df24b41ad719bbfabc0639,
-        type: 2}
-      propertyPath: hangtime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 23646293708305592, guid: 6a94195ac6df24b41ad719bbfabc0639,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114570072186877856, guid: 6a94195ac6df24b41ad719bbfabc0639,
-        type: 2}
-      propertyPath: TrashWeight
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a94195ac6df24b41ad719bbfabc0639, type: 2}
   m_IsPrefabParent: 0
@@ -3561,7 +3546,6 @@ GameObject:
   - component: {fileID: 771437746}
   - component: {fileID: 771437745}
   - component: {fileID: 771437744}
-  - component: {fileID: 771437748}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3653,21 +3637,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &771437748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 771437743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68be056bf42545f44aa8dd6cab9e070a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IncomingFoodIconPosY: 1030
-  IncomingFoodIconBG: {fileID: 2800000, guid: cd44789377a4b3c41a15dac04eb2551d, type: 3}
-  IncomingFoodIconBobSpeed: 10
-  IncomingFoodIconBobMagnitude: 10
 --- !u!1001 &799260593
 Prefab:
   m_ObjectHideFlags: 0

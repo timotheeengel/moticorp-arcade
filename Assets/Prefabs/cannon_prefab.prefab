@@ -517,7 +517,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392657917188238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -591,14 +591,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
-  hangtime: 0
+  hangtime: 0.5
   RecipeIngredientWeight: 9
   NonRecipeIngredientWeight: 1
-  TrashWeight: 2
+  TrashWeight: 1
   spawnPoint: {fileID: 4830456879919484}
   bomb: {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
   bombIcon: {fileID: 2800000, guid: 17acc5f14fd40e04c9aaf55895199044, type: 3}
   bombBG: {fileID: 2800000, guid: fc9942018bc93524b8c9cd4150ef01cf, type: 3}
+  IncomingFoodIconPosY: 1040
+  IncomingFoodIconBG: {fileID: 2800000, guid: cd44789377a4b3c41a15dac04eb2551d, type: 3}
+  IncomingFoodIconBobSpeed: 10
+  IncomingFoodIconBobMagnitude: 10
+  IncomingFoodIconExtraHangtime: 1
   cooldown: 1
 --- !u!114 &114932400781878174
 MonoBehaviour:
