@@ -43,17 +43,14 @@ public class Scoreboard : MonoBehaviour
 
     private void Update()
     {
-        if(Debug.isDebugBuild)
+        // Reset Scores = delete key
+        if (Input.GetButtonDown("Reset Scores"))
         {
-            // Reset Scores = delete key
-            if (Input.GetButtonDown("Reset Scores"))
-            {
-                ResetRoundScores();
-            }
-            if (Input.GetButtonDown("Reset Overall Scores"))
-            {
-                ResetOverallScores();
-            }
+            ResetRoundScores();
+        }
+        if (Input.GetButtonDown("Reset Overall Scores"))
+        {
+            ResetOverallScores();
         }
     }
 
