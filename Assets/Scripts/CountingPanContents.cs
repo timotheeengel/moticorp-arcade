@@ -13,14 +13,21 @@ public class CountingPanContents : MonoBehaviour {
 
     int completedRecipes = 0;
 
-	// Use this for initialization
-	void Start () {
+    PhysicMaterial inPanPhysics;
+    PhysicMaterial outsidePanPhysics;
+
+    // Use this for initialization
+    void Start () {
         scoreboard = FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>();
         fridge = FindObjectOfType<FridgeNew>().GetComponent<FridgeNew>();
         ScriptInitialization();
         contentDisplay = GetComponent<DisplayPanContents>();
         contentDisplay.InitiliazeDisplay(playerSide);
-	}
+
+        inPanPhysics = (PhysicMaterial)Resources.Load("Food Pan Physics");
+        outsidePanPhysics = (PhysicMaterial)Resources.Load("Food Physics");
+
+    }
 
     void ScriptInitialization ()
     {
@@ -51,6 +58,8 @@ public class CountingPanContents : MonoBehaviour {
         Food food = other.GetComponent<Food>();
         if (food != null)
         {
+            other.material = inPanPhysics;
+
             panContents.Add(other.gameObject);
             scoreboard.AddScore(playerSide, food.GetPointValue());
         }
@@ -65,6 +74,8 @@ public class CountingPanContents : MonoBehaviour {
         Food food = other.GetComponent<Food>();
         if (food != null)
         {
+            other.material = outsidePanPhysics;
+
             panContents.Remove(other.gameObject);
             scoreboard.AddScore(playerSide, -food.GetPointValue());
             food.HasExitedPan();
