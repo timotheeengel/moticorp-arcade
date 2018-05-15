@@ -1166,7 +1166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343554010}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 159.966, y: 5.918991, z: 3.1819916}
 --- !u!1 &227372647
 GameObject:
@@ -1918,7 +1918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9be6e176b3428b4479f91da7d195865f, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9be6e176b3428b4479f91da7d195865f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2132,6 +2132,35 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &436736819 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 4aee34fb32e98b7418a8d237d916b204, type: 3}
+  m_PrefabInternal: {fileID: 900154458}
+--- !u!65 &436736820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436736819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.400002, y: 2.2000015, z: 1.4934464}
+  m_Center: {x: 0, y: -0.0000004768373, z: 0.3969874}
+--- !u!114 &436736823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436736819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBounceOffForce: 100
+  maxBounceOffAngle: 50
 --- !u!1 &503135697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,6 +2857,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616591418 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 4aee34fb32e98b7418a8d237d916b204, type: 3}
+  m_PrefabInternal: {fileID: 915090371}
+--- !u!65 &616591419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616591418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.400002, y: 2.2000015, z: 1.4934464}
+  m_Center: {x: 0, y: -0.0000004768373, z: 0.3969874}
+--- !u!114 &616591422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616591418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBounceOffForce: 100
+  maxBounceOffAngle: 50
 --- !u!1001 &619799450
 Prefab:
   m_ObjectHideFlags: 0
@@ -4937,9 +4995,9 @@ Transform:
   - {fileID: 907641114}
   - {fileID: 265998390}
   - {fileID: 2133933426}
+  - {fileID: 217548422}
   - {fileID: 1461622326}
   - {fileID: 1442933256}
-  - {fileID: 217548422}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5277,7 +5335,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0d6c173c19dbe074eb1d7a9d348d1dde, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0d6c173c19dbe074eb1d7a9d348d1dde, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5311,6 +5369,35 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0d6c173c19dbe074eb1d7a9d348d1dde, type: 3}
   m_PrefabInternal: {fileID: 1930212958}
+--- !u!1 &1496315714 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 4aee34fb32e98b7418a8d237d916b204, type: 3}
+  m_PrefabInternal: {fileID: 619799450}
+--- !u!65 &1496315715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496315714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.400002, y: 2.200001, z: 1.493446}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.39698708}
+--- !u!114 &1496315718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496315714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBounceOffForce: 100
+  maxBounceOffAngle: 50
 --- !u!1 &1498621380
 GameObject:
   m_ObjectHideFlags: 0
