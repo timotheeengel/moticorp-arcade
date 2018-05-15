@@ -35,14 +35,12 @@ public class Concierge : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(Input.GetButton("StoveTopLeft"));
-        Debug.Log(Input.GetButton("StoveTopRight"));
         if (currentState == GAMESTATE.SPLASHSCREEN)
         {
-            if (Input.GetButton("StoveTopLeft") == false && Input.GetButton("StoveTopRight") == false)
-            {
-                BringNextCourse("Stage_GameShow");
-            }
+            //if (Input.GetButton("StoveTopLeft") == false && Input.GetButton("StoveTopRight") == false)
+            //{
+            //    BringNextCourse("Stage_GameShow");
+            //}
         } else if (currentState == GAMESTATE.GAMESCREEN)
         {
             // TODO: Anything needed here?
@@ -68,7 +66,6 @@ public class Concierge : MonoBehaviour {
         scoreboard.SetActive(isScoreUIAvailable);
         if (isScoreUIAvailable == true)
         {
-            Debug.Log("reseting scores");
             scoreboard.ResetScores();
         }
     }
@@ -105,7 +102,6 @@ public class Concierge : MonoBehaviour {
             currentState = GAMESTATE.ERROR;
             Debug.LogError("Scene Unknown, cannot assign GAMESTATE to currentState in Concierge.cs");
         }
-        Debug.Log(currentState);
     }
 
     private void OnEnable()
