@@ -497,6 +497,12 @@ Prefab:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64257363941428654, guid: 52f334ba8d012784c8f64eceecb76229,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c9ff0d70ff0d7a9449142c25897ea1dd,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114114875739098344, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
@@ -7507,7 +7513,7 @@ MeshCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2113842509}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c9ff0d70ff0d7a9449142c25897ea1dd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
