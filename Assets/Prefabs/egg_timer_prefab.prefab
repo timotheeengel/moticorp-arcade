@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f061aef4b7a581a44b88495b483f8e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 30
-  nextRoundDelay: 5
+  countdown: 45
+  nextRoundDelay: 2
   roundHasStarted: 0
   eggTimerTop: {fileID: 4305801786074302}
   eggTimerFinalPos: {fileID: 4680004580830128}

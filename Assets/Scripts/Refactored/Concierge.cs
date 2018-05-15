@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 public class Concierge : MonoBehaviour {
 
     public string[] nonScoringStages;
+    GAMESTATE currentState = GAMESTATE.IDLE;
+    enum GAMESTATE
+    {
+        SPLASHSCREEN,
+        GAMESCREEN,
+        RESULTSCREEN,
+        IDLE,
+        ERROR
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +23,7 @@ public class Concierge : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        
 	}
 
     // TODO: Rename to something more befitting of our theme
@@ -23,10 +33,37 @@ public class Concierge : MonoBehaviour {
         Debug.Log("Serving " + CourseName + " course");
     }
 
+    private void Update()
+    {
+        Debug.Log(Input.GetButton("StoveTopLeft"));
+        Debug.Log(Input.GetButton("StoveTopRight"));
+        if (currentState == GAMESTATE.SPLASHSCREEN)
+        {
+            if (Input.GetButton("StoveTopLeft") == false && Input.GetButton("StoveTopRight") == false)
+            {
+                BringNextCourse("Stage_GameShow");
+            }
+        } else if (currentState == GAMESTATE.GAMESCREEN)
+        {
+            // TODO: Anything needed here?
+        } else if (currentState == GAMESTATE.RESULTSCREEN)
+        {
+            if (Input.GetButton("StoveTopLeft") == true && Input.GetButton("StoveTopRight") == true)
+            {
+                BringNextCourse("SplashScreen");
+            } else if(Input.GetButtonDown("NewGame") == true)
+            {
+                BringNextCourse("Stage_GameShow");
+            }
+        } else if (currentState == GAMESTATE.IDLE)
+        {
+            // TODO: Do something
+        }
+    }
+
     void ActivateScoreboard(Scene stage, LoadSceneMode modecene)
     {
         bool isScoreUIAvailable = CheckForScoreUI(stage);
-        Debug.Log(isScoreUIAvailable);
         Scoreboard scoreboard = GameObject.Find("Scoreboard").GetComponent<Scoreboard>();
         scoreboard.SetActive(isScoreUIAvailable);
         if (isScoreUIAvailable == true)
@@ -48,15 +85,40 @@ public class Concierge : MonoBehaviour {
         return true;
     }
 
+    void GameState(Scene stage, LoadSceneMode modecene)
+    {
+        string currentScene = stage.name;
+        if (currentScene == "SplashScreen")
+        {
+            currentState = GAMESTATE.SPLASHSCREEN;
+        } else if(currentScene == "Stage_GameShow")
+        {
+            currentState = GAMESTATE.GAMESCREEN;
+        } else if (currentScene == "ResultScreen")
+        {
+            currentState = GAMESTATE.RESULTSCREEN;
+        } else if (currentScene == "IdleScreen")
+        {
+            currentState = GAMESTATE.IDLE;
+        } else
+        {
+            currentState = GAMESTATE.ERROR;
+            Debug.LogError("Scene Unknown, cannot assign GAMESTATE to currentState in Concierge.cs");
+        }
+        Debug.Log(currentState);
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += ActivateScoreboard;
+        SceneManager.sceneLoaded += GameState;
     }
 
-    //private void OnDisable()
-    //{
-    //    SceneManager.sceneLoaded -= ActivateScoreboard;
-    //}
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= ActivateScoreboard;
+        SceneManager.sceneLoaded -= GameState;
+    }
 
 }
 
