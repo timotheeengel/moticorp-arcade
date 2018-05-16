@@ -9,6 +9,7 @@ public class StoveTop : MonoBehaviour {
     [SerializeField] AudioClip validationSound;
     AudioSource audioSource;
     ParticleSystem flame;
+    string stoveTopButton;
 
     float timeOnStove = 0f;
     bool onCorrectStove = false;
@@ -20,10 +21,11 @@ public class StoveTop : MonoBehaviour {
 		if (transform.position.x < 0)
         {
             side = CONTROLS.LEFT;
-            
+            stoveTopButton = "StoveTopLeft";
         } else
         {
             side = CONTROLS.RIGHT;
+            stoveTopButton = "StoveTopRight";
         }
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = validationSound;
@@ -43,7 +45,7 @@ public class StoveTop : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         CountingPanContents validPan = other.gameObject.GetComponentInChildren<CountingPanContents>();
-        if (validPan && side == validPan.GetPlayerSide())
+        if (validPan && Input.GetButton(stoveTopButton))
         {
             timeOnStove = 0f;
             onCorrectStove = false;
