@@ -44,7 +44,8 @@ public class StoveTop : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (Input.GetButton(stoveTopButton) == false)
+        CountingPanContents validPan = other.gameObject.GetComponentInChildren<CountingPanContents>();
+        if (validPan && side == validPan.GetPlayerSide())
         {
             timeOnStove = 0f;
             onCorrectStove = false;
