@@ -41,6 +41,9 @@ public class ResultScreen : MonoBehaviour {
         if (scoreboard == null)
         {
             Debug.LogError("Scoreboard missing. Cannot display Scores!");
+        } else
+        {
+            Debug.Log("ScoreBoard found");
         }
 
         PlayerScoreLeft = GameObject.Find("ScoreLeft").GetComponent<Text>();
@@ -55,6 +58,8 @@ public class ResultScreen : MonoBehaviour {
 
         // TODO: Display score in amount of recipes completed or as a bar?
 
+        Debug.Log(scoreboard.leftScore);
+        Debug.Log(scoreboard.rightScore);
 
         PlayerScoreLeft.text = scoreboard.leftScore.ToString();
         PlayerScoreRight.text = scoreboard.rightScore.ToString();
