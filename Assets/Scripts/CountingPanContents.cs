@@ -61,7 +61,6 @@ public class CountingPanContents : MonoBehaviour {
             other.material = inPanPhysics;
 
             panContents.Add(other.gameObject);
-            scoreboard.AddScore(playerSide, food.GetPointValue());
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
@@ -77,7 +76,6 @@ public class CountingPanContents : MonoBehaviour {
             other.material = outsidePanPhysics;
 
             panContents.Remove(other.gameObject);
-            scoreboard.AddScore(playerSide, -food.GetPointValue());
             food.HasExitedPan();
         }
         SanitizePanContents();
@@ -108,12 +106,19 @@ public class CountingPanContents : MonoBehaviour {
         SanitizePanContents();
         int amountOfFood = panContents.Count;
 
+        int points = 0;
+        foreach (GameObject food in panContents)
+        {
+            points += food.GetComponent<Food>().GetPointValue();
+        }
+        
         int bonus = fridge.EvaluatePanContent(panContents, playerSide);
         if (bonus > 0)
         {
             completedRecipes++;
-            scoreboard.AddScore(playerSide, bonus);
         }
+
+        scoreboard.AddScore(playerSide, points + bonus);
 
         for (int i = 0; i < amountOfFood; i++)
         {

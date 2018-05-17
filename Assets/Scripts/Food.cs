@@ -13,6 +13,8 @@ public class Food : MonoBehaviour
 
     AudioSource audioSource;
     bool hasHitPan = false;
+    bool badFood = false;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -42,6 +44,17 @@ public class Food : MonoBehaviour
     public int GetPointValue()
     {
         return points;
+    }
+
+    public void RotAway()
+    {
+        points = -points;
+        badFood = true;
+    }
+
+    public bool HasGoneBad()
+    {
+        return badFood;
     }
 
     public string GetName()

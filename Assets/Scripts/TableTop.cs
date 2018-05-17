@@ -9,7 +9,7 @@ public class TableTop : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collidedObj = collision.gameObject;
-        if (collidedObj.GetComponent<Food>() != null)
+        if (collidedObj.GetComponent<Food>() != null || collidedObj.GetComponent<Boot>() != null)
         {
             Rigidbody rb = collidedObj.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.None;
