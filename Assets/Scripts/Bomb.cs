@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Bomb : Trap {
 
-    [SerializeField] float blastForce = 100.0f;
-    [SerializeField] float explosionRadius = 10.0f;
+    [SerializeField] Texture bombBlinkT;
+    [SerializeField] Material bombM;
+    Texture bombOriginalT;
+    bool originalT = true;
+    [SerializeField] float blinkSpeed = 0.3f;
+
+    [SerializeField] float blastForce = 12.0f;
+    [SerializeField] float explosionRadius = 1.0f;
     [SerializeField] float timer = 3.0f;
     [SerializeField] AudioClip boomSFX;
     bool hasGoneBoom = false;
@@ -19,6 +25,10 @@ public class Bomb : Trap {
         explosionParticles = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        bombOriginalT = bombM.mainTexture;
+
+        // TODO: Clean up
+        InvokeRepeating("Blink", 0.1f, blinkSpeed);
     }
 
     // Update is called once per frame
@@ -33,6 +43,7 @@ public class Bomb : Trap {
     {
         // TODO: Add function that sets hasTimerStarted to true after it appears on the playing area.
         timer -= Time.deltaTime;
+
         if(timer <= Mathf.Epsilon && hasGoneBoom == false)
         {
             Boom();
@@ -40,8 +51,21 @@ public class Bomb : Trap {
         else if (hasGoneBoom == true && explosionParticles.IsAlive() == false)
         // TODO: Check particle effect in use. If children effects, then withChildren needs to be added to check no particles are alive
         {
+            CancelInvoke();
             Destroy(gameObject);
         }
+    }
+
+    void Blink ()
+    {
+        if(originalT == true)
+        {
+            bombM.mainTexture = bombBlinkT;
+        } else
+        {
+            bombM.mainTexture = bombOriginalT;
+        }
+        originalT = !originalT;
     }
 
     void Boom()

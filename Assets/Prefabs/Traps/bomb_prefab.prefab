@@ -197,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261169512243094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.11, y: 1.42, z: 0.06}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4754686444786424}
@@ -440,6 +440,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: 17acc5f14fd40e04c9aaf55895199044, type: 3}
+  bombBlinkT: {fileID: 2800000, guid: 721c1108540139f458732114129f7451, type: 3}
+  bombM: {fileID: 2100000, guid: 4afc5401093262f4fbad4a85bce9828f, type: 2}
+  blinkSpeed: 0.3
   blastForce: 12
   explosionRadius: 1
   timer: 3

@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Compost : MonoBehaviour {
 
-    //static List<GameObject> wasteFood;
-
-    //private void Start()
-    //{
-    //    wasteFood = new List<GameObject>();
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Food>() != null || other.GetComponent<Trap>() != null)

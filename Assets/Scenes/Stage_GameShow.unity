@@ -2106,6 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBounceOffForce: 5
+  destroyDelay: 3
 --- !u!1 &503135697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,6 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBounceOffForce: 5
+  destroyDelay: 3
 --- !u!1001 &619799450
 Prefab:
   m_ObjectHideFlags: 0
@@ -4016,7 +4018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 78.491005, y: 0, z: 0}
 --- !u!1 &1066708215
 GameObject:
@@ -4830,7 +4832,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 1.85, y: 0, z: 0}
 --- !u!1 &1343554009
 GameObject:
@@ -5284,6 +5286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBounceOffForce: 5
+  destroyDelay: 3
 --- !u!1 &1498621380
 GameObject:
   m_ObjectHideFlags: 0
@@ -6217,7 +6220,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4146732726448080, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
