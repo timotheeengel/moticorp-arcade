@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour {
+public class Bomb : Trap {
 
     [SerializeField] float blastForce = 100.0f;
     [SerializeField] float explosionRadius = 10.0f;

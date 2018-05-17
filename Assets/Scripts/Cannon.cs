@@ -15,9 +15,8 @@ public class Cannon : MonoBehaviour
     [SerializeField] int TrashWeight;
     [SerializeField] Transform spawnPoint;
 
-    [SerializeField] GameObject bomb;
-    [SerializeField] Texture bombIcon;
-    [SerializeField] Texture bombBG;
+    [SerializeField] GameObject[] trapList;
+    [SerializeField] Texture trapBG;
 
     [SerializeField] int IncomingFoodIconPosY = 1040;
     [SerializeField] Texture IncomingFoodIconBG;
@@ -54,7 +53,7 @@ public class Cannon : MonoBehaviour
         }
         while (true)
         {
-            bool isBomb = false;
+            bool isTrap = false;
             cooldownTimer -= Time.deltaTime;
             if (cooldownTimer < 0)
             {
@@ -68,15 +67,15 @@ public class Cannon : MonoBehaviour
                     toSpawn = notInRecipe[Random.Range(0, notInRecipe.Count)];
                 else
                 {
-                    isBomb = true;
-                    toSpawn = bomb;
+                    isTrap = true;
+                    toSpawn = trapList[Random.Range(0, trapList.Length)];
                 }
 
                 StartCoroutine(Trajectory(FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f)), Instantiate(
                     toSpawn,
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
-                    ).transform,isBomb));
+                    ).transform,isTrap));
 
                 GetComponentInChildren<ParticleSystem>().Play();
             }
@@ -110,8 +109,8 @@ public class Cannon : MonoBehaviour
         }
         else
         {
-            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = bombBG;
-            uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = bombIcon;
+            uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = trapBG;
+            uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Trap>().GetIcon();
         }
         uiIconbg.transform.parent = GameObject.Find("UI").transform;
         uiIcon.transform.SetParent(uiIconbg.transform,false);

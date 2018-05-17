@@ -596,9 +596,10 @@ MonoBehaviour:
   NonRecipeIngredientWeight: 1
   TrashWeight: 1
   spawnPoint: {fileID: 4830456879919484}
-  bomb: {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
-  bombIcon: {fileID: 2800000, guid: 17acc5f14fd40e04c9aaf55895199044, type: 3}
-  bombBG: {fileID: 2800000, guid: fc9942018bc93524b8c9cd4150ef01cf, type: 3}
+  trapList:
+  - {fileID: 1636201105417694, guid: 4a7ba1ce752df7d44bd5f4861ad910ce, type: 2}
+  - {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
+  trapBG: {fileID: 2800000, guid: fc9942018bc93524b8c9cd4150ef01cf, type: 3}
   IncomingFoodIconPosY: 1040
   IncomingFoodIconBG: {fileID: 2800000, guid: cd44789377a4b3c41a15dac04eb2551d, type: 3}
   IncomingFoodIconBobSpeed: 10

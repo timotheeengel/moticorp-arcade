@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boot : MonoBehaviour {
+public class Boot : Trap {
 
     // Use this for initialization
 

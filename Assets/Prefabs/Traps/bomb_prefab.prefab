@@ -439,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9062c7c23221d94ebd45116d3140b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 17acc5f14fd40e04c9aaf55895199044, type: 3}
   blastForce: 12
   explosionRadius: 1
   timer: 3

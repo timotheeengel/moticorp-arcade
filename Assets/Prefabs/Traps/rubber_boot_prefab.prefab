@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df5fa235891bbe45ac8349ffca53007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: a9d1ffdfeed36b04d9619122103b1576, type: 3}
   stink: {fileID: 1228213462471184, guid: ca56e06cac9020a41925002d5ed688e4, type: 2}
 --- !u!198 &198235319429695340
 ParticleSystem:
