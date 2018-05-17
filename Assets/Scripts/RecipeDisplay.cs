@@ -15,6 +15,8 @@ public class RecipeDisplay : MonoBehaviour {
     [SerializeField] AudioClip noteOn;
     [SerializeField] AudioClip noteOff;
 
+    [SerializeField] float recipeBGrotation = 3f;
+
     int currentRecipeBG;
 
     private void Awake()
@@ -42,6 +44,9 @@ public class RecipeDisplay : MonoBehaviour {
         else { currentRecipeBG = newRecipeBG; }
 
         recipeBG.texture = recipeBackground[currentRecipeBG];
+        Vector3 newRot = new Vector3 (0f, 0f, Random.Range(-recipeBGrotation, recipeBGrotation));
+        recipeBG.rectTransform.rotation = Quaternion.Euler(newRot);
+
         foreach (RawImage icon in iconDisplays)
         {
             icon.enabled = false;
