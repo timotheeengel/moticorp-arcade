@@ -2092,7 +2092,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.400002, y: 2.2000015, z: 1.4934464}
-  m_Center: {x: 0, y: -0.0000004768373, z: 0.3969874}
+  m_Center: {x: 0, y: -0.0000004768373, z: 0.4}
 --- !u!114 &436736823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,8 +2104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 100
-  maxBounceOffAngle: 50
+  maxBounceOffForce: 5
 --- !u!1 &503135697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,7 +2816,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.400002, y: 2.2000015, z: 1.4934464}
-  m_Center: {x: 0, y: -0.0000004768373, z: 0.3969874}
+  m_Center: {x: 0, y: -0.0000004768373, z: 0.4}
 --- !u!114 &616591422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,8 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 100
-  maxBounceOffAngle: 50
+  maxBounceOffForce: 5
 --- !u!1001 &619799450
 Prefab:
   m_ObjectHideFlags: 0
@@ -5328,7 +5326,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.400002, y: 2.200001, z: 1.493446}
-  m_Center: {x: 0, y: -0.00000047683716, z: 0.39698708}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.4}
 --- !u!114 &1496315718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5340,8 +5338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 100
-  maxBounceOffAngle: 50
+  maxBounceOffForce: 5
 --- !u!1 &1498621380
 GameObject:
   m_ObjectHideFlags: 0
