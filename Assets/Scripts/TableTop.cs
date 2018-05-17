@@ -5,6 +5,7 @@ using UnityEngine;
 public class TableTop : MonoBehaviour {
 
     [SerializeField] float maxBounceOffForce = 5f;
+    [SerializeField] float destroyDelay = 3f;
     //[SerializeField] float maxBounceOffAngle = 50f;
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,6 +17,8 @@ public class TableTop : MonoBehaviour {
 
             Vector3 bounceForce = new Vector3(Random.Range(-maxBounceOffForce, maxBounceOffForce), Random.Range(-maxBounceOffForce, maxBounceOffForce), Random.Range(-maxBounceOffForce, maxBounceOffForce));
             rb.AddForce(bounceForce, ForceMode.VelocityChange);
+
+            Destroy(collision.gameObject, destroyDelay);
 
             //Vector3 bounceAngle = new Vector3(Random.Range(maxBounceOffAngle / 2, maxBounceOffAngle), Random.Range(maxBounceOffAngle / 2, maxBounceOffAngle), Random.Range(maxBounceOffAngle / 2, maxBounceOffAngle));
             //rb.AddTorque(bounceAngle, ForceMode.VelocityChange);
