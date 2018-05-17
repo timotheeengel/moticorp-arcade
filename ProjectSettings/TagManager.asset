@@ -10,6 +10,7 @@ TagManager:
   - RightController
   - FxTemporaire
   - CaughtFood
+  - Pan
   layers:
   - Default
   - TransparentFX
