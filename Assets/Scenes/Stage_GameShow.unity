@@ -3302,62 +3302,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 476290, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476290, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: lengthInSec
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 476290, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 476290, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 476290, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.3620028
-      objectReference: {fileID: 0}
-    - target: {fileID: 184082, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: m_Name
-      value: Fire_Orange_BigFire
-      objectReference: {fileID: 0}
-    - target: {fileID: 19822588, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d7d20cd12171e64dbf63552d530e567, type: 2}
   m_IsPrefabParent: 0
