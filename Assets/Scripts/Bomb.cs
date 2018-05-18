@@ -6,7 +6,7 @@ public class Bomb : Trap {
 
     [SerializeField] Texture bombBlinkT;
     [SerializeField] Material bombM;
-    Texture bombOriginalT;
+    [SerializeField] Texture bombOriginalT;
     bool originalT = true;
     [SerializeField] float blinkSpeed = 0.3f;
 
@@ -25,7 +25,6 @@ public class Bomb : Trap {
         explosionParticles = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-        bombOriginalT = bombM.mainTexture;
 
         // TODO: Clean up
         InvokeRepeating("Blink", 0.1f, blinkSpeed);
