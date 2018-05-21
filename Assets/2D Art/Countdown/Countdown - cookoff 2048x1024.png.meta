@@ -1,18 +1,21 @@
 fileFormatVersion: 2
-guid: 80c61622ee357cd4b8e0862a8945aa6c
+guid: d59a8274542b7fb49ab391c2d94e9d6e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Countdown - 1 2048x2048_0
-    21300002: Countdown - 1 2048x2048_1
-    21300004: Countdown - 1 2048x2048_2
-    21300006: Countdown - 1 2048x2048_3
-    21300008: Countdown - 1 2048x2048_4
-    21300010: Countdown - 1 2048x2048_5
-    21300012: Countdown - 1 2048x2048_6
-    21300014: Countdown - 1 2048x2048_7
-    21300016: Countdown - 1 2048x2048_8
-    21300018: Countdown - 1 2048x2048_9
-    21300020: Countdown - 1 2048x2048_10
+    21300000: Countdown - cookoff 2048x2048_0
+    21300002: Countdown - cookoff 2048x2048_1
+    21300004: Countdown - cookoff 2048x2048_2
+    21300006: Countdown - cookoff 2048x2048_3
+    21300008: Countdown - cookoff 2048x2048_4
+    21300010: Countdown - cookoff 2048x2048_5
+    21300012: Countdown - cookoff 2048x2048_6
+    21300014: Countdown - cookoff 2048x2048_7
+    21300016: Countdown - cookoff 2048x2048_8
+    21300018: Countdown - cookoff 2048x2048_9
+    21300020: Countdown - cookoff 2048x2048_10
+    21300022: Countdown - cookoff 2048x2048_11
+    21300024: Countdown - cookoff 2048x2048_12
+    21300026: Countdown - cookoff 2048x2048_13
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -93,13 +96,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_0
+      name: Countdown - cookoff 2048x2048_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6144
+        y: 3072
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,19 +110,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4702b5a04ec7ece44af39671b1bc4283
+      spriteID: b7e14588c7795cb4e8ca9f3040801d73
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_1
+      name: Countdown - cookoff 2048x2048_1
       rect:
         serializedVersion: 2
         x: 2048
-        y: 6144
+        y: 3072
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,19 +130,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc5f9c03363f4d74fb2a71b832fd3198
+      spriteID: 39ee35934d2281f478092a07bd5c4fa8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_2
+      name: Countdown - cookoff 2048x2048_2
       rect:
         serializedVersion: 2
         x: 4096
-        y: 6144
+        y: 3072
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,19 +150,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca72b81137417714b987ba8d178f8eb9
+      spriteID: 29ae1439cb3d3c040a9039a120c4cd5b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_3
+      name: Countdown - cookoff 2048x2048_3
       rect:
         serializedVersion: 2
         x: 6144
-        y: 6144
+        y: 3072
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,99 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a3a6e8d18402c4fa848a702cc14497
+      spriteID: eac3126d808de8c49b02836ba48f739a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4096
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5da6faa34a72294283a0aa83085a5ae
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Countdown - 1 2048x2048_5
-      rect:
-        serializedVersion: 2
-        x: 2060
-        y: 4096
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cd64e780082d7a4aa9e33bebec3947a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Countdown - 1 2048x2048_6
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 4096
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97f13d6531b0b1845882a5d7a4943ee2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Countdown - 1 2048x2048_7
-      rect:
-        serializedVersion: 2
-        x: 6144
-        y: 4096
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 267a10eea3b78154e8ccc2883b5008f0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Countdown - 1 2048x2048_8
+      name: Countdown - cookoff 2048x2048_4
       rect:
         serializedVersion: 2
         x: 0
         y: 2048
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,19 +190,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 748fe42d4e46d6340a13e7868a800b3e
+      spriteID: e98965adcae3c244eb31a28413428db4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_9
+      name: Countdown - cookoff 2048x2048_5
       rect:
         serializedVersion: 2
         x: 2048
         y: 2048
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11793af302ecfc045bfe72c65c55a954
+      spriteID: dc45b087c3e1c804bb27f666f2acf26b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Countdown - 1 2048x2048_10
+      name: Countdown - cookoff 2048x2048_6
       rect:
         serializedVersion: 2
         x: 4096
         y: 2048
         width: 2048
-        height: 2048
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,7 +230,147 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a36bc108aa764f45b49b8a05b382a3e
+      spriteID: 2b302e2ce4e02434e83c22b63dd37926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_7
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 2048
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca86926534fa54f42a5a97d5efc47016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bcd08bc683a7549bb95cc63e3a663d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72644020881b1b745b4fe7563caa860d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_10
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd1f0686ec2bb84888b02c2e4f21bf3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_11
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 1024
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0481d685a8c0448a982c4c92f5b6f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1edf895fe9d3943b1af8772ba688cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Countdown - cookoff 2048x2048_13
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6619451a3bf337245940580a351fc9cc
       vertices: []
       indices: 
       edges: []
@@ -315,7 +378,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3df7226168513d24f9db3d0b0c98b006
+    spriteID: f227e08ecd41bc14ea1587b24ec1b2b9
     vertices: []
     indices: 
     edges: []
