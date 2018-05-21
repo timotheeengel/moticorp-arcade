@@ -5319,7 +5319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: 30
-  nextRoundDelay: 5
+  tickingSound: {fileID: 0}
+  ringingSound: {fileID: 0}
   roundHasStarted: 0
   eggTimerTop: {fileID: 0}
   eggTimerFinalPos: {fileID: 0}
@@ -5751,6 +5752,15 @@ Prefab:
     - target: {fileID: 4146732726448080, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82716101777662250, guid: e6578a66b80150a49bf2148abe2e7f31,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907396669787366, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6578a66b80150a49bf2148abe2e7f31, type: 2}

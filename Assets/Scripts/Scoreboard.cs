@@ -30,6 +30,7 @@ public class Scoreboard : MonoBehaviour
         if (instance)
         {
             Destroy(gameObject);
+            Debug.LogWarning("Scoreboard dishonored the clan and committed harakiri. SAD!");
         }
         else
         {

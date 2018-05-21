@@ -30,7 +30,6 @@ public class Concierge : MonoBehaviour {
     public void BringNextCourse (string CourseName)
     {
         SceneManager.LoadScene(CourseName);
-        Debug.Log("Serving " + CourseName + " course");
     }
 
     private void Update()

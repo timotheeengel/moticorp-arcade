@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
     [Tooltip("Length of Round in seconds")] [SerializeField] float countdown = 30f;
+    [SerializeField] AudioClip tickingSound;
+    [SerializeField] AudioClip ringingSound;
+    AudioSource audioSource;
+    Animator animator;
+
     float roundLength;
-    [SerializeField] float nextRoundDelay = 5f;
     Concierge concierge;
     public bool roundHasStarted = false;
     bool roundHasEnded = false;
@@ -32,11 +36,17 @@ public class Timer : MonoBehaviour {
         {
             Debug.LogError("Your restaurant does not have a Concierge!");
         }
+
+        audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
 	}
 	
     public void StartRound ()
     {
         roundHasStarted = true;
+        audioSource.clip = tickingSound;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
 	// Update is called once per frame
@@ -60,12 +70,15 @@ public class Timer : MonoBehaviour {
         if (countdown <= Mathf.Epsilon)
         {
             roundHasEnded = true;
+            audioSource.loop = false;
+            audioSource.PlayOneShot(ringingSound);
+            animator.SetBool("Ringing", true);
         }
     }
 
     void EndRound()
     {
-        Invoke("LoadNextRound", nextRoundDelay);
+        Invoke("LoadNextRound", ringingSound.length);
         FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>().SaveOverallScores();
     }
 
