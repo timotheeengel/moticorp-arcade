@@ -85,7 +85,7 @@ public class Concierge : MonoBehaviour {
     void GameState(Scene stage, LoadSceneMode modecene)
     {
         string currentScene = stage.name;
-        if (currentScene == "SplashScreen")
+        if (currentScene == "SplashScreen" || currentScene == "StartScreen")
         {
             currentState = GAMESTATE.SPLASHSCREEN;
         } else if(currentScene == "Stage_GameShow")
