@@ -47,7 +47,7 @@ public class Cannon : MonoBehaviour
 
     IEnumerator FireFood()
     {
-        if (inRecipe.Count == 0)
+        while (inRecipe.Count == 0)
         {
             yield return null;
         }
@@ -112,7 +112,7 @@ public class Cannon : MonoBehaviour
             uiIconbg.AddComponent<RawImage>().GetComponent<RawImage>().texture = trapBG;
             uiIcon.AddComponent<RawImage>().GetComponent<RawImage>().texture = item.GetComponent<Trap>().GetIcon();
         }
-        uiIconbg.transform.parent = GameObject.Find("UI").transform;
+        uiIconbg.transform.SetParent(GameObject.Find("UI").transform,false);
         uiIcon.transform.SetParent(uiIconbg.transform,false);
         uiIconbg.transform.position = new Vector3(Camera.main.WorldToScreenPoint(item.position).x, IncomingFoodIconPosY);
         StartCoroutine(IconBob(uiIconbg.transform));

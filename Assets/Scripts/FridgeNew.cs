@@ -9,11 +9,11 @@ public class FridgeNew : MonoBehaviour {
 
     [SerializeField] List<GameObject> ingredients;
     [SerializeField] List<GameObject> traps;
-    [SerializeField] int maxAmountOfSameIngredient = 1;
-    [SerializeField] int maxAmountOfDifferentIngredients = 4;
     [SerializeField] int recipeBonusPoints = 100;
     private List<RecipeItem> recipe;
     private RecipeDisplay recipeDisplay;
+
+    private int difficultyLevel;
 
     private void Awake()
     {
@@ -23,6 +23,8 @@ public class FridgeNew : MonoBehaviour {
             Destroy(gameObject);
         }
         instance = this;
+
+        difficultyLevel = 1;
     }
 
     // Use this for initialization
@@ -58,15 +60,18 @@ public class FridgeNew : MonoBehaviour {
         }
 
         List<GameObject> unusedIngredients = ingredients.ToList();
-        
-        int amountOfIngredients = Random.Range(1, maxAmountOfDifferentIngredients);
-        
-        for (int i = 0; i < amountOfIngredients; i++)
+
+        int foodleft = difficultyLevel;
+
+        while (foodleft > 0)
         {
             GameObject currentIngredient = unusedIngredients[Random.Range(0, unusedIngredients.Count)];
-            int amountOfCurrentIngredient = Random.Range(1, maxAmountOfSameIngredient);
 
-            recipe.Add(new RecipeItem(currentIngredient, amountOfCurrentIngredient));
+            int amount = Random.Range(1, 2 + foodleft / 2);
+
+            recipe.Add(new RecipeItem(currentIngredient, amount));
+
+            foodleft -= amount;
 
             unusedIngredients.Remove(currentIngredient);
         }
@@ -79,6 +84,7 @@ public class FridgeNew : MonoBehaviour {
     {
         if (IsRecipeCompleted(panContent, true, pan))
         {
+            difficultyLevel++;
             GenerateRecipe();
             return recipeBonusPoints;
         }
