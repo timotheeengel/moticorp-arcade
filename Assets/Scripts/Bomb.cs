@@ -26,33 +26,46 @@ public class Bomb : Trap {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 
-        // TODO: Clean up
-        InvokeRepeating("Blink", 0.1f, blinkSpeed);
+
+        StartCoroutine(TickTock());
     }
 
     // Update is called once per frame
     void Update () {
-        if (rb.useGravity == true)
-        {
-            TickTock();
-        }
+
 	}
 
-    void TickTock()
+    IEnumerator TickTock()
     {
-        // TODO: Add function that sets hasTimerStarted to true after it appears on the playing area.
-        timer -= Time.deltaTime;
+        while(!rb.useGravity)
+        {
+            yield return null;
+        }
 
-        if(timer <= Mathf.Epsilon && hasGoneBoom == false)
+        float initTimer = timer;
+        float blinkCounter = 0;
+        float blinkTimer = 0;
+        while (timer > 0)
         {
-            Boom();
+            blinkTimer -= Time.deltaTime;
+            timer -= Time.deltaTime;
+            if (blinkTimer < 0)
+            {
+                blinkTimer += blinkCounter;
+                Blink();
+            }
+
+            blinkCounter = blinkSpeed * (timer / initTimer + (0.1f * (1 - timer/initTimer)));
+
+            yield return null;
         }
-        else if (hasGoneBoom == true && explosionParticles.IsAlive() == false)
-        // TODO: Check particle effect in use. If children effects, then withChildren needs to be added to check no particles are alive
+        Boom();
+        
+        while(explosionParticles.IsAlive())
         {
-            CancelInvoke();
-            Destroy(gameObject);
+            yield return null;
         }
+        Destroy(gameObject);
     }
 
     void Blink ()
@@ -85,7 +98,7 @@ public class Bomb : Trap {
             if (rb != null)
                 rb.AddExplosionForce(blastForce, explosionPos, explosionRadius, 3.0F, ForceMode.VelocityChange);
         }
-
+        GetComponent<Collider>().enabled = false;
         hasGoneBoom = true;
         return;
     }
