@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour {
     [SerializeField] AudioClip ringingSound;
     AudioSource audioSource;
     Animator animator;
+    Jukebox jukebox;
 
     float roundLength;
     Concierge concierge;
@@ -39,7 +40,8 @@ public class Timer : MonoBehaviour {
 
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-	}
+        jukebox = FindObjectOfType<Jukebox>();
+    }
 	
     public void StartRound ()
     {
@@ -71,6 +73,7 @@ public class Timer : MonoBehaviour {
         {
             roundHasEnded = true;
             audioSource.loop = false;
+            jukebox.GetComponent<AudioSource>().Stop();
             audioSource.PlayOneShot(ringingSound);
             animator.SetBool("Ringing", true);
         }
