@@ -14,7 +14,7 @@ public class FridgeNew : MonoBehaviour {
     private RecipeDisplay recipeDisplay;
 
     private int difficultyLevel;
-
+    [SerializeField] List<int> difficultyLevels;
     private void Awake()
     {
         if (instance)
@@ -24,7 +24,7 @@ public class FridgeNew : MonoBehaviour {
         }
         instance = this;
 
-        difficultyLevel = 1;
+        difficultyLevel = 0;
     }
 
     // Use this for initialization
@@ -61,7 +61,10 @@ public class FridgeNew : MonoBehaviour {
 
         List<GameObject> unusedIngredients = ingredients.ToList();
 
-        int foodleft = difficultyLevel;
+        if (difficultyLevel > (difficultyLevels.Count - 1))
+            difficultyLevel = difficultyLevels.Count - 1;
+
+            int foodleft = difficultyLevels[difficultyLevel];
 
         while (foodleft > 0)
         {
@@ -84,6 +87,7 @@ public class FridgeNew : MonoBehaviour {
     {
         if (IsRecipeCompleted(panContent, true, pan))
         {
+
             difficultyLevel++;
             GenerateRecipe();
             return recipeBonusPoints;

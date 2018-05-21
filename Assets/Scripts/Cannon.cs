@@ -171,4 +171,11 @@ public class Cannon : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    private void Update()
+    {
+        Time.timeScale = 1f;
+        if (Input.GetKey(KeyCode.J))
+            Time.timeScale = 0.1f;
+    }
 }
