@@ -11,6 +11,8 @@ public class DisplayPanContents : MonoBehaviour {
     RawImage[] panDisplayIcons;
     Outline[] panDisplayOutline;
 
+    [SerializeField] Light StoveLight;
+
     Color originalColor;
     bool recipeComplete = false;
 
@@ -62,8 +64,11 @@ public class DisplayPanContents : MonoBehaviour {
     {
         if (recipeComplete == true)
         {
+            StoveLight.intensity = 4 + (Mathf.Sin(Time.time * 5) + 1) * 3;
             DisplayGlow();
         }
+        else
+            StoveLight.intensity = 0;
     }
 
     public void DisplayGlow()
