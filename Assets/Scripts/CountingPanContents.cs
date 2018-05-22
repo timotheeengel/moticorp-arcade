@@ -11,6 +11,9 @@ public class CountingPanContents : MonoBehaviour {
 
     FridgeNew fridge;
 
+    int layerFood;
+    int layerFoodCaught;
+
     int completedRecipes = 0;
 
     PhysicMaterial inPanPhysics;
@@ -23,6 +26,26 @@ public class CountingPanContents : MonoBehaviour {
         ScriptInitialization();
         contentDisplay = GetComponent<DisplayPanContents>();
         contentDisplay.InitiliazeDisplay(playerSide);
+
+        layerFood = LayerMask.NameToLayer("Food");
+        if (layerFood == -1)
+        {
+            Debug.LogError("The Food Collision Layer does not exist!");
+            layerFood = LayerMask.NameToLayer("Default");
+        }
+        switch(playerSide)
+        {
+            case CONTROLS.RIGHT:
+                layerFoodCaught = LayerMask.NameToLayer("FoodCaughtRight");
+                break;
+            case CONTROLS.LEFT:
+                layerFoodCaught = LayerMask.NameToLayer("FoodCaughtLeft");
+                break;
+            default:
+                layerFood = LayerMask.NameToLayer("Default");
+                Debug.LogWarning("Could not identify playerSide! All food will be moved to Default Layer when caught.");
+                break;
+        }
 
         inPanPhysics = (PhysicMaterial)Resources.Load("Food Pan Physics");
         outsidePanPhysics = (PhysicMaterial)Resources.Load("Food Physics");
@@ -58,6 +81,7 @@ public class CountingPanContents : MonoBehaviour {
         Food food = other.GetComponent<Food>();
         if (food != null)
         {
+            other.gameObject.layer = layerFoodCaught;
             other.material = inPanPhysics;
 
             panContents.Add(other.gameObject);
@@ -73,6 +97,7 @@ public class CountingPanContents : MonoBehaviour {
         Food food = other.GetComponent<Food>();
         if (food != null)
         {
+            other.gameObject.layer = layerFood;
             other.material = outsidePanPhysics;
 
             panContents.Remove(other.gameObject);
