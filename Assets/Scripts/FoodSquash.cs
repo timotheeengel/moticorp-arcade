@@ -16,7 +16,7 @@ public class FoodSquash : MonoBehaviour {
 
     private void OnTriggerEnter(Collider pan)
     {
-        if (pan.transform.tag != "Pan")
+        if (!pan.CompareTag("LeftPan") && !pan.CompareTag("RightPan"))
             return;
 
         Collider coll = GetComponent<Collider>();
