@@ -64,7 +64,10 @@ public class DisplayPanContents : MonoBehaviour {
     {
         if (recipeComplete == true)
         {
-            StoveLight.intensity = 4 + (Mathf.Sin(Time.time * 5) + 1) * 3;
+            if(CompareTag("RightPan"))
+                StoveLight.intensity = 6 + (Mathf.Sin(Time.time * 5) + 1) * 10;
+            else
+                StoveLight.intensity = 4 + (Mathf.Sin(Time.time * 5) + 1) * 3;
             DisplayGlow();
         }
         else
