@@ -964,7 +964,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4480878154624762, guid: 6a94195ac6df24b41ad719bbfabc0639, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4480878154624762, guid: 6a94195ac6df24b41ad719bbfabc0639, type: 2}
       propertyPath: m_LocalPosition.z
@@ -990,11 +990,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114570072186877856, guid: 6a94195ac6df24b41ad719bbfabc0639,
-        type: 2}
-      propertyPath: foodParent
-      value: 
-      objectReference: {fileID: 2140337189}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a94195ac6df24b41ad719bbfabc0639, type: 2}
   m_IsPrefabParent: 0
