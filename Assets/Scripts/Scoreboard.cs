@@ -10,8 +10,8 @@ public class Scoreboard : MonoBehaviour
     public int leftScore = 0;
     public int rightScore = 0;
 
-    private Text displayLeftScore;
-    private Text displayRightScore;
+    private PointCounter displayLeftScore;
+    private PointCounter displayRightScore;
 
     // TODO: Save round + overall score as a scriptable object  
     public int roundLeftScore = 0;
@@ -24,6 +24,8 @@ public class Scoreboard : MonoBehaviour
     public int overallRightScore = 0;
 
     public static Scoreboard instance;
+
+    [SerializeField] GameObject MovingScore;
 
     private void Awake()
     {
@@ -55,14 +57,6 @@ public class Scoreboard : MonoBehaviour
         }
     }
 
-    void UpdateDisplay()
-    {
-        if(displayLeftScore != null)
-        displayLeftScore.text = leftScore.ToString();
-        if (displayRightScore != null)
-        displayRightScore.text = rightScore.ToString();
-    }
-
     public void AddScore(CONTROLS side, int points)
     {
         switch (side)
@@ -71,13 +65,13 @@ public class Scoreboard : MonoBehaviour
                 leftScore += points;
                 roundLeftScore += points;
                 overallLeftScore += points;
-                displayLeftScore.text = leftScore.ToString();
+                Instantiate(MovingScore, Camera.main.WorldToScreenPoint(GameObject.Find("Player1").transform.position), Quaternion.identity, GameObject.Find("UI").transform).GetComponent<MovingScore>().SendOff(displayLeftScore.transform, points);
                 break;
             case CONTROLS.RIGHT:
                 rightScore += points;
                 roundRightScore += points;
                 overallRightScore += points;
-                displayRightScore.text = rightScore.ToString();
+                Instantiate(MovingScore, Camera.main.WorldToScreenPoint(GameObject.Find("Player2").transform.position), Quaternion.identity, GameObject.Find("UI").transform).GetComponent<MovingScore>().SendOff(displayRightScore.transform, points);
                 break;
             default:
                 Debug.LogWarning("There are 2 sides to the scoreboard, left and right!");
@@ -89,7 +83,8 @@ public class Scoreboard : MonoBehaviour
     {
         leftScore = 0;
         rightScore = 0;
-        UpdateDisplay();
+        displayRightScore.resetScore();
+        displayLeftScore.resetScore();
     }
 
     public void ResetRoundScores()
@@ -110,9 +105,8 @@ public class Scoreboard : MonoBehaviour
         isActive = state;
         if (isActive == true)
         {
-            displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<Text>();
-            displayRightScore = GameObject.Find("ScoreRight").GetComponent<Text>();
-            UpdateDisplay();
+            displayLeftScore = GameObject.Find("ScoreLeft").GetComponent<PointCounter>();
+            displayRightScore = GameObject.Find("ScoreRight").GetComponent<PointCounter>();
         } else
         {
             Debug.Log("No Scoring in this scene. Remember to  reset the Scores when needed /° ! °\\");

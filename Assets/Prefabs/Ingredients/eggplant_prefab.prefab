@@ -227,3 +227,4 @@ MonoBehaviour:
   id: 11
   icon: {fileID: 2800000, guid: ea8a5370e137bdb4aadd3c4454004f43, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
+  decalTex: {fileID: 2800000, guid: 27ec9ce96b6d5934ea8d42ec13a1e161, type: 3}

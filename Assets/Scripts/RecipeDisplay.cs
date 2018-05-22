@@ -39,11 +39,12 @@ public class RecipeDisplay : MonoBehaviour {
         audioSource.clip = noteOn;
         audioSource.PlayDelayed(noteOff.length);
 
-        int newRecipeBG = Random.Range(0, recipeBackground.Length);
-        if (newRecipeBG == currentRecipeBG) { currentRecipeBG++; }
-        else { currentRecipeBG = newRecipeBG; }
-
-        recipeBG.texture = recipeBackground[currentRecipeBG];
+        int newRecipeBG;
+        do{
+            newRecipeBG = Random.Range(0, recipeBackground.Length);
+        } while (newRecipeBG != currentRecipeBG);
+        currentRecipeBG = newRecipeBG;
+        recipeBG.texture = recipeBackground[newRecipeBG];
         Vector3 newRot = new Vector3 (0f, 0f, Random.Range(-recipeBGrotation, recipeBGrotation));
         recipeBG.rectTransform.rotation = Quaternion.Euler(newRot);
 

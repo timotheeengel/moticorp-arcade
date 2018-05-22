@@ -1546,6 +1546,8 @@ MonoBehaviour:
   roundRightScore: 0
   overallLeftScore: 0
   overallRightScore: 0
+  MovingScore: {fileID: 1878276840356038, guid: c997d01d0e8c2074084435e0336c2cc4,
+    type: 2}
 --- !u!4 &368503340
 Transform:
   m_ObjectHideFlags: 0
@@ -2303,6 +2305,16 @@ Prefab:
       propertyPath: m_Name
       value: EggTimer
       objectReference: {fileID: 0}
+    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
+        type: 2}
+      propertyPath: tickingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d2cd1ecb9daa94049b9ade7307be2395, type: 3}
+    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
+        type: 2}
+      propertyPath: ringingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 055fcc91644a78048a164e696a36b2c6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef619dc9c8d96e34cb15d79fcc5d576c, type: 2}
   m_IsPrefabParent: 0
@@ -3348,6 +3360,7 @@ GameObject:
   - component: {fileID: 869734074}
   - component: {fileID: 869734076}
   - component: {fileID: 869734075}
+  - component: {fileID: 869734077}
   m_Layer: 5
   m_Name: ScoreRight
   m_TagString: Untagged
@@ -3414,6 +3427,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 869734073}
+--- !u!114 &869734077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869734073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552db769f827ed54f9ed18eb31a2c0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfTotalPerSecond: 10
+  percentOfRemainingPerSecond: 40
 --- !u!1 &881534805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,6 +4184,7 @@ GameObject:
   - component: {fileID: 1207767585}
   - component: {fileID: 1207767587}
   - component: {fileID: 1207767586}
+  - component: {fileID: 1207767588}
   m_Layer: 5
   m_Name: ScoreLeft
   m_TagString: Untagged
@@ -4222,6 +4249,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1207767584}
+--- !u!114 &1207767588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207767584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552db769f827ed54f9ed18eb31a2c0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfTotalPerSecond: 10
+  percentOfRemainingPerSecond: 40
 --- !u!1 &1220496294
 GameObject:
   m_ObjectHideFlags: 0
