@@ -308,6 +308,18 @@ Prefab:
       propertyPath: StoveLight
       value: 
       objectReference: {fileID: 1772842667}
+    - target: {fileID: 1800107307869302, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283196545623754, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280903506324960, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114851208199102628, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
@@ -1959,7 +1971,7 @@ GameObject:
   - component: {fileID: 523781254}
   - component: {fileID: 523781255}
   - component: {fileID: 523781256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4234,7 +4246,7 @@ GameObject:
   - component: {fileID: 1220496297}
   - component: {fileID: 1220496296}
   - component: {fileID: 1220496295}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player1
   m_TagString: LeftPan
   m_Icon: {fileID: 0}
@@ -6600,7 +6612,7 @@ GameObject:
   - component: {fileID: 2113842513}
   - component: {fileID: 2113842512}
   - component: {fileID: 2113842511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Pan
   m_Icon: {fileID: 0}
