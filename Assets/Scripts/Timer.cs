@@ -15,7 +15,6 @@ public class Timer : MonoBehaviour {
     float roundLength;
     Concierge concierge;
     public bool roundHasStarted = false;
-    bool roundHasEnded = false;
 
     float rotationSpeed;
     [SerializeField] Transform eggTimerTop;
@@ -53,15 +52,10 @@ public class Timer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (roundHasStarted && !roundHasEnded)
+        if (roundHasStarted)
         {
             EggTimerTurns();
         }
-        else if (roundHasEnded)
-        {
-            EndRound();
-        }
-
     }
 
    void EggTimerTurns()
@@ -69,13 +63,16 @@ public class Timer : MonoBehaviour {
         countdown -= Time.deltaTime;
         eggTimerTop.rotation = Quaternion.RotateTowards(eggTimerTop.rotation, eggTimerFinalPos.rotation, Time.deltaTime * rotationSpeed);
 
+        audioSource.volume = Mathf.Lerp(1f, 0.5f, countdown / 10f);
+    
         if (countdown <= Mathf.Epsilon)
         {
-            roundHasEnded = true;
+            EndRound();
             audioSource.loop = false;
             jukebox.GetComponent<AudioSource>().Stop();
             audioSource.PlayOneShot(ringingSound);
             animator.SetBool("Ringing", true);
+            enabled = false;
         }
     }
 
