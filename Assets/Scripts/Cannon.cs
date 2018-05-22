@@ -14,6 +14,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] int NonRecipeIngredientWeight;
     [SerializeField] int TrashWeight;
     [SerializeField] Transform spawnPoint;
+    Transform foodParent;
 
     [SerializeField] GameObject[] trapList;
     [SerializeField] Texture trapBG;
@@ -100,6 +101,7 @@ public class Cannon : MonoBehaviour
 
     IEnumerator Trajectory(Vector3 target, Transform item, bool isBomb)
     {
+        item.SetParent(foodParent);
         item.GetComponent<Rigidbody>().useGravity = false;
         Vector3 movement = item.position - target;
         Vector3 upwardsMovement = new Vector3(0, 3, 0);//TODO magic number
@@ -174,6 +176,8 @@ public class Cannon : MonoBehaviour
         }
         else
             instance = this;
+
+        foodParent = GameObject.Find("FoodInScene").transform;
     }
 
     // Use this for initialization
