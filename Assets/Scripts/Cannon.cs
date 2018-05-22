@@ -45,16 +45,28 @@ public class Cannon : MonoBehaviour
         FridgeNew.instance.GetIngredientStatus(inRecipe, notInRecipe, duplication);
     }
 
+    float GetTargetAngle(Vector3 vector)
+    {
+        Vector3 rotationTarget = (vector - transform.position).normalized;
+        return Mathf.Rad2Deg * Mathf.Atan2(-rotationTarget.x, -rotationTarget.z);
+    }
+
     IEnumerator FireFood()
     {
         while (inRecipe.Count == 0)
         {
             yield return null;
         }
+        Vector3 target = FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f));
+        float targetAngle = GetTargetAngle(target);
+        float oldTargetAngle = -15;
         while (true)
         {
             bool isTrap = false;
             cooldownTimer -= Time.deltaTime;
+            
+            transform.parent.rotation = Quaternion.Euler(0, Mathf.Lerp(targetAngle, oldTargetAngle, cooldownTimer / cooldown), 0);
+            
             if (cooldownTimer < 0)
             {
                 cooldownTimer += cooldown;
@@ -71,13 +83,16 @@ public class Cannon : MonoBehaviour
                     toSpawn = trapList[Random.Range(0, trapList.Length)];
                 }
 
-                StartCoroutine(Trajectory(FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f)), Instantiate(
+                StartCoroutine(Trajectory(target, Instantiate(
                     toSpawn,
                     spawnPoint.transform.position,
                     spawnPoint.transform.rotation
                     ).transform,isTrap));
 
                 GetComponentInChildren<ParticleSystem>().Play();
+                oldTargetAngle = targetAngle;
+                target = FireTarget.instance.GetPositionOnLine(Line.Target, Random.Range(0f, 1f));
+                targetAngle = GetTargetAngle(target);
             }
             yield return null;
         }
