@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 5
+  maxBounceOffForce: 3
   destroyDelay: 3
 --- !u!1 &523781252
 GameObject:
@@ -2565,7 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 5
+  maxBounceOffForce: 3
   destroyDelay: 3
 --- !u!1001 &619799450
 Prefab:
@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd453edf15baf74085ef21d53dabb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceOffForce: 5
+  maxBounceOffForce: 3
   destroyDelay: 3
 --- !u!1 &1498621380
 GameObject:
