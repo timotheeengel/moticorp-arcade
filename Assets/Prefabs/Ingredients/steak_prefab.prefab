@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54566153422402826}
   - component: {fileID: 114772183777741726}
   - component: {fileID: 82301634477049196}
+  - component: {fileID: 114998480420998284}
   m_Layer: 0
   m_Name: steak_prefab
   m_TagString: Untagged
@@ -227,3 +228,15 @@ MonoBehaviour:
   id: 9
   icon: {fileID: 2800000, guid: ab4d8793598ce594eb478f1020a77fc3, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
+  decalTex: {fileID: 0}
+--- !u!114 &114998480420998284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781510810014320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

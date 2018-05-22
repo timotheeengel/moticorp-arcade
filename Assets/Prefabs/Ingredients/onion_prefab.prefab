@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54489261983319580}
   - component: {fileID: 82321051043835038}
   - component: {fileID: 64797479206506284}
+  - component: {fileID: 114977738723178680}
   m_Layer: 0
   m_Name: onion_prefab
   m_TagString: Untagged
@@ -227,3 +228,15 @@ MonoBehaviour:
   id: 13
   icon: {fileID: 2800000, guid: 52767c65e7a100f41910fbc8c09a6757, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
+  decalTex: {fileID: 0}
+--- !u!114 &114977738723178680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918802741242412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
