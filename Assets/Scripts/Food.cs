@@ -11,7 +11,7 @@ public class Food : MonoBehaviour
     [SerializeField] Texture icon;
     [SerializeField] AudioClip landInPan;
 
-    [SerializeField] Color decalColor;
+    [SerializeField] Texture decalTex;
 
     AudioSource audioSource;
     bool hasHitPan = false;
@@ -42,7 +42,7 @@ public class Food : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject decal = Instantiate(Resources.Load("SquashEffect"), GameObject.Find("test_bench").GetComponent<Collider>().ClosestPointOnBounds(transform.position), Quaternion.Euler(new Vector3(90,Random.Range(0,360),0))) as GameObject;
-        decal.GetComponent<MeshRenderer>().material.color = decalColor;
+        decal.GetComponent<MeshRenderer>().material.mainTexture = decalTex;
     }
 
     public void HasExitedPan()
