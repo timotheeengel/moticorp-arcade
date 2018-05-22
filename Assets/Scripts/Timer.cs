@@ -63,7 +63,7 @@ public class Timer : MonoBehaviour {
         countdown -= Time.deltaTime;
         eggTimerTop.rotation = Quaternion.RotateTowards(eggTimerTop.rotation, eggTimerFinalPos.rotation, Time.deltaTime * rotationSpeed);
 
-        audioSource.volume = Mathf.Lerp(1f, 0.5f, countdown / 10f);
+        audioSource.volume = Mathf.Lerp(1f, 0.2f, countdown / 10f);
     
         if (countdown <= Mathf.Epsilon)
         {
