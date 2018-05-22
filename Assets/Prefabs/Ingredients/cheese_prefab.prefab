@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 64569290549071910}
   - component: {fileID: 54451381317690644}
   - component: {fileID: 82465269708999720}
+  - component: {fileID: 114594385279254400}
   m_Layer: 0
   m_Name: cheese_prefab
   m_TagString: Untagged
@@ -211,6 +212,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114594385279254400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262495045701692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114841786790474752
 MonoBehaviour:
   m_ObjectHideFlags: 1

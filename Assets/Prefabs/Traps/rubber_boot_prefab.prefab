@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 54931323278548452}
   - component: {fileID: 64041302548861176}
   - component: {fileID: 114269557046823926}
+  - component: {fileID: 114888277108003804}
   m_Layer: 0
   m_Name: rubber_boot_prefab
   m_TagString: Untagged
@@ -159,6 +160,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: a9d1ffdfeed36b04d9619122103b1576, type: 3}
   stink: {fileID: 1228213462471184, guid: ca56e06cac9020a41925002d5ed688e4, type: 2}
+--- !u!114 &114888277108003804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636201105417694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198235319429695340
 ParticleSystem:
   m_ObjectHideFlags: 1

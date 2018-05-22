@@ -8,6 +8,6 @@ PhysicMaterial:
   m_Name: Rubber_Boot_Physics
   dynamicFriction: 0.8
   staticFriction: 0.6
-  bounciness: 0
+  bounciness: 0.5
   frictionCombine: 0
-  bounceCombine: 0
+  bounceCombine: 3

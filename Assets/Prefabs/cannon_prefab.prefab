@@ -592,10 +592,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
   hangtime: 0.5
-  RecipeIngredientWeight: 9
+  RecipeIngredientWeight: 10
   NonRecipeIngredientWeight: 1
-  TrashWeight: 1
+  TrashWeight: 2
   spawnPoint: {fileID: 4830456879919484}
+  foodParent: {fileID: 0}
   trapList:
   - {fileID: 1636201105417694, guid: 4a7ba1ce752df7d44bd5f4861ad910ce, type: 2}
   - {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}

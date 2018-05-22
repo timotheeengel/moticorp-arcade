@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54764606036605546}
   - component: {fileID: 82597277950543832}
   - component: {fileID: 64175599121145126}
+  - component: {fileID: 114013124467402320}
   m_Layer: 0
   m_Name: beetroot_prefab
   m_TagString: Untagged
@@ -211,6 +212,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114013124467402320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682357741424206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114815517342255556
 MonoBehaviour:
   m_ObjectHideFlags: 1

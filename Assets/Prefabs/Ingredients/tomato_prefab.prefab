@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54458832771565232}
   - component: {fileID: 114021757213010496}
   - component: {fileID: 82221810946092514}
+  - component: {fileID: 114110510309551122}
   m_Layer: 0
   m_Name: tomato_prefab
   m_TagString: Untagged
@@ -228,3 +229,14 @@ MonoBehaviour:
   icon: {fileID: 2800000, guid: a225cac324c81774f895c497e85fe166, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
   decalTex: {fileID: 2800000, guid: 0d56d41d5a2b6e445b00b0d0e0f3c588, type: 3}
+--- !u!114 &114110510309551122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447552492000952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
