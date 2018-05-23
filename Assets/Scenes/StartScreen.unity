@@ -2112,6 +2112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 2
   StoveLight: {fileID: 1582021209}
+  intensityModBlue: 15
 --- !u!1 &535594674
 GameObject:
   m_ObjectHideFlags: 0

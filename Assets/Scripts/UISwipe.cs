@@ -32,6 +32,8 @@ public class UISwipe : MonoBehaviour {
     {
         if (pos.localPosition.y > 0)
         {
+
+            Debug.Log(gameObject.name + Mathf.Lerp(UIStartPosY, 0f, movementPercentage));
             pos.localPosition = new Vector3(0f, Mathf.Lerp(UIStartPosY, 0f, movementPercentage));
             movementPercentage += Time.deltaTime;
         }
