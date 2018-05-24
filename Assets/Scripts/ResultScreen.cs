@@ -7,8 +7,8 @@ public class ResultScreen : MonoBehaviour {
 
     Concierge concierge;
 
-    Text PlayerScoreLeft;
-    Text PlayerScoreRight;
+    [SerializeField] SocreTower PlayerScoreLeft;
+    [SerializeField] SocreTower PlayerScoreRight;
 
     Text RoundScoreLeft;
     Text RoundScoreRight;
@@ -43,9 +43,6 @@ public class ResultScreen : MonoBehaviour {
             Debug.LogError("Scoreboard missing. Cannot display Scores!");
         }
 
-        PlayerScoreLeft = GameObject.Find("ScoreLeft").GetComponent<Text>();
-        PlayerScoreRight = GameObject.Find("ScoreRight").GetComponent<Text>();
-
         RoundScoreLeft = GameObject.Find("RoundScoreLeft").GetComponent<Text>();
         RoundScoreRight = GameObject.Find("RoundScoreRight").GetComponent<Text>();
 
@@ -54,8 +51,10 @@ public class ResultScreen : MonoBehaviour {
 
         // TODO: Display score in amount of recipes completed or as a bar?
 
-        PlayerScoreLeft.text = scoreboard.leftScore.ToString();
-        PlayerScoreRight.text = scoreboard.rightScore.ToString();
+        int max = Mathf.Max(scoreboard.leftScore, scoreboard.rightScore, 500);
+
+        PlayerScoreLeft.StartTower(max, scoreboard.leftScore);
+        PlayerScoreRight.StartTower(max, scoreboard.rightScore);
         RoundScoreLeft.text = "Round: " + scoreboard.roundLeftScore.ToString();
         RoundScoreRight.text = "Round: " + scoreboard.roundRightScore.ToString();
         TotalScoreLeft.text = "Total: " + scoreboard.overallLeftScore.ToString();
