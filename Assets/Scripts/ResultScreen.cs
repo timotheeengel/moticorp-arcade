@@ -10,6 +10,8 @@ public class ResultScreen : MonoBehaviour {
     [SerializeField] SocreTower PlayerScoreLeft;
     [SerializeField] SocreTower PlayerScoreRight;
 
+    [SerializeField] GameObject webcamSystem;
+
     Text RoundScoreLeft;
     Text RoundScoreRight;
     Text TotalScoreLeft;
@@ -29,11 +31,24 @@ public class ResultScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton("Submit"))
-        {
-            concierge.BringNextCourse("SplashScreen");
-        }
+        if (Input.GetKeyDown(KeyCode.J))
+            TakeAPicture();
 	}
+
+    void PlayAgain()
+    {
+        concierge.BringNextCourse("Stage_GameShow");
+    }
+
+    void TakeAPicture()
+    {
+        Instantiate(webcamSystem, GameObject.Find("Canvas").transform);
+    }
+
+    void EndSession()
+    {
+        concierge.BringNextCourse("SplashScreen");
+    }
 
     void DisplayFinalResults()
     {

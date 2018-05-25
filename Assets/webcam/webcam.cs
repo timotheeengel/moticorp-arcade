@@ -8,6 +8,8 @@ public class webcam : MonoBehaviour
 {
     [SerializeField] Text text;
 
+    KeyCode photoKey = KeyCode.J;
+
     private const string imagesFolder = "C:/images";
 
     [SerializeField] string ClientID;
@@ -21,7 +23,6 @@ public class webcam : MonoBehaviour
     
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         imgurClient = new ImgurClient(ClientID);
 
         camDevices = WebCamTexture.devices;
@@ -29,9 +30,9 @@ public class webcam : MonoBehaviour
         rawimage = GetComponentInChildren<RawImage>();
 
         imgurClient.OnImageUploaded += uploadComplete;
-        
+
         Directory.CreateDirectory(imagesFolder);
-        
+
         while (File.Exists(imagesFolder + "/img" + photoEnumeration + ".png"))
             photoEnumeration++;
         StartCoroutine(ChooseWebcam());
@@ -84,8 +85,10 @@ public class webcam : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(photoKey))
+        {
             TakePhoto();
+        }
     }
 
     public void StopCamera()
