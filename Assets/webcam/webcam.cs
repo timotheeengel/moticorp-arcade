@@ -9,6 +9,8 @@ public class webcam : MonoBehaviour
     [SerializeField] Text text;
 
     KeyCode photoKey = KeyCode.J;
+    KeyCode resetKey = KeyCode.J;
+    KeyCode exitKey = KeyCode.K;
 
     private const string imagesFolder = "C:/images";
 
@@ -83,59 +85,45 @@ public class webcam : MonoBehaviour
         text.text = "";
     }
 
-    void Update()
+    IEnumerator UseWebcam()
     {
-        if (Input.GetKeyDown(photoKey))
+        while (true)
         {
-            TakePhoto();
+            while (webcamTexture.isPlaying)
+            {
+                if (Input.GetKeyDown(photoKey))
+                {
+                    webcamTexture.Pause();
+                    ScreenCapture.CaptureScreenshot(imagesFolder + "/img" + photoEnumeration + ".png");
+                    break;
+                }
+                yield return null;
+            }
+            if (Input.GetKeyDown(resetKey))
+            {
+                webcamTexture.Play();
+            }
+            yield return null;
         }
     }
 
-    public void StopCamera()
+    private void Update()
     {
-        webcamTexture.Pause();
+        if (Input.GetKeyDown(exitKey))
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i));
+            }
+            Destroy(gameObject);
+            if (!webcamTexture.isPlaying)
+            {
+                imgurClient.UploadImageFromFilePath(imagesFolder + "/img" + photoEnumeration + ".png");
+                photoEnumeration++;
+            }
+        }
     }
-
-    public void StartCamera()
-    {
-        webcamTexture.Play();
-    }
-
-    public void DisableWebcam()
-    {
-        StopCamera();
-        gameObject.SetActive(false);
-    }
-
-    public void EnableWebcam()
-    {
-        StartCamera();
-        gameObject.SetActive(true);
-    }
-
-    IEnumerator Screenshot(string filePath)
-    {
-        //Texture2D texture = new Texture2D(rawimage.texture.width, rawimage.texture.height, TextureFormat.ARGB32, false);
-
-        ScreenCapture.CaptureScreenshot(filePath);
-
-        webcamTexture.Pause();
-        //texture.SetPixels(webcamTexture.GetPixels());
-        //texture.Apply();
-        //
-        //File.WriteAllBytes(Application.dataPath + "/images/img" + photoEnumeration + ".png", texture.EncodeToPNG());
-
-        while (!File.Exists(filePath))
-            yield return null;
-        imgurClient.UploadImageFromFilePath(filePath);
-    }
-
-    public void TakePhoto()
-    {
-        StartCoroutine(Screenshot(imagesFolder + "/img" + photoEnumeration + ".png"));
-        photoEnumeration++;
-    }
-
+    
     public void uploadComplete(object sender, ImgurClient.OnImageUploadedEventArgs response)
     {
         //text.text += response.response.data.link;
