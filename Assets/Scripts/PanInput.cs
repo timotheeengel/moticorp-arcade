@@ -26,20 +26,10 @@ public class PanInput : MonoBehaviour {
 
     private void Awake()
     {
-        if (tag == "RightPan")
-        {
-            if (rightExists)
-                Destroy(gameObject);
-            else
-                rightExists = true;
-        }
-        else
-        {
-            if (leftExists)
-                Destroy(gameObject);
-            else
-                leftExists = true;
-        }
+        string normalTag = tag;
+        tag = "Untagged";
+        Destroy(GameObject.FindGameObjectWithTag(normalTag));
+        tag = normalTag;
     }
 
     // Use this for initialization

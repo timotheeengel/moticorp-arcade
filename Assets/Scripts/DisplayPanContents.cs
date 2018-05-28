@@ -60,6 +60,13 @@ public class DisplayPanContents : MonoBehaviour {
 
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        Debug.Log(Concierge.currentState);
+        if(Concierge.currentState != Concierge.GAMESTATE.GAMESCREEN)
+            Destroy(gameObject);
+    }
+
     private void Update()
     {
         if (recipeComplete == true)

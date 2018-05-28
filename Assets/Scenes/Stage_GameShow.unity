@@ -368,7 +368,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1800107307869302, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_TagString
-      value: RightPan
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114538602124082450, guid: 52f334ba8d012784c8f64eceecb76229,
         type: 2}
@@ -389,7 +389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1280903506324960, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_TagString
-      value: RightPan
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114851208199102628, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
@@ -1806,7 +1806,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343554010}
-  m_RootOrder: 28
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &399600365
 Prefab:
@@ -2180,7 +2180,7 @@ GameObject:
   - component: {fileID: 523781256}
   m_Layer: 10
   m_Name: Scoring
-  m_TagString: LeftPan
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5125,9 +5125,9 @@ Transform:
   - {fileID: 265998390}
   - {fileID: 2133933426}
   - {fileID: 217548422}
+  - {fileID: 392178898}
   - {fileID: 1461622326}
   - {fileID: 1442933256}
-  - {fileID: 392178898}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7576,7 +7576,7 @@ GameObject:
   - component: {fileID: 2113842511}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: LeftPan
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

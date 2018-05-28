@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Concierge : MonoBehaviour {
 
     public string[] nonScoringStages;
-    GAMESTATE currentState = GAMESTATE.IDLE;
-    enum GAMESTATE
+    public static GAMESTATE currentState = GAMESTATE.IDLE;
+    public enum GAMESTATE
     {
         SPLASHSCREEN,
         GAMESCREEN,
