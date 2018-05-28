@@ -7,8 +7,14 @@ public class ResultScreen : MonoBehaviour {
 
     Concierge concierge;
 
-    Text PlayerScoreLeft;
-    Text PlayerScoreRight;
+    [SerializeField] SocreTower PlayerScoreLeft;
+    [SerializeField] SocreTower PlayerScoreRight;
+
+    [SerializeField] HoverButton PlayAgainButton;
+    [SerializeField] HoverButton TakePhotoButton;
+
+    [SerializeField] GameObject webcamSystem;
+    GameObject webcam;
 
     Text RoundScoreLeft;
     Text RoundScoreRight;
@@ -29,11 +35,26 @@ public class ResultScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton("Submit"))
-        {
-            concierge.BringNextCourse("SplashScreen");
-        }
+        if (PlayAgainButton.goodToGo)
+            PlayAgain();
+        if (TakePhotoButton.goodToGo && webcam == null)
+            TakeAPicture();
 	}
+
+    void PlayAgain()
+    {
+        concierge.BringNextCourse("Stage_GameShow");
+    }
+
+    void TakeAPicture()
+    {
+        webcam = Instantiate(webcamSystem, GameObject.Find("Canvas").transform);
+    }
+
+    void EndSession()
+    {
+        concierge.BringNextCourse("SplashScreen");
+    }
 
     void DisplayFinalResults()
     {
@@ -43,9 +64,6 @@ public class ResultScreen : MonoBehaviour {
             Debug.LogError("Scoreboard missing. Cannot display Scores!");
         }
 
-        PlayerScoreLeft = GameObject.Find("ScoreLeft").GetComponent<Text>();
-        PlayerScoreRight = GameObject.Find("ScoreRight").GetComponent<Text>();
-
         RoundScoreLeft = GameObject.Find("RoundScoreLeft").GetComponent<Text>();
         RoundScoreRight = GameObject.Find("RoundScoreRight").GetComponent<Text>();
 
@@ -54,8 +72,10 @@ public class ResultScreen : MonoBehaviour {
 
         // TODO: Display score in amount of recipes completed or as a bar?
 
-        PlayerScoreLeft.text = scoreboard.leftScore.ToString();
-        PlayerScoreRight.text = scoreboard.rightScore.ToString();
+        int max = Mathf.Max(scoreboard.leftScore, scoreboard.rightScore, 500);
+
+        PlayerScoreLeft.StartTower(max, scoreboard.leftScore);
+        PlayerScoreRight.StartTower(max, scoreboard.rightScore);
         RoundScoreLeft.text = "Round: " + scoreboard.roundLeftScore.ToString();
         RoundScoreRight.text = "Round: " + scoreboard.roundRightScore.ToString();
         TotalScoreLeft.text = "Total: " + scoreboard.overallLeftScore.ToString();

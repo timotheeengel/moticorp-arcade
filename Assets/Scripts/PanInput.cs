@@ -21,8 +21,16 @@ public class PanInput : MonoBehaviour {
     
     Vector3 ghostTarget;
 
-	// Use this for initialization
-	void Start ()
+    private void Awake()
+    {
+        if (GameObject.Find(name) == null)
+            DontDestroyOnLoad(gameObject);
+        else
+            Destroy(gameObject);
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         posSamples = new List<Vector3>();
         rollSample = new List<Vector2>();
