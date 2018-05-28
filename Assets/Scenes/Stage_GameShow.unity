@@ -2502,11 +2502,6 @@ Prefab:
       propertyPath: m_Name
       value: EggTimer
       objectReference: {fileID: 0}
-    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
-        type: 2}
-      propertyPath: countdown
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef619dc9c8d96e34cb15d79fcc5d576c, type: 2}
   m_IsPrefabParent: 0

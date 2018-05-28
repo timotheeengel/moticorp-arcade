@@ -90,6 +90,7 @@ public class CountingPanContents : MonoBehaviour {
             panContents.Add(other.gameObject);
         } else if(other.GetComponent<Boot>() != null)
         {
+            Debug.Log(other.gameObject.name);
             panContentsTraps.Add(other.gameObject);
         }
         SanitizePanContents();
@@ -128,7 +129,15 @@ public class CountingPanContents : MonoBehaviour {
             if (panContents[i] == null)
             {
                 panContents.RemoveAt(i);
-                Debug.Log("Removed null item");
+                i--;
+            }
+        }
+
+        for (int i = 0; i < panContentsTraps.Count; i++)
+        {
+            if (panContentsTraps[i] == null)
+            {
+                panContentsTraps.RemoveAt(i);
                 i--;
             }
         }
@@ -165,7 +174,6 @@ public class CountingPanContents : MonoBehaviour {
                 points -= trap.GetComponent<Trap>().GetPenaltyValue();
             }
         }
-
         scoreboard.AddScore(playerSide, points + bonus);
 
         // Deleting everything in pan
