@@ -34,12 +34,16 @@ public class ResultScreen : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (PlayAgainButton.goodToGo)
-            PlayAgain();
-        if (TakePhotoButton.goodToGo && webcam == null)
-            TakeAPicture();
-	}
+	void Update ()
+    {
+        if (webcam == null)
+        {
+            if (PlayAgainButton.goodToGo)
+                PlayAgain();
+            if (TakePhotoButton.goodToGo)
+                TakeAPicture();
+        }
+    }
 
     void PlayAgain()
     {

@@ -62,8 +62,7 @@ public class DisplayPanContents : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log(Concierge.currentState);
-        if(Concierge.currentState != Concierge.GAMESTATE.GAMESCREEN)
+        if(level != 1)
             Destroy(gameObject);
     }
 
