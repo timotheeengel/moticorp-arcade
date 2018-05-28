@@ -7,6 +7,7 @@ public class CountingPanContents : MonoBehaviour {
     Scoreboard scoreboard;
     CONTROLS playerSide;
     List<GameObject> panContents = new List<GameObject>();
+    List<GameObject> panContentsTraps = new List<GameObject>();
     DisplayPanContents contentDisplay;
 
     FridgeNew fridge;
@@ -18,6 +19,8 @@ public class CountingPanContents : MonoBehaviour {
 
     PhysicMaterial inPanPhysics;
     PhysicMaterial outsidePanPhysics;
+
+    ParticleSystem leftOverFX;
 
     // Use this for initialization
     void Start () {
@@ -50,6 +53,7 @@ public class CountingPanContents : MonoBehaviour {
         inPanPhysics = (PhysicMaterial)Resources.Load("Food Pan Physics");
         outsidePanPhysics = (PhysicMaterial)Resources.Load("Food Physics");
 
+        leftOverFX = GetComponentInChildren<ParticleSystem>();
     }
 
     void ScriptInitialization ()
@@ -83,8 +87,10 @@ public class CountingPanContents : MonoBehaviour {
         {
             other.gameObject.layer = layerFoodCaught;
             other.material = inPanPhysics;
-
             panContents.Add(other.gameObject);
+        } else if(other.GetComponent<Boot>() != null)
+        {
+            panContentsTraps.Add(other.gameObject);
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
@@ -93,15 +99,17 @@ public class CountingPanContents : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        
         Food food = other.GetComponent<Food>();
         if (food != null)
         {
             other.gameObject.layer = layerFood;
             other.material = outsidePanPhysics;
-
-            panContents.Remove(other.gameObject);
             food.HasExitedPan();
+            panContents.Remove(other.gameObject);
+        }
+        else if (other.GetComponent<Boot>() != null)
+        {
+            panContentsTraps.Remove(other.gameObject);
         }
         SanitizePanContents();
         contentDisplay.UpdateDisplay(panContents);
@@ -126,6 +134,13 @@ public class CountingPanContents : MonoBehaviour {
         }
     }
 
+
+    public void CountLeftOvers()
+    {
+        leftOverFX.Play();
+        CountPanContents();
+    }
+
     public void CountPanContents()
     {
         SanitizePanContents();
@@ -143,16 +158,35 @@ public class CountingPanContents : MonoBehaviour {
             completedRecipes++;
         }
 
+        if (panContentsTraps.Count > 0)
+        {
+            foreach(GameObject trap in panContentsTraps)
+            {
+                points -= trap.GetComponent<Trap>().GetPenaltyValue();
+            }
+        }
+
         scoreboard.AddScore(playerSide, points + bonus);
+
+        // Deleting everything in pan
+        GameObject temp;
+        for (int i = 0; i < panContentsTraps.Count; i++)
+        {
+            temp = panContentsTraps[0];
+            panContentsTraps.RemoveAt(0);
+            Destroy(temp);
+        }
 
         for (int i = 0; i < amountOfFood; i++)
         {
-            GameObject temp = panContents[0];
+            temp = panContents[0];
             panContents.RemoveAt(0);
             Destroy(temp);
         }
         contentDisplay.UpdateDisplay(panContents);
         contentDisplay.RecipeIsComplete(false);
+
+
     }
 
     public CONTROLS GetPlayerSide()
