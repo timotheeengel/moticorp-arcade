@@ -31,6 +31,12 @@ public class PointCounter : MonoBehaviour {
 
     IEnumerator IncreaseScore(float points)
     {
+        float sign = 1;
+        if(points < 0)
+        {
+            sign = -1;
+            points *= sign;
+        }
         float pointsLeft = points;
         float time = 0;
         while (pointsLeft > Mathf.Epsilon)
@@ -39,12 +45,12 @@ public class PointCounter : MonoBehaviour {
 
             float toAdd = points * Time.deltaTime * percentOfTotalPerSecond;
             toAdd += pointsLeft * Time.deltaTime * percentOfRemainingPerSecond;
-
+            
             if (toAdd > pointsLeft)
                 toAdd = pointsLeft;
 
-            PointsInFloat += toAdd;
             pointsLeft -= toAdd;
+            PointsInFloat += toAdd * sign;
 
             yield return null;
         }
