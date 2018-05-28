@@ -21,15 +21,14 @@ public class PanInput : MonoBehaviour {
     
     Vector3 ghostTarget;
 
-    static bool leftExists = false;
-    static bool rightExists = false;
-
     private void Awake()
     {
-        string normalTag = tag;
-        tag = "Untagged";
-        Destroy(GameObject.FindGameObjectWithTag(normalTag));
-        tag = normalTag;
+        string normalName = name;
+        name = "temp";
+        GameObject go = GameObject.Find(normalName);
+        if (go != null)
+            Destroy(go);
+        name = normalName;
     }
 
     // Use this for initialization

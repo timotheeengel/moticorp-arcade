@@ -28,8 +28,12 @@ public class Timer : MonoBehaviour {
     bool hasWoundUp = false;
     bool isWindingUp = false;
 
+    CountingPanContents[] pans;
+
     // Use this for initialization
     void Start () {
+        pans = FindObjectsOfType<CountingPanContents>();
+
         eggTimerOriginalLocalAngle = eggTimerTop.transform.localEulerAngles;
         eggTimerOriginalQuaternion = eggTimerTop.rotation;
         //Debug.Log("Final Rot " + eggTimerFinalPos.transform.localRotation.eulerAngles.y);
@@ -38,9 +42,6 @@ public class Timer : MonoBehaviour {
         // TODO: Find out why we are rotating around Z but the correct values seem to be stored in Y ... !!!
         rotationSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalLocalAngle.y) / countdown;
         windUpSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalLocalAngle.y) / windUpTime;
-        Debug.Log(windUpTime);
-        Debug.Log(windUpSpeed);
-
 
         roundLength = countdown;
         concierge = FindObjectOfType<Concierge>();
@@ -85,11 +86,6 @@ public class Timer : MonoBehaviour {
         if (countdown <= Mathf.Epsilon)
         {
             EndRound();
-            audioSource.loop = false;
-            jukebox.GetComponent<AudioSource>().Stop();
-            audioSource.PlayOneShot(ringingSound);
-            animator.SetBool("Ringing", true);
-            enabled = false;
         }
     }
 
@@ -112,8 +108,20 @@ public class Timer : MonoBehaviour {
 
     void EndRound()
     {
+        audioSource.loop = false;
+        jukebox.GetComponent<AudioSource>().Stop();
+        audioSource.PlayOneShot(ringingSound);
+        animator.SetBool("Ringing", true);
+
+        foreach (CountingPanContents pan in pans)
+        {
+            pan.CountLeftOvers();
+        }
+
         Invoke("LoadNextRound", ringingSound.length);
         FindObjectOfType<Scoreboard>().GetComponent<Scoreboard>().SaveOverallScores();
+
+        enabled = false;
     }
 
     void LoadNextRound()
