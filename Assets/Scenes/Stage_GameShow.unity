@@ -2522,16 +2522,6 @@ Prefab:
       propertyPath: m_Name
       value: EggTimer
       objectReference: {fileID: 0}
-    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
-        type: 2}
-      propertyPath: tickingSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d2cd1ecb9daa94049b9ade7307be2395, type: 3}
-    - target: {fileID: 114753427444803402, guid: ef619dc9c8d96e34cb15d79fcc5d576c,
-        type: 2}
-      propertyPath: ringingSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 055fcc91644a78048a164e696a36b2c6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef619dc9c8d96e34cb15d79fcc5d576c, type: 2}
   m_IsPrefabParent: 0

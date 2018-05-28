@@ -18,4 +18,9 @@ public class StartCountDownAnimation : MonoBehaviour {
         timer.StartRound();
         gameObject.SetActive(false);
     }
+
+    public void WindUpTimer()
+    {
+        timer.WindUpEggTimer();
+    }
 }

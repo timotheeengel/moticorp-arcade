@@ -18,17 +18,29 @@ public class Timer : MonoBehaviour {
 
     float rotationSpeed;
     [SerializeField] Transform eggTimerTop;
-    Transform eggTimerOriginalPos;
+    Vector3 eggTimerOriginalLocalAngle;
+    Quaternion eggTimerOriginalQuaternion;
     [SerializeField] Transform eggTimerFinalPos;
 
-	// Use this for initialization
-	void Start () {
-        eggTimerOriginalPos = eggTimerTop.transform;
+    float windUpSpeed;
+    // TODO: Find way to access countdown animation clip length!
+    float windUpTime = 4f / 2;
+    bool hasWoundUp = false;
+    bool isWindingUp = false;
+
+    // Use this for initialization
+    void Start () {
+        eggTimerOriginalLocalAngle = eggTimerTop.transform.localEulerAngles;
+        eggTimerOriginalQuaternion = eggTimerTop.rotation;
         //Debug.Log("Final Rot " + eggTimerFinalPos.transform.localRotation.eulerAngles.y);
         //Debug.Log("Start Rot " + eggTimerOriginalPos.localRotation.eulerAngles.y);
         //Debug.Log(eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalPos.localRotation.eulerAngles.y);
         // TODO: Find out why we are rotating around Z but the correct values seem to be stored in Y ... !!!
-        rotationSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalPos.localRotation.eulerAngles.y) / countdown;
+        rotationSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalLocalAngle.y) / countdown;
+        windUpSpeed = (eggTimerFinalPos.transform.localRotation.eulerAngles.y - eggTimerOriginalLocalAngle.y) / windUpTime;
+        Debug.Log(windUpTime);
+        Debug.Log(windUpSpeed);
+
 
         roundLength = countdown;
         concierge = FindObjectOfType<Concierge>();
@@ -40,6 +52,8 @@ public class Timer : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         jukebox = FindObjectOfType<Jukebox>();
+
+        eggTimerTop.transform.localEulerAngles = eggTimerFinalPos.transform.localEulerAngles;
     }
 	
     public void StartRound ()
@@ -52,9 +66,12 @@ public class Timer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (roundHasStarted)
+        if (roundHasStarted && hasWoundUp)
         {
             EggTimerTurns();
+        } else if (isWindingUp)
+        {
+            EggTimerWindsUp();
         }
     }
 
@@ -74,6 +91,23 @@ public class Timer : MonoBehaviour {
             animator.SetBool("Ringing", true);
             enabled = false;
         }
+    }
+
+    void EggTimerWindsUp()
+    {
+        
+        windUpTime -= Time.deltaTime;
+        eggTimerTop.rotation = Quaternion.RotateTowards(eggTimerTop.rotation, eggTimerOriginalQuaternion, Time.deltaTime * windUpSpeed);
+
+        if (windUpTime <= Mathf.Epsilon)
+        {
+            hasWoundUp = true;
+        }
+    }
+
+    public void WindUpEggTimer()
+    {
+        isWindingUp = true;
     }
 
     void EndRound()
