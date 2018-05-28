@@ -10,7 +10,11 @@ public class ResultScreen : MonoBehaviour {
     [SerializeField] SocreTower PlayerScoreLeft;
     [SerializeField] SocreTower PlayerScoreRight;
 
+    [SerializeField] HoverButton PlayAgainButton;
+    [SerializeField] HoverButton TakePhotoButton;
+
     [SerializeField] GameObject webcamSystem;
+    GameObject webcam;
 
     Text RoundScoreLeft;
     Text RoundScoreRight;
@@ -31,7 +35,9 @@ public class ResultScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (PlayAgainButton.goodToGo)
+            PlayAgain();
+        if (TakePhotoButton.goodToGo && webcam == null)
             TakeAPicture();
 	}
 
@@ -42,7 +48,7 @@ public class ResultScreen : MonoBehaviour {
 
     void TakeAPicture()
     {
-        Instantiate(webcamSystem, GameObject.Find("Canvas").transform);
+        webcam = Instantiate(webcamSystem, GameObject.Find("Canvas").transform);
     }
 
     void EndSession()
