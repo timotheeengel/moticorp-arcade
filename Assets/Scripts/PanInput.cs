@@ -21,17 +21,31 @@ public class PanInput : MonoBehaviour {
     
     Vector3 ghostTarget;
 
+    static bool leftExists = false;
+    static bool rightExists = false;
+
     private void Awake()
     {
-        if (GameObject.Find(name) == null)
-            DontDestroyOnLoad(gameObject);
+        if (tag == "RightPan")
+        {
+            if (rightExists)
+                Destroy(gameObject);
+            else
+                rightExists = true;
+        }
         else
-            Destroy(gameObject);
+        {
+            if (leftExists)
+                Destroy(gameObject);
+            else
+                leftExists = true;
+        }
     }
 
     // Use this for initialization
     void Start ()
     {
+        DontDestroyOnLoad(gameObject);
         posSamples = new List<Vector3>();
         rollSample = new List<Vector2>();
         while(posSamples.Count<JitterFilterSampleCount)
