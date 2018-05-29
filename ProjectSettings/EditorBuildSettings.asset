@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage_GameShow.unity
     guid: 0d8a82d9568c7014a952b1684805433e
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 73f553b65cfa9294d97e7b06ba069d45
+  - enabled: 1
     path: Assets/Scenes/ResultScreen.unity
     guid: 68d4b59870839014d8073eba55787427
   m_configObjects: {}
