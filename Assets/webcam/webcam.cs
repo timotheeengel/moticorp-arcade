@@ -8,7 +8,7 @@ public class webcam : MonoBehaviour
 {
     [SerializeField] Text text;
 
-    KeyCode photoKey = KeyCode.J;
+    string photoKey = "TakePhoto";
     KeyCode resetKey = KeyCode.J;
     KeyCode exitKey = KeyCode.K;
 

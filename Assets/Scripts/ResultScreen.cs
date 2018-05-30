@@ -7,8 +7,8 @@ public class ResultScreen : MonoBehaviour {
 
     Concierge concierge;
 
-    [SerializeField] SocreTower PlayerScoreLeft;
-    [SerializeField] SocreTower PlayerScoreRight;
+    [SerializeField] ScoreTower PlayerScoreLeft;
+    [SerializeField] ScoreTower PlayerScoreRight;
 
     [SerializeField] HoverButton PlayAgainButton;
     [SerializeField] HoverButton TakePhotoButton;

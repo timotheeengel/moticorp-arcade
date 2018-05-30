@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SocreTower : MonoBehaviour {
+public class ScoreTower : MonoBehaviour {
 
     [SerializeField] float secondsToFullScore;
     Slider slider;
