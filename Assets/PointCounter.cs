@@ -11,9 +11,12 @@ public class PointCounter : MonoBehaviour {
     float PointsInFloat = 0;
     float PointsInInt  = 0;
 
+    Text text;
+
     // Use this for initialization
     void Start ()
     {
+        text = GetComponent<Text>();
         percentOfTotalPerSecond /= 100;
         percentOfRemainingPerSecond /= 100;
     }
@@ -59,6 +62,6 @@ public class PointCounter : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         PointsInInt = (int)(PointsInFloat + 0.5f);
-        GetComponent<Text>().text = PointsInInt.ToString();
+        text.text = PointsInInt.ToString();
 	}
 }

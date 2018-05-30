@@ -16,6 +16,7 @@ public class MovingScore : MonoBehaviour {
         targetPos = target;
         points = pointsIn;
         movementVector = (target.position - transform.position).normalized;
+        GetComponent<Text>().color = targetPos.GetComponent<Text>().color;
     }
 
     // Use this for initialization
