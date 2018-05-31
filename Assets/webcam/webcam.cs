@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.IO;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 public class webcam : MonoBehaviour
 {
+    [SerializeField] string eventName = "GGC";
     [SerializeField] Text text;
 
     string photoKey = "TakePhoto";
@@ -35,8 +37,6 @@ public class webcam : MonoBehaviour
 
         Directory.CreateDirectory(imagesFolder);
 
-        while (File.Exists(imagesFolder + "/img" + photoEnumeration + ".png"))
-            photoEnumeration++;
         StartCoroutine(ChooseWebcam());
     }
 
@@ -94,7 +94,9 @@ public class webcam : MonoBehaviour
                 if (Input.GetKeyDown(photoKey))
                 {
                     webcamTexture.Pause();
-                    ScreenCapture.CaptureScreenshot(imagesFolder + "/img" + photoEnumeration + ".png");
+                    string timeStamp = DateTime.Now.ToString("yyyyMMdd HH:mm");
+                    string fileName = eventName + " " + timeStamp;
+                    ScreenCapture.CaptureScreenshot(imagesFolder + "/img" + fileName + ".png");
                     break;
                 }
                 yield return null;
