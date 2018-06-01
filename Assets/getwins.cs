@@ -8,9 +8,9 @@ public class getwins : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if(name == "leftWins")
-            GetComponent<Text>().text = "Left wins: " + GameObject.FindObjectOfType<Scoreboard>().leftWin;
+            GetComponent<Text>().text = "Wins: " + GameObject.FindObjectOfType<Scoreboard>().leftWin;
         else
-            GetComponent<Text>().text = "Right wins: " + GameObject.FindObjectOfType<Scoreboard>().rightWin;
+            GetComponent<Text>().text = "Wins: " + GameObject.FindObjectOfType<Scoreboard>().rightWin;
     }
 
     // Update is called once per frame
