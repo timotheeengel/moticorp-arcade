@@ -99,10 +99,6 @@ public class Concierge : MonoBehaviour {
             if (scoreboard != null) { scoreboard.ResetScores(); }
         } else if (currentScene == "Stage_GameShow") {
             currentState = GAMESTATE.GAMESCREEN;
-            foreach (var countingScript in FindObjectsOfType<CountingPanContents>())
-            {
-                countingScript.ScriptInitialization();
-            }
             scoreboard.ResetScores();
         } else if (currentScene == "ResultScreen")
         {

@@ -36,6 +36,9 @@ public class ResultScreen : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetButton("StoveTopLeft") && Input.GetButton("StoveTopRight"))
+            concierge.BringNextCourse("StartScreen");
+
         if (webcam == null)
         {
             if (PlayAgainButton.goodToGo)
@@ -68,11 +71,11 @@ public class ResultScreen : MonoBehaviour {
             Debug.LogError("Scoreboard missing. Cannot display Scores!");
         }
 
-        RoundScoreLeft = GameObject.Find("RoundScoreLeft").GetComponent<Text>();
-        RoundScoreRight = GameObject.Find("RoundScoreRight").GetComponent<Text>();
-
-        TotalScoreLeft = GameObject.Find("TotalScoreLeft").GetComponent<Text>();
-        TotalScoreRight = GameObject.Find("TotalScoreRight").GetComponent<Text>();
+        //RoundScoreLeft = GameObject.Find("RoundScoreLeft").GetComponent<Text>();
+        //RoundScoreRight = GameObject.Find("RoundScoreRight").GetComponent<Text>();
+        //
+        //TotalScoreLeft = GameObject.Find("TotalScoreLeft").GetComponent<Text>();
+        //TotalScoreRight = GameObject.Find("TotalScoreRight").GetComponent<Text>();
 
         // TODO: Display score in amount of recipes completed or as a bar?
 
@@ -80,10 +83,10 @@ public class ResultScreen : MonoBehaviour {
 
         PlayerScoreLeft.StartTower(max, scoreboard.leftScore);
         PlayerScoreRight.StartTower(max, scoreboard.rightScore);
-        RoundScoreLeft.text = "Round: " + scoreboard.roundLeftScore.ToString();
-        RoundScoreRight.text = "Round: " + scoreboard.roundRightScore.ToString();
-        TotalScoreLeft.text = "Total: " + scoreboard.overallLeftScore.ToString();
-        TotalScoreRight.text = "Total: " + scoreboard.overallRightScore.ToString();
+        //RoundScoreLeft.text = "Round: " + scoreboard.roundLeftScore.ToString();
+        //RoundScoreRight.text = "Round: " + scoreboard.roundRightScore.ToString();
+        //TotalScoreLeft.text = "Total: " + scoreboard.overallLeftScore.ToString();
+        //TotalScoreRight.text = "Total: " + scoreboard.overallRightScore.ToString();
 
     }
 }

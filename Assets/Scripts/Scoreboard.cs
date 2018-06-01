@@ -94,6 +94,8 @@ public class Scoreboard : MonoBehaviour
     {
         roundLeftScore = 0;
         roundRightScore = 0;
+        leftWin = 0;
+        rightWin = 0;
     }
 
     public void ResetAllScores()
@@ -130,10 +132,12 @@ public class Scoreboard : MonoBehaviour
 
     public void WhoWon()
     {
+        Debug.Log(leftScore);
+        Debug.Log(rightScore);
         if (leftScore < rightScore)
         {
             rightWin++;
-        } else if (leftScore < rightScore)
+        } else if (leftScore > rightScore)
         {
             leftWin++;
         } else
