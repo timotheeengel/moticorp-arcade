@@ -53,3 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftScore: 0
   rightScore: 0
+  leftWin: 0
+  rightWin: 0
+  roundLeftScore: 0
+  roundRightScore: 0
+  overallLeftScore: 0
+  overallRightScore: 0
+  MovingScore: {fileID: 1878276840356038, guid: c997d01d0e8c2074084435e0336c2cc4,
+    type: 2}

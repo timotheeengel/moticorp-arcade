@@ -10,6 +10,9 @@ public class Scoreboard : MonoBehaviour
     public int leftScore = 0;
     public int rightScore = 0;
 
+    public int leftWin = 0;
+    public int rightWin = 0;
+
     private PointCounter displayLeftScore;
     private PointCounter displayRightScore;
 
@@ -123,6 +126,20 @@ public class Scoreboard : MonoBehaviour
     {
         PlayerPrefs.SetInt(MyPlayerPrefsKey_overallLeft, overallLeftScore);
         PlayerPrefs.SetInt(MyPlayerPrefsKey_overallRight, overallRightScore);
+    }
+
+    public void WhoWon()
+    {
+        if (leftScore < rightScore)
+        {
+            rightWin++;
+        } else if (leftScore < rightScore)
+        {
+            leftWin++;
+        } else
+        {
+            Debug.Log("How unlikely, it's a DRAW!");
+        }
     }
 }
 

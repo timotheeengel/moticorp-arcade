@@ -7,24 +7,29 @@ public class Concierge : MonoBehaviour {
 
     public string[] nonScoringStages;
     public static GAMESTATE currentState = GAMESTATE.IDLE;
+    Scoreboard scoreboard;
+
     public enum GAMESTATE
     {
         SPLASHSCREEN,
+        STARTSCREEN,
         GAMESCREEN,
         RESULTSCREEN,
         IDLE,
         ERROR
     }
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
         if (FindObjectsOfType<Concierge>().Length > 1)
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start () {
         DontDestroyOnLoad(gameObject);
-        
-	}
+    }
 
     // TODO: Rename to something more befitting of our theme
     public void BringNextCourse (string CourseName)
@@ -42,7 +47,7 @@ public class Concierge : MonoBehaviour {
             //}
         } else if (currentState == GAMESTATE.GAMESCREEN)
         {
-            // TODO: Anything needed here?
+            
         } else if (currentState == GAMESTATE.RESULTSCREEN)
         {
             if (Input.GetButton("StoveTopLeft") == true && Input.GetButton("StoveTopRight") == true)
@@ -60,13 +65,14 @@ public class Concierge : MonoBehaviour {
 
     void ActivateScoreboard(Scene stage, LoadSceneMode modecene)
     {
+        Debug.Log(stage.name);
         bool isScoreUIAvailable = CheckForScoreUI(stage);
-        Scoreboard scoreboard = GameObject.Find("Scoreboard").GetComponent<Scoreboard>();
-        scoreboard.SetActive(isScoreUIAvailable);
-        if (isScoreUIAvailable == true)
+        if (scoreboard == null && isScoreUIAvailable == false)
         {
-            scoreboard.ResetScores();
+            return;
         }
+        scoreboard = GameObject.Find("Scoreboard").GetComponent<Scoreboard>();
+        scoreboard.SetActive(isScoreUIAvailable);
     }
 
     bool CheckForScoreUI(Scene stage)
@@ -84,15 +90,24 @@ public class Concierge : MonoBehaviour {
     void GameState(Scene stage, LoadSceneMode modecene)
     {
         string currentScene = stage.name;
-        if (currentScene == "SplashScreen" || currentScene == "StartScreen")
+        if (currentScene == "SplashScreen")
         {
             currentState = GAMESTATE.SPLASHSCREEN;
-        } else if(currentScene == "Stage_GameShow")
-        {
+
+        } else if (currentScene == "StartScreen") {
+            currentState = GAMESTATE.STARTSCREEN;
+            if (scoreboard != null) { scoreboard.ResetScores(); }
+        } else if (currentScene == "Stage_GameShow") {
             currentState = GAMESTATE.GAMESCREEN;
+            foreach (var countingScript in FindObjectsOfType<CountingPanContents>())
+            {
+                countingScript.ScriptInitialization();
+            }
+            scoreboard.ResetScores();
         } else if (currentScene == "ResultScreen")
         {
             currentState = GAMESTATE.RESULTSCREEN;
+            scoreboard.WhoWon();
         } else if (currentScene == "IdleScreen")
         {
             currentState = GAMESTATE.IDLE;
