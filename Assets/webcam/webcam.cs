@@ -122,6 +122,7 @@ public class webcam : MonoBehaviour
             {
                 imgurClient.UploadImageFromFilePath(imagesFolder + "/img" + photoEnumeration + ".png");
                 photoEnumeration++;
+
             }
         }
     }

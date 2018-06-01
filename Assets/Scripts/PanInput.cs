@@ -21,20 +21,9 @@ public class PanInput : MonoBehaviour {
     
     Vector3 ghostTarget;
 
-    private void Awake()
-    {
-        string normalName = name;
-        name = "temp";
-        GameObject go = GameObject.Find(normalName);
-        if (go != null)
-            Destroy(go);
-        name = normalName;
-    }
-
     // Use this for initialization
     void Start ()
     {
-        DontDestroyOnLoad(gameObject);
         posSamples = new List<Vector3>();
         rollSample = new List<Vector2>();
         while(posSamples.Count<JitterFilterSampleCount)

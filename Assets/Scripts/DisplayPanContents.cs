@@ -60,12 +60,6 @@ public class DisplayPanContents : MonoBehaviour {
 
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        if(level != 1)
-            Destroy(gameObject);
-    }
-
     private void Update()
     {
         if (recipeComplete == true)

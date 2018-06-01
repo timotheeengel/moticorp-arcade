@@ -37,15 +37,15 @@ public class HoverButton : MonoBehaviour {
     }
     
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         image = GetComponent<Image>();
         fill = transform.GetChild(0).GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
         worldPosition = new Vector3[4];
         rectTransform.GetWorldCorners(worldPosition);
 
-        Controller1 = GameObject.FindGameObjectWithTag("LeftPan").transform;
-        Controller2 = GameObject.FindGameObjectWithTag("RightPan").transform;
+        Controller1 = GameObject.Find("Player1").transform;
+        Controller2 = GameObject.Find("Player2").transform;
     }
 
     IEnumerator CountUp()
