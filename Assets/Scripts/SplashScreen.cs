@@ -19,14 +19,11 @@ public class SplashScreen : MonoBehaviour {
         {
             Debug.LogError("No Pans detected!");
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetButton("Submit") || ReadyToPlay())
-        {
-            concierge.BringNextCourse("Stage_GameShow");
-        }
+        concierge.BringNextCourse("StartScreen");
+    }
+
+    // Update is called once per frame
+    void Update () {
 	}
 
     bool ReadyToPlay ()

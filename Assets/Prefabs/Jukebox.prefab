@@ -148,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic:
-  - {fileID: 8300000, guid: 2c90febee0b4d594c8c3609d4d755126, type: 3}
-  - {fileID: 8300000, guid: 31cc2da22d9bc9242a1f3c27ddad3cb8, type: 3}
-  - {fileID: 8300000, guid: fe8f92b936c17b7459f321b98073da32, type: 3}
+  - {fileID: 8300000, guid: d734c20c2b4f1e540af9f7fbef98173f, type: 3}
+  - {fileID: 8300000, guid: cac18728285035c4c902ae8bb6c57706, type: 3}
+  - {fileID: 8300000, guid: cd1c953a740e4e943856992011716d75, type: 3}

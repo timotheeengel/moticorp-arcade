@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114915583677798244}
   - component: {fileID: 64569012029664930}
   - component: {fileID: 82718636929470410}
+  - component: {fileID: 114417442305319340}
   m_Layer: 0
   m_Name: eggplant_prefab
   m_TagString: Untagged
@@ -94,9 +95,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229749213697772}
   serializedVersion: 2
-  m_Mass: 1000
-  m_Drag: 13
-  m_AngularDrag: 0.05
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -108,7 +109,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229749213697772}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e486e541796d3a04dba1d20880876d23, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -211,6 +212,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114417442305319340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229749213697772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114915583677798244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,3 +239,4 @@ MonoBehaviour:
   id: 11
   icon: {fileID: 2800000, guid: ea8a5370e137bdb4aadd3c4454004f43, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
+  decalTex: {fileID: 2800000, guid: 27ec9ce96b6d5934ea8d42ec13a1e161, type: 3}

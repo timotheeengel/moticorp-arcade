@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54597076730316068}
   - component: {fileID: 114019843865183068}
   - component: {fileID: 82296825181389752}
+  - component: {fileID: 114216077214297892}
   m_Layer: 0
   m_Name: carrot_prefab
   m_TagString: Untagged
@@ -94,9 +95,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470924313330752}
   serializedVersion: 2
-  m_Mass: 1000
-  m_Drag: 13
-  m_AngularDrag: 0.05
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -108,7 +109,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470924313330752}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e486e541796d3a04dba1d20880876d23, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -227,3 +228,15 @@ MonoBehaviour:
   id: 2
   icon: {fileID: 2800000, guid: 3656766c5309e3f4ab6b0d517bc3bf60, type: 3}
   landInPan: {fileID: 8300000, guid: cff5da7d8c836a4428ca111aaf9b1078, type: 3}
+  decalTex: {fileID: 2800000, guid: 8fa8a48425031ed4eb3ab4f8a7b1c0d1, type: 3}
+--- !u!114 &114216077214297892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470924313330752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

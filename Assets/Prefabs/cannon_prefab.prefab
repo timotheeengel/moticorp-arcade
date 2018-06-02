@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946028561865598}
   m_LocalRotation: {x: -0, y: -0.13052624, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: -3.83, y: -0.02, z: 13.67}
+  m_LocalPosition: {x: -3.83, y: 0, z: 13.67}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4008842743806874}
@@ -421,13 +421,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425407422776598}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.045875072, y: 1.5031662, z: -0.0000010193799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4480878154624762}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!4 &4830456879919484
 Transform:
   m_ObjectHideFlags: 1
@@ -517,7 +517,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392657917188238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -591,14 +591,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleVelocity: 12
-  hangtime: 0
-  RecipeIngredientWeight: 9
+  hangtime: 0.5
+  RecipeIngredientWeight: 10
   NonRecipeIngredientWeight: 1
   TrashWeight: 2
   spawnPoint: {fileID: 4830456879919484}
-  bomb: {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
-  bombIcon: {fileID: 2800000, guid: 17acc5f14fd40e04c9aaf55895199044, type: 3}
-  bombBG: {fileID: 2800000, guid: fc9942018bc93524b8c9cd4150ef01cf, type: 3}
+  trapList:
+  - {fileID: 1636201105417694, guid: 4a7ba1ce752df7d44bd5f4861ad910ce, type: 2}
+  - {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
+  trapBG: {fileID: 2800000, guid: fc9942018bc93524b8c9cd4150ef01cf, type: 3}
+  IncomingFoodIconPosY: 1040
+  IncomingFoodIconBG: {fileID: 2800000, guid: cd44789377a4b3c41a15dac04eb2551d, type: 3}
+  IncomingFoodIconBobSpeed: 10
+  IncomingFoodIconBobMagnitude: 10
+  IncomingFoodIconExtraHangtime: 1
   cooldown: 1
 --- !u!114 &114932400781878174
 MonoBehaviour:
@@ -807,7 +813,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5410,7 +5416,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9986,7 +9992,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -14475,7 +14481,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -19051,7 +19057,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -23438,7 +23444,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -28062,7 +28068,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

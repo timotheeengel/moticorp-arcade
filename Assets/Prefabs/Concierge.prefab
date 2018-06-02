@@ -54,3 +54,4 @@ MonoBehaviour:
   nonScoringStages:
   - SplashScreen
   - ResultScreen
+  - StartScreen

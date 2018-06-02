@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54820277788996576}
   - component: {fileID: 114891918993743432}
   - component: {fileID: 82366736075110790}
+  - component: {fileID: 114566528213411228}
   m_Layer: 0
   m_Name: fish_prefab
   m_TagString: Untagged
@@ -94,9 +95,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957655602554084}
   serializedVersion: 2
-  m_Mass: 1000
-  m_Drag: 13
-  m_AngularDrag: 0.05
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -108,7 +109,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957655602554084}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e486e541796d3a04dba1d20880876d23, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -211,6 +212,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114566528213411228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1957655602554084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914838c6ecc8ef4cac644158a5d438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114891918993743432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,3 +239,4 @@ MonoBehaviour:
   id: 6
   icon: {fileID: 2800000, guid: 77277eb8e25e5cc4f82869ac4ab4c0fb, type: 3}
   landInPan: {fileID: 8300000, guid: c4e89cef4d1988e45a68c045d190a8e7, type: 3}
+  decalTex: {fileID: 2800000, guid: cf31023474b9b7048addde2e318d7fdb, type: 3}

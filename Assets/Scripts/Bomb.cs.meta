@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c9062c7c23221d94ebd45116d3140b77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - bombBlinkT: {fileID: 2800000, guid: 721c1108540139f458732114129f7451, type: 3}
+  - bombM: {fileID: 2100000, guid: 4afc5401093262f4fbad4a85bce9828f, type: 2}
+  - bombOriginalT: {fileID: 2800000, guid: a86fc79a80098b7489a01018d98ac51f, type: 3}
+  - boomSFX: {fileID: 8300000, guid: a3c237df1c2212b4c84507f5ba427a64, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

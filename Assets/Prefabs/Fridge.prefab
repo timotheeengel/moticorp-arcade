@@ -68,6 +68,5 @@ MonoBehaviour:
   - {fileID: 1682357741424206, guid: 43b79af6e5f0e1f45bf17d0734cb6d56, type: 2}
   traps:
   - {fileID: 1261169512243094, guid: 44852a1e456f71c419c2f2d0bd5d1069, type: 2}
-  maxAmountOfSameIngredient: 3
-  maxAmountOfDifferentIngredients: 4
   recipeBonusPoints: 100
+  difficultyLevels: 01000000020000000200000003000000030000000400000005000000

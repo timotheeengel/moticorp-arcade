@@ -6,6 +6,9 @@ public class ChefReacting : MonoBehaviour {
 
     public static ChefReacting instance;
 
+    [SerializeField] GameObject speechBubbleLeft;
+    [SerializeField] GameObject speechBubbleRight;
+
     Animator animator;
 
     private void Awake()
@@ -53,9 +56,17 @@ public class ChefReacting : MonoBehaviour {
         }
 
         if (pan == CONTROLS.LEFT)
+        {
+            speechBubbleLeft.SetActive(true);
+            speechBubbleRight.SetActive(false);
             animator.SetBool("Left", true);
+        }
         else
+        {
+            speechBubbleLeft.SetActive(false);
+            speechBubbleRight.SetActive(true);
             animator.SetBool("Left", false);
+        }
 
         switch (reaction)
         {

@@ -21,8 +21,8 @@ public class PanInput : MonoBehaviour {
     
     Vector3 ghostTarget;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         posSamples = new List<Vector3>();
         rollSample = new List<Vector2>();
