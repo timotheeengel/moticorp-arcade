@@ -8,21 +8,19 @@ public class UIRecipeSwipe : MonoBehaviour {
     [SerializeField] float firstStop = 1200f;
     [SerializeField] float delayTillZoomOut = 1f;
     float swipeSpeed = 10f;
-    float timer;
     float movementPercentage = 0f;
     float UIStartScale;
     bool uiMoveIn = false;
     bool reachedFirstStop = false;
     RectTransform pos;
-    Animator anim;
+
+    StartCountDownAnimation countdown;
 
     // Use this for initialization
 	void Start () {
         pos = GetComponent<RectTransform>();
-        timer = FindObjectOfType<StartCountDownAnimation>().GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-
-        anim = FindObjectOfType<StartCountDownAnimation>().GetComponent<Animator>();
-
+        countdown = FindObjectOfType<StartCountDownAnimation>();
+   
         uiMoveIn = true;
         UIStartPosY = pos.localPosition.y;
         UIStartScale = pos.localScale.y;
@@ -69,7 +67,7 @@ public class UIRecipeSwipe : MonoBehaviour {
         } else
         {
             uiMoveIn = false;
-            anim.SetTrigger("StartCountdown");
+            countdown.StartCountdown();
         }
     }
 }

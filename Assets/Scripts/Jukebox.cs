@@ -44,9 +44,10 @@ public class Jukebox : MonoBehaviour {
         {
             audioSource = GetComponent<AudioSource>();
         }
-        if (scene.buildIndex < backgroundMusic.Length)
+        if (scene.buildIndex <= backgroundMusic.Length && scene.buildIndex -1 >= 0)
         {
-            audioSource.clip = backgroundMusic[scene.buildIndex];
+            Debug.Log("loaded new song " + backgroundMusic[scene.buildIndex - 1]);
+            audioSource.clip = backgroundMusic[scene.buildIndex - 1];
             audioSource.loop = true;
             audioSource.Play();
         }
