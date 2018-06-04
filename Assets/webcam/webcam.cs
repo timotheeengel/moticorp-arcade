@@ -22,8 +22,6 @@ public class webcam : MonoBehaviour
     RawImage rawimage;
     WebCamTexture webcamTexture = null;
     WebCamDevice[] camDevices;
-
-    int photoEnumeration = 0;
     
     void Start()
     {
@@ -36,6 +34,9 @@ public class webcam : MonoBehaviour
         imgurClient.OnImageUploaded += uploadComplete;
 
         Directory.CreateDirectory(imagesFolder);
+
+        GameObject.Find("Player1").transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        GameObject.Find("Player2").transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 
         StartCoroutine(ChooseWebcam());
     }
@@ -81,52 +82,46 @@ public class webcam : MonoBehaviour
             rawimage.texture = webcamTexture;
             rawimage.material.mainTexture = webcamTexture;
             webcamTexture.Play();
+            StartCoroutine(UseWebcam());
         }
         text.text = "";
     }
 
     IEnumerator UseWebcam()
     {
-        while (true)
+        while (webcamTexture.isPlaying)
         {
-            while (webcamTexture.isPlaying)
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                if (Input.GetKeyDown(photoKey))
-                {
-                    webcamTexture.Pause();
-                    string timeStamp = DateTime.Now.ToString("yyyyMMdd HH:mm");
-                    string fileName = eventName + " " + timeStamp;
-                    ScreenCapture.CaptureScreenshot(imagesFolder + "/img" + fileName + ".png");
-                    break;
-                }
-                yield return null;
-            }
-            if (Input.GetKeyDown(resetKey))
-            {
-                webcamTexture.Play();
+                webcamTexture.Pause();
+                string timeStamp = DateTime.Now.ToString("yyyyMMddHHmm");
+                string fileName = eventName + timeStamp;
+
+                int resWidth = 1920;
+                int resHeight = 1080;
+
+                RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
+                Camera.main.targetTexture = rt;
+                Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
+                Camera.main.Render();
+                RenderTexture.active = rt;
+                screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+                Camera.main.targetTexture = null;
+                RenderTexture.active = null;
+                Destroy(rt);
+                byte[] bytes = screenShot.EncodeToPNG();
+                string filename = imagesFolder + "/img" + fileName + ".png";
+                System.IO.File.WriteAllBytes(filename, bytes);
+                
+                yield return new WaitForSeconds(1);
+                imgurClient.UploadImageFromFilePath(imagesFolder + "/img" + fileName + ".png");
+                FindObjectOfType<Concierge>().BringNextCourse("SplashScreen");
+                break;
             }
             yield return null;
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(exitKey))
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Destroy(transform.GetChild(i));
-            }
-            Destroy(gameObject);
-            if (!webcamTexture.isPlaying)
-            {
-                imgurClient.UploadImageFromFilePath(imagesFolder + "/img" + photoEnumeration + ".png");
-                photoEnumeration++;
-
-            }
-        }
-    }
-    
     public void uploadComplete(object sender, ImgurClient.OnImageUploadedEventArgs response)
     {
         //text.text += response.response.data.link;
