@@ -37,7 +37,10 @@ public class ResultScreen : MonoBehaviour {
 	void Update ()
     {
         if (Input.GetButton("StoveTopLeft") && Input.GetButton("StoveTopRight"))
+        {
             concierge.BringNextCourse("StartScreen");
+            scoreboard.ResetRoundScores();
+        }
 
         if (webcam == null)
         {
