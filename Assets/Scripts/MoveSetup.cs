@@ -10,6 +10,8 @@ public class MoveSetup : MonoBehaviour {
     public event OnStart onStart;
 
     public static float scale;
+    public float scaleX;
+    public float offsetY;
     [SerializeField] GameObject masterController;
 
     private void Awake()
@@ -17,25 +19,13 @@ public class MoveSetup : MonoBehaviour {
         if (instance)
             Destroy(gameObject);
         instance = this;
-    }
-
-    // Use this for initialization
-    void Start () {
-        scale = 5;
-	}
-
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 1)
-        {
-            scale = 2;
-            //onStart();
-        }
+        scale = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        scaleX = -0.5f / masterController.transform.position.x;
+        offsetY = 1.2f - (masterController.transform.position.y * scaleX);
     }
 }
