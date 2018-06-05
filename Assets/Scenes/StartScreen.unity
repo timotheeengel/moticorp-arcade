@@ -336,7 +336,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4470003341971504, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 4470003341971504, guid: 52f334ba8d012784c8f64eceecb76229, type: 2}
       propertyPath: m_LocalPosition.z
@@ -545,8 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b47c2980b93bc48844a54641dab5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: {fileID: 1809163393}
-  right: {fileID: 1145636012}
+  left: {fileID: 1145636012}
+  right: {fileID: 1809163393}
   objects: []
   assignAllBeforeIdentified: 0
 --- !u!114 &121259358
@@ -1941,7 +1941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343554010}
-  m_RootOrder: 26
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &399600365
 Prefab:
@@ -3012,7 +3012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1343554010}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &688612410
 Prefab:
@@ -3709,7 +3709,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 1343554010}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &881534807
 MonoBehaviour:
@@ -4834,7 +4834,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220496294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.3, z: -0.152}
+  m_LocalPosition: {x: -0.5, y: 0.46, z: -0.152}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2113842510}
@@ -4964,7 +4964,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.7, y: 0.7, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1292902808
 GameObject:
@@ -5293,11 +5293,11 @@ Transform:
   - {fileID: 230474525}
   - {fileID: 2140337189}
   - {fileID: 1635257394}
+  - {fileID: 881534806}
   - {fileID: 240799648}
   - {fileID: 1940517804}
-  - {fileID: 881534806}
-  - {fileID: 1520118388}
   - {fileID: 658786390}
+  - {fileID: 1520118388}
   - {fileID: 1831192121}
   - {fileID: 1587143997}
   - {fileID: 935290526}
@@ -5305,9 +5305,9 @@ Transform:
   - {fileID: 265998390}
   - {fileID: 2133933426}
   - {fileID: 217548422}
+  - {fileID: 392178898}
   - {fileID: 1461622326}
   - {fileID: 1442933256}
-  - {fileID: 392178898}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

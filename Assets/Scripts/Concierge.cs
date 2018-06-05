@@ -39,6 +39,10 @@ public class Concierge : MonoBehaviour {
 
     private void Update()
     {
+        if (Input.GetButtonDown("NewGame") == true)
+        {
+            BringNextCourse("StartScreen");
+        }
         if (currentState == GAMESTATE.SPLASHSCREEN)
         {
             //if (Input.GetButton("StoveTopLeft") == false && Input.GetButton("StoveTopRight") == false)
@@ -53,9 +57,6 @@ public class Concierge : MonoBehaviour {
             if (Input.GetButton("StoveTopLeft") == true && Input.GetButton("StoveTopRight") == true)
             {
                 BringNextCourse("SplashScreen");
-            } else if(Input.GetButtonDown("NewGame") == true)
-            {
-                BringNextCourse("Stage_GameShow");
             }
         } else if (currentState == GAMESTATE.IDLE)
         {

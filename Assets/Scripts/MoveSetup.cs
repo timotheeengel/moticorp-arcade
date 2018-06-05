@@ -21,17 +21,8 @@ public class MoveSetup : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        scale = 5;
+        scale = 3.3f;
 	}
-
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 1)
-        {
-            scale = 2;
-            //onStart();
-        }
-    }
 
     // Update is called once per frame
     void Update()
