@@ -42,6 +42,9 @@ public class webcam : MonoBehaviour
 
         Directory.CreateDirectory(imagesFolder);
 
+        GameObject.Find("Player1").transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        GameObject.Find("Player2").transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+
         StartCoroutine(ChooseWebcam());
 
         GameObject.Find("Player1").transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
