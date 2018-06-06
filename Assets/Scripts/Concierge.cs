@@ -61,10 +61,6 @@ public class Concierge : MonoBehaviour {
         }
         else if (currentState == GAMESTATE.RESULTSCREEN)
         {
-            if (Input.GetButton("StoveTopLeft") == true && Input.GetButton("StoveTopRight") == true)
-            {
-                BringNextCourse("SplashScreen");
-            }
         }
         else if (currentState == GAMESTATE.IDLE)
         {

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pan_red
-  m_Shader: {fileID: 4800000, guid: 76374158b4c4e5744b394e9290aae693, type: 3}
+  m_Shader: {fileID: 4800000, guid: 33c9450dc8bbbde4f99ddbda3ab49d70, type: 3}
   m_ShaderKeywords: _TEX_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

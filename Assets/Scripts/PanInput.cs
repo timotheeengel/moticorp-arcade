@@ -88,7 +88,7 @@ public class PanInput : MonoBehaviour {
 
     private void HandlePSMoveInput()
     {
-        ghostTarget = JitterFilterPos() * MoveSetup.scale;
+        ghostTarget = JitterFilterPos() * 3.3f;
         Vector3 dest = ghostTarget - transform.position;
         dest /= 2;
         controllerPosition = transform.position + dest;
