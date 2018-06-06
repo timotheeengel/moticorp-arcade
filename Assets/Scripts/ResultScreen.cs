@@ -36,11 +36,11 @@ public class ResultScreen : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButton("StoveTopLeft") && Input.GetButton("StoveTopRight"))
-        {
-            concierge.BringNextCourse("StartScreen");
-            scoreboard.ResetRoundScores();
-        }
+        //if (Input.GetButton("StoveTopLeft") && Input.GetButton("StoveTopRight"))
+        //{
+        //    concierge.BringNextCourse("StartScreen");
+        //    scoreboard.ResetRoundScores();
+        //}
 
         if (webcam == null)
         {

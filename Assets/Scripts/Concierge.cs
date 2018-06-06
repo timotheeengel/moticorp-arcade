@@ -43,22 +43,30 @@ public class Concierge : MonoBehaviour {
         {
             BringNextCourse("StartScreen");
         }
+        StateExecution();
+    }
+
+    void StateExecution ()
+    {
         if (currentState == GAMESTATE.SPLASHSCREEN)
         {
             //if (Input.GetButton("StoveTopLeft") == false && Input.GetButton("StoveTopRight") == false)
             //{
             //    BringNextCourse("Stage_GameShow");
             //}
-        } else if (currentState == GAMESTATE.GAMESCREEN)
+        }
+        else if (currentState == GAMESTATE.GAMESCREEN)
         {
-            
-        } else if (currentState == GAMESTATE.RESULTSCREEN)
+
+        }
+        else if (currentState == GAMESTATE.RESULTSCREEN)
         {
             if (Input.GetButton("StoveTopLeft") == true && Input.GetButton("StoveTopRight") == true)
             {
                 BringNextCourse("SplashScreen");
             }
-        } else if (currentState == GAMESTATE.IDLE)
+        }
+        else if (currentState == GAMESTATE.IDLE)
         {
             // TODO: Do something
         }
